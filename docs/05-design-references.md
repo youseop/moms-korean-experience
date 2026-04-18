@@ -1,327 +1,371 @@
-# 05 — Design References
+# Design References — Eunjung's Table
 
-> Research dump for Mom's Korean Experience. Not a decision doc — see `06-design-direction.md` for synthesis. Every URL was actually fetched or searched; nothing fabricated. Where a screenshot URL would help and I couldn't verify one, I skipped it rather than invent.
+> Research file. A friend made this site on a weekend. That's the whole target.
+> Anti-targets: boutique-hotel sites, SaaS marketing pages, Kinfolk-style magazine layouts, anything that feels like a brand agency's deliverable for a client.
+> The site should read as "one Korean mom and her son decided to put a little home on the internet." Every reference below was chosen against that test.
 
-The lens for every reference: does this site feel like *a person made it for someone they love*, or does it feel like a template? We are building the former.
-
----
-
-## 1. Boutique / independent stay sites
-
-Sites where the hosting is unmistakably personal — a small operator, a single property, a clear human voice. The bar: would Mom recognize her values in this?
-
-### 1.1 Onomichi U2 (Hotel Cycle)
-- **URL:** https://onomichi-u2.com/en/
-- **What it is:** A renovated 1940s shipping warehouse on the Seto Inland Sea, converted into a 28-room hotel + bakery + bike shop + restaurant, designed by Suppose Design Office. "A small town inside a city."
-- **Why it matters:** The site mirrors the building — restrained, almost spartan, content-first. Tagline lives at the top in a large weight; everything else is a quiet card with a date stamp like a journal entry. No gradient hero. No "Trusted by" strip. Just photographs, place names, and a calm hierarchy.
-- **Design moves to steal:**
-  - Tagline is *a sentence*, not a slogan — "A small town inside a city" reads like the brief, not marketing copy.
-  - Booking CTA sits as a single clear button in the header, not a sticky pulsing thing.
-  - Activity-first navigation (STAY / MEAL / SHOP / ACTIVITY) instead of corporate (Rooms / Amenities / Book / Contact). Mom's site should mirror this: TOURS / COOKING / STAY.
-  - Dual logo system (mark + wordmark) lets the identity scale without bloat.
-- **Anti-move noted:** None obvious. The site is almost too restrained — risks feeling cold. Mom's site needs more heat than this.
-
-### 1.2 Satoyama Jujo — The House
-- **URL:** https://satoyama-jujo.com/thehouse/en/
-- **What it is:** A 150-year-old farmhouse-turned-inn in Niigata's snow country. Concept: "10 stories of the mountain village." Run by people who clearly live the brief.
-- **Why it matters:** This is the closest existing site to what Mom's should feel like — a *place run by people* selling a *way of living* rather than a transaction. The Mission section unfolds as a long expandable narrative, signed by the creative director. Repeat-guest testimonials emphasize "second home." Local women are credited by role.
-- **Design moves to steal:**
-  - **Expandable narrative** — opening copy is short, then "read more" reveals essay-length depth. Honors both skimmers and committed readers. Tours and Stay pages should do this with the long backstory.
-  - **Personal sign-off** at the end of the mission section. Mom's site needs an equivalent: the Home page should end with a paragraph signed "— Eunjung" (or "— Mom") in Caveat.
-  - **Modular property cards** with consistent ratio + generous whitespace — works as a rhythm device when there are few items (Mom has 3 services, like they have 3 buildings).
-  - **Bilingual JA/EN toggle** is one tap in header and footer, no flag icons, no auto-detect override.
-
-### 1.3 Pytts House (Cotswolds B&B)
-- **URL:** https://www.pyttshouse.com/
-- **What it is:** A two-room boutique B&B in a 15th-century stone house, run by a single host (Anna). Reviews emphasize Anna by name.
-- **Why it matters:** Proof that a single-host stay site can feel professional without feeling corporate. Honey-warm color palette pulled directly from the building's Cotswold stone. Tall vertical photos showcase interiors with soft natural framing.
-- **Design moves to steal:**
-  - **Color palette pulled from the place itself.** Pytts uses honey-stone beiges because the building is honey stone. Mom's palette should pull from cream-walled apartment + warm wood + Tancheon-stream green, not abstracted "warm" tones.
-  - **Anna's name** appears in guest reviews and in the about section — never in chrome. Same move for Mom: real name in stories and signatures, "Mom"/"Umma" in CTAs.
-  - **Heritage hook** ("15th century dining room") anchors trust. Mom's equivalent: "Lived in 5+ Korean cities — Jeongja is the most livable" already in the spec.
-
-### 1.4 Hoshinoya (group of ryokans)
-- **URL:** https://hoshinoresorts.com/en/brands/hoshinoya/
-- **What it is:** Hoshino Resorts' luxury ryokan brand — Tokyo, Kyoto, Karuizawa, etc. Each property is a different building/concept under one identity system.
-- **Why it matters:** Best-in-class typography for editorial luxury hospitality. Story-driven property pages. Each Hoshinoya page has a narrative theme ("a rare glimpse into another Kyoto") rather than a feature list.
-- **Design moves to steal:**
-  - **Theme-headed property pages** — each location's page leads with a single thematic sentence, not a feature bullet list. Tours / Cooking / Stay should each open this way.
-  - **Long-form essay-style about pages** with serif type and short paragraphs — creates a "magazine feature" feel.
-- **What we're NOT stealing:** The corporate booking widget at the top. Mom doesn't need a booking engine.
-
-### 1.5 The PIG-in the Cotswolds
-- **URL:** https://www.thepighotel.com/in-the-cotswolds/
-- **What it is:** The PIG hotel group's Cotswolds property — 17th-century country house, garden-to-plate ethos, distinctly British "boho chic."
-- **Why it matters:** A national brand that still reads warm and personal because every photo shows real food, real rooms, real wallpaper. Not stock. The brand voice is consistent and human.
-- **Design moves to steal:**
-  - **Long descriptive room names** ("The Potting Shed") instead of "Room 4 / Deluxe / Suite." Mom's three menus could get the same treatment — names, not codes.
-  - **Photography shows the grain of the place** — wallpaper, books, garden dirt. Not lifestyle shoots. This is what we want for Mom's kitchen and the Tancheon walk.
-
-### 1.6 The Ace Hotel — Editorial
-- **URL:** https://acehotel.com/editorial/
-- **What it is:** Ace Hotel's culture blog, presented as part of the main site at peer level with "Stay" and "Eat."
-- **Why it matters:** Hotel that positions itself as a *cultural institution*, not just lodging. The editorial section sits in primary nav. Photography drives the visual identity — square crops in a grid, every image pulling its weight.
-- **Design moves to steal:**
-  - **Square-crop photo grid** for the home gallery — consistent rhythm, easy to add to over time.
-  - **Editorial-as-peer-nav.** If Mom ever adds a "Notes from Mom" or "Recipes" section, it should sit alongside Tours/Cooking/Stay, not as a footer "blog" link.
-
-### 1.7 Teo Yang Studio
-- **URL:** https://www.teoyangstudio.com/
-- **What it is:** Seoul-based interior design studio "translating Korean traditional heritage into a modern design language." Not a stay, but the closest small Korean creative business reference for our typographic + bilingual feel.
-- **Why it matters:** Korean-run studio with Korean-and-English content that doesn't shout about being Korean. Cream/white field, black type, generous whitespace, two big hero photos that command the page.
-- **Design moves to steal:**
-  - **Korean text integrates without stylistic differentiation** from English — same typeface family, same weight, no banner-style "한국어" badges. Quiet bilingualism.
-  - **Two hero photos, no carousel, no slider.** The page just opens with two images and lets you scroll. Considering this for Mom's home page.
-
-### 1.8 Selected Onsen Ryokan
-- **URL:** https://selected-ryokan.com/
-- **What it is:** A boutique directory of independent onsen ryokans in Japan — not a single host, but a curator with strong taste.
-- **Why it matters:** Useful as a foil. Demonstrates that even a *directory* can avoid the OTA cesspool look by leading with editorial photography and a clean serif. Listings have full-bleed cover images and short paragraphs of personal voice rather than bullet feature lists.
-- **Design moves to steal:** Cover-image-led property cards with one paragraph of voice; no "starting at $X" price spam.
+Every entry: URL, what it is, what's working (palette / type / illustration / layout / motion / personal tells). Where a URL could not be fetched, that's noted and the reference is kept only if the site is well-documented.
 
 ---
 
-## 2. Personal-host food / cooking experience sites
+## 1. Personal blogs / individual creators with cute warm design
 
-### 2.1 Alison Roman — alisoneroman.com
-- **URL:** https://www.alisoneroman.com/ (formerly anewsletter.alisoneroman.com on Substack)
-- **What it is:** Food writer Alison Roman's owned home for her newsletter, recipes, video. Designed by Sanctuary Computer + XXIX (NYC studios known for considered editorial work).
-- **Why it matters:** The single best reference for "personal voice + editorial design" on this list. White/cream field, restrained palette, big serif headlines, full-bleed warm-graded food photography, no animation theatrics. Reads as a personal magazine.
-- **Design moves to steal:**
-  - **Editorial typography over chrome.** Recipe titles get magazine-feature weight — they ARE the design. UI is an afterthought.
-  - **Modular recipe cards** with full-bleed top image and short title — same pattern works for Mom's cooking menus and tour itineraries.
-  - **Newsletter signup blocks** break the recipe flow at natural pauses, never as a sticky modal. Mom's "Get in touch" CTA should be a section break, not a popup.
-  - **Subscribers-only markers** are tiny inline labels, not gated paywalls. Confidence in the design = trust.
-- **Anti-move:** Almost no motion. Confirms our plan to keep motion minimal.
-- **Sanctuary Computer's body of work:** https://www.sanctuary.computer/ — worth scanning for similar studio pieces.
+The bar here: it has to feel like one person's hand is on it. Not "small team," not "studio." One person, one Saturday, care.
 
-### 2.2 Eatwith (host pages, not the homepage)
-- **URL:** https://www.eatwith.com/ (browse hosts; individual host pages are the reference, not the marketplace shell)
-- **What it is:** Marketplace for in-home dining experiences. Host pages have a personal photo, a host bio, the menu, and the space.
-- **Why it matters:** Even buried in marketplace chrome, the strongest host pages lead with the host's photo and first-person bio. The pattern is right; the chrome around it is wrong.
-- **Design moves to steal:**
-  - **Host photo + first-person paragraph** as the lede. Mom's Home page hero already plans this.
-  - **Menu as ingredients-and-story** rather than menu-as-receipt. List the dish, then a sentence about why she loves making it.
-- **What we're NOT stealing:** The booking widget, the rating stars, the "Superhost" badges. None of that is us.
+### 1.1 Maggie Appleton — maggieappleton.com
+- URL: <https://maggieappleton.com/>
+- What it is: An illustrator-turned-product-designer's digital garden of visual essays on programming, design, and anthropology. Every essay has a custom hand-illustrated cover.
+- What's working:
+  - **Illustration as first-class content.** Every essay card is topped by a Procreate-painted illustration with a painterly, loose hand-drawn feel, not stock photos. The illustrations carry meaning — they're diagrams in illustrator's clothing.
+  - **Cream-and-leaf palette.** Warm off-white background, deep forest-green accents, the occasional terracotta. Feels grown, not designed.
+  - **"Garden" framing.** Posts are labeled "seedlings / budding / evergreen" — a public confession that things are unfinished and handmade. That's the vibe we want.
+  - **Typographic restraint around illustrated chaos.** The type is plain, readable serif + sans; the personality is all in the drawings. Lesson: we don't need twelve weird fonts — we need one good weird illustration move.
 
-### 2.3 The Chef & The Dish
-- **URL:** https://www.thechefandthedish.com/
-- **What it is:** Live one-on-one cooking classes via video with chefs in their home countries. Long-tail of solo chefs on the platform.
-- **Why it matters:** Each chef gets a personal landing page with photos of their kitchen, their bio in their voice, and the dishes they teach. Same business shape as Mom's cooking class.
-- **Design moves to steal:**
-  - **Kitchen-as-character.** Photos of the actual kitchen, not the food only. Mom's kitchen IS the experience.
-  - **Bio in the chef's voice, first person.** "I learned this from my grandmother in Bologna" beats "Chef Maria has 20 years of experience."
+### 1.2 Robin Sloan — robinsloan.com
+- URL: <https://www.robinsloan.com/>
+- What it is: A novelist's personal site, which doubles as an archive for a 29½-day newsletter that "feels like a note from a friend."
+- What's working:
+  - **Book-page aesthetic without the corporate magazine smell.** Black on cream, one column, a little ★ symbol to flag featured pieces. It reads like a zine Robin printed and stapled himself.
+  - **Voice-forward footer.** The footer literally says "Thanks for stopping by!" and slips in a cryptic Middle-English joke. A joke in the footer is worth a hundred "Trusted by" logos.
+  - **No hero photo, no hero video.** Just words, a list, and the feeling that you've wandered into someone's living room. For a site whose whole proposition is "this is a real person," that's a legitimate move to steal for a secondary page.
 
-### 2.4 Cookly host pages
-- **URL:** https://www.cookly.me/ (search for individual host listings)
-- **What it is:** Cooking-class booking marketplace with global coverage. Lots of small home cooks listed.
-- **Why it matters:** Same pattern as Eatwith — the *individual* listings show what works (host face, kitchen photo, menu story). The marketplace shell shows what doesn't (price-led cards, generic CTAs).
-- **Useful as:** A reminder that *being on a marketplace flattens you*. Mom needs her own site precisely so her voice doesn't get squashed by review-star UI.
+### 1.3 tonsky.me — Niki Prokopov's blog
+- URL: <https://tonsky.me/>
+- What it is: Niki (Nikita Prokopov)'s personal programming blog; hand-built engine, ~30K monthly visitors, opinionated about craft.
+- What's working:
+  - **"Hi! I'm Niki" at the top.** The site greets you before it sells you. There's an email address, not a contact form.
+  - **Tiny whimsical details.** A small flashlight.webp sits in the footer. A ★ curates favorites. These are one-bit personality injections that cost nothing and carry a lot.
+  - **Chronological archive, no pagination, no infinite scroll.** The archive page is just a list by year. It feels like a paper ledger, not a CMS.
 
-### 2.5 Solo Supper Club
-- **URL:** https://www.solosupper.club/
-- **What it is:** Omaha-based supper-club collective — "grew from personal dinners in homes."
-- **Why it matters:** Demonstrates a dinner-in-a-home brand can be presented with editorial confidence on a small site. Worth scanning for the host-bio voice and event-page treatment.
+### 1.4 Julia Evans — jvns.ca
+- URL: <https://jvns.ca/>
+- What it is: Software engineer and zine author (Wizard Zines). Explains complex tech in comics.
+- What's working:
+  - **The blog is minimal on purpose so the zines can be the loud thing.** jvns.ca is plain text + topic sections; the illustration energy lives on wizardzines.com. Lesson: you don't have to cram every personality move into every page. Pick *one* room for the doodles.
+  - **Voice in the taxonomy.** Categories are "Git / DNS / Terminals / Career." Plain, honest, funny in its unpretentiousness.
 
-### 2.6 Helen Rosner / New Yorker food writing
-- **URL:** https://www.newyorker.com/contributors/helen-rosner (her bylines)
-- **What it is:** Not her personal site, but referenced because Helen Rosner is the gold standard for personal voice in food writing. Her New Yorker pieces are formatted in the magazine's editorial chrome — useful as a model for *how a single voice reads under serif type with margins*.
-- **Why it matters:** When Mom's bio paragraph or "note from Mom" sits in a `max-w-prose` Fraunces block with proper measure, it should feel as readable as a New Yorker column. That's the bar for body type rhythm.
+### 1.5 Austin Kleon — austinkleon.com
+- URL: <https://austinkleon.com/>
+- What it is: Writer-who-draws. Ten-things-worth-sharing weekly newsletter. Sketchy, mixtape-y, analog-media-obsessed.
+- What's working:
+  - **DIY-sidebar energy.** Classic blog structure — centered post column, sidebar with books, newsletter, links. Feels like 2009 on purpose.
+  - **Hand-drawn elements in book covers and "mixtape" graphics.** These show up as embedded images inside posts — not site-chrome decoration. They feel like *things he made,* not assets a designer placed.
+  - **Permission to be nostalgic.** The whole site quietly argues that "unpretentious and slightly old-fashioned" is a live design option in 2026. Strong tailwind for our project.
 
----
+### 1.6 Samantha Dion Baker — Draw Your World (Substack)
+- URL: <https://samanthadionbaker.substack.com/>
+- What it is: Brooklyn artist / Draw Your Day author. A Substack where every post is a hand-drawn sketch-journal spread plus an essay.
+- What's working:
+  - **Hand-lettered handwriting integrated with the writing itself.** She hand-letters inside her drawings; the handwriting is not decoration, it's content.
+  - **Custom hand-drawn banner.** Substack-default chrome, but the banner art is clearly made by her, for her. That one asset does enormous personality work.
+  - Direct steal: a hand-drawn "Eunjung's Table" masthead is worth a month of typography agonizing.
 
-## 3. Editorial travel publications
+### 1.7 Under A Tin Roof — Kayla Lobermeier
+- URL: <https://underatinroof.com/>
+- What it is: Iowa homesteader, flower farm, two cookbooks, a paper journal. One-person-plus-mom operation (note the "multi-generational family farm" framing — literally "my mom and I made this").
+- What's working:
+  - **Cream background, warm golden-hour photography, serif headings.** Rustic but not try-hard rustic.
+  - **Photography-as-storytelling.** Wooden cutting boards, preserved jars, garden rows. It reads as *her* life, not stock photos of "a country life."
+  - **Journal/cookbook cross-promotion without shoving it at you.** There's a printed zine-y seasonal "Journal" she makes. Good pattern for us: the site is the tip of a broader personal publishing output.
 
-### 3.1 Cereal Magazine
-- **URL:** https://readcereal.com/ (the current site is sparse; the print is the better reference; design study at https://www.studiofaculty.com/work/cereal-magazine)
-- **What it is:** Bath-based travel-and-design quarterly. The design reference everyone cites when they say "editorial."
-- **Why it matters:** Two typefaces (a serif + a sans), one weight each, one size each. Hierarchy is created with capitals, small caps, and italics — not weight. Eight-column grid. Six type styles total. Three grey tones. This restraint is the move.
-- **Design moves to steal:**
-  - **Constrain the type system.** We have Fraunces + DM Sans + Caveat. Use 5 sizes total. Hierarchy via small-caps and italic, not bold.
-  - **Page breakers** — Cereal uses morning/afternoon/evening visual breaks for time of day. Mom's three pages could each use a "time of day" feel: Tours = midday, Cooking = late afternoon kitchen light, Stay = evening lamp warm.
-  - **Numbering** for content sections — supports our existing "oversized section numbers" distinctiveness move.
-- **Anti-move noted:** Pure white background and stark photography risks reading cold. We need to warm the palette beyond Cereal's neutrality.
+### 1.8 Mataroa Collection — collection.mataroa.blog
+- URL: <https://collection.mataroa.blog/>
+- What it is: A curated directory of indie personal blogs hosted on Mataroa, a "naked blogging platform for minimalists."
+- What's working:
+  - **The aesthetic is zero aesthetic.** Plain text, default type, no images. Not useful as a direct visual reference, but a strong conceptual one: *most* personal blogs on this list are 100% typography and voice, and they still feel more human than any SaaS landing page. This is the floor we never fall below.
+  - Dig through the collection — Ludicity (ludic.mataroa.blog) is an example of a strong-voice blog built on this floor with nothing but words.
 
-### 3.2 Kinfolk
-- **URL:** https://www.kinfolk.com/
-- **What it is:** Copenhagen-based slow-living quarterly, founded Portland 2011.
-- **Why it matters:** Famous for treating white space "as an active element, not a background." Kinfolk *rarely centers anything* — photo top right, text bottom left, huge edge margins. Custom serif/sans family by Schick Toikka.
-- **Design moves to steal:**
-  - **Off-center compositions.** A photo should sit at top-right and the caption at bottom-left, not stacked centered. Our "tilted asymmetric photo hero" is already in this register; double down.
-  - **Edge-of-page margins are *bigger* than expected.** On md+ screens, container should be `max-w-6xl` with generous side gutters (not `max-w-7xl` filled wall-to-wall).
-  - **Custom serif + matching sans paired at same x-height.** Fraunces + DM Sans don't perfectly share x-height — worth checking pairing alternatives (see File 2 §1c).
-
-### 3.3 Roads & Kingdoms
-- **URL:** https://roadsandkingdoms.com/
-- **What it is:** Independent food-travel-culture publication founded by Bourdain-adjacent journalists. Won Publication of the Year (James Beard, 2017) and National Magazine Award for Website (2019).
-- **Why it matters:** The site treats editorial photography and copy as the entire UI. Tagline: "Pleasure-Seeking in a Deranged World." Articles organized into thematic series ("The Fix," "Food Chain") instead of categories.
-- **Design moves to steal:**
-  - **Thematic series over taxonomies.** Mom's reviews could be grouped by experience-type sub-themes ("First-time visitors," "Long stays") instead of just "Tour reviews / Cooking reviews / Stay reviews."
-  - **Documentary-style photography** — photojournalism, not lifestyle shoots. Mom's photos should feel observational.
-  - **Voice-led headlines.** "Pleasure-Seeking in a Deranged World" is opinionated. Mom's tagline should also be opinionated. Not "Local Korean Experiences." Something like "See Korea through a local mom's eyes."
-
-### 3.4 Ace Hotel — Editorial (already in §1.6)
-Cross-referenced — also belongs here as an example of brand-as-magazine.
-
-### 3.5 Wallpaper*
-- **URL:** https://www.wallpaper.com/
-- **What it is:** The international design / interiors / architecture magazine.
-- **Why it matters:** Useful for *category page rhythm* — how to lay out a grid of feature cards without it becoming a Pinterest dump. Strong serif + sans pairing; subtle hover states; consistent crop ratios.
-- **Design moves to steal:** Consistent feature-card aspect ratio across a grid is more important than variety. Lock to one or two ratios for image cards.
-
-### 3.6 Departures
-- **URL:** https://www.departures-international.com/
-- **What it is:** AmEx Platinum lifestyle/travel mag (international editions still print + digital after US shut down).
-- **Why it matters:** Studied for hero feature articles. T Brand Studios reimagined the digital direction — useful precedent for "magazine that became a site."
-- **What we're stealing:** The single-feature-hero pattern (one massive image, one massive headline, one short paragraph) for Mom's three deepest pages.
+### 1.9 Cup of Jo — cupofjo.com
+- URL: <https://cupofjo.com/>
+- What it is: Joanna Goddard's 19-year-old lifestyle blog. Personal essays about motherhood, grief, outfits, and noodle shops.
+- What's working:
+  - **Warm sans-serif body with rounded edges, white background, friendly but not babyish.** Actual readability at scale.
+  - **Photo-forward without being magazine-y.** Every post leads with one large warm photo. No fullbleed cinema — just one good picture.
+  - **Personal essays as a category.** The site tells you it's okay to just write about a hard thing. Zero corporate copy tone.
+  - Direct lesson: Cup of Jo proves you can have a very successful personal site without ever feeling like a brand. It's always a specific woman's voice.
 
 ---
 
-## 4. Personal portfolio sites with strong photo storytelling
+## 2. Illustration-heavy / hand-drawn personal sites
 
-### 4.1 Alex Hunting Studio (Kinfolk's redesigners)
-- **URL:** https://alexhunting.studio/blogs/projects/kinfolk
-- **What it is:** Studio portfolio with detailed case studies, including Kinfolk's identity work.
-- **Why it matters:** Shows a working studio's case-study layout — useful pattern for Mom's "Mom's favorite places" gallery (each place is a mini case study).
-- **Design moves to steal:** Image-first case study with caption underneath in small caps. Worth replicating for itinerary stops.
+Illustration as structure, not garnish. These sites would fall apart without the drawings.
 
-### 4.2 Sanctuary Computer
-- **URL:** https://www.sanctuary.computer/
-- **What it is:** NYC studio that designed Alison Roman's site. Their own site is the manifesto.
-- **Why it matters:** Proves that "warm + considered + non-template" can be a studio identity. Worth scanning their other client work for more references in our register.
+### 2.1 Wizard Zines — wizardzines.com (Julia Evans)
+- URL: <https://wizardzines.com/>
+- What's working:
+  - **Hand-drawn comics are the product.** Every zine cover is a scribbly, bright, confident illustration.
+  - **Bright primary colors over white.** Red, yellow, teal, black — risograph palette territory.
+  - **"Sketchy on purpose" lines.** The drawing style is deliberately imperfect — wobbly lines, hand lettering. This is the single strongest "a person made this" signal on the web.
 
-### 4.3 Lo-ol Type Foundry
-- **URL:** https://www.lo-ol.design/hangeul
-- **What it is:** Geneva + Seoul type foundry specializing in Latin and Hangeul typeface design.
-- **Why it matters:** Best technical reference for Hangul-Latin pairing. If we ever add Hangul typography to the site, this is the source for what reads well together.
-- **Design moves to steal:** None visually for our site, but useful as a font sourcing reference if Hangul is added.
+### 2.2 Maggie Appleton's illustrated essays — maggieappleton.com/garden
+- URL: <https://maggieappleton.com/garden/>
+- What's working:
+  - See 1.1 — every essay thumbnail is a custom illustration; collectively they form a mood board of her visual voice. Consider this the ceiling: if we can commission even 5 custom illustrations for the site, we should.
 
-### 4.4 Travel photography portfolios (general)
-- **URL:** https://www.format.com/magazine/resources/photography/best-travel-photography-portfolios (curated list of 16)
-- **Why it matters:** Useful as a *survey* of how single-photographer travel sites handle hero, grid, and serial storytelling. The pattern: full-bleed cover image, square or 4:5 grid below, individual pages with one large photo + a few paragraphs of text.
+### 2.3 Riso Pop (Amsterdam, Aafke Mertens)
+- URL: <https://www.risopop.com/>
+- What's working:
+  - **Risograph aesthetic as homepage identity.** Limited-ink-color, grainy-overlay, registration-off prints right on the landing page.
+  - **A tiny studio vibe.** One person, prints stacked on a table. No "Our Team" page. Just work and a contact email.
+  - Steal: the "grainy overlay" on photos as a cheap texture trick that makes everything feel printed-at-home.
 
----
+### 2.4 Samantha Dion Baker sketch-journal pages
+- URL: <https://samanthadionbaker.substack.com/>
+- See 1.6. Repeated here because her integration of hand-lettered words *inside* drawings is the single most "someone sat at a kitchen table and made this" move on the list.
 
-## 5. Korean / Japanese / Asian-aesthetic small business sites
+### 2.5 WOOHEE Studio — woohee.net
+- URL: <https://woohee.net/>
+- What it is: A Seoul-based freelance illustrator doing children's-book and editorial work, plus stickers and goods.
+- What's working:
+  - **Bilingual (Korean/English) navigation without ceremony.** Hangul is just *there,* as part of the brand, not flagged as an exotic addition. That's the integration model we want.
+  - **Gallery-style layout where the illustrations are the UI.** The site's whole job is to get out of the illustrations' way.
+  - **Warm pastel palette.** Soft pinks, off-whites, dusty blues that match the children's-book work.
 
-### 5.1 Teo Yang Studio (cross-ref §1.7)
-- Korean studio, dual-language done quietly. The single best small-Korean-business reference on this list.
+### 2.6 NOMA — Korean illustrator (opaque watercolor)
+- Example product page: <https://en.pinkoi.com/product/5rJiQJnd>
+- What it is: Korean illustrator doing opaque-watercolor everyday scenes; does an annual wall calendar that's very "kitchen wall of a Korean mom" in spirit.
+- What's working:
+  - **Watercolor-as-brand.** Soft, blurry edges, visible paper tooth.
+  - **Everyday domestic subject matter.** A teacup, a houseplant, a window. Exactly the visual vocabulary this project lives in.
+  - Strong case for: commissioning a single NOMA-style watercolor of Eunjung's kitchen window as a hero or page-break illustration.
 
-### 5.2 Onjium
-- **URL:** https://english.visitkorea.or.kr/svc/contents/infoHtmlView.do?vcontsId=136862 (Visit Korea's writeup; the Onjium institute itself doesn't have a strong direct site)
-- **What it is:** Cultural institute in Jongno that runs a one-Michelin-star restaurant alongside hanbok and hanok studios. "Onjium" = "creating in the right way."
-- **Why it matters:** Cited as the model for *Korean cultural seriousness rendered with restraint*. The brand demonstrates that Korean heritage doesn't need to be loud to be present.
-- **Design takeaway:** "Quiet Korean" is a real register — it's not "minimal" (which strips identity) and it's not "festive Korean" (drums, brushstrokes). It's restraint with a few unmistakably Korean signals (hanbok colors, hanok proportions, hangul in a single calligraphic moment).
+### 2.7 Asahi Nagata — Japanese linocut/risograph illustrator
+- What it is: Sapporo-based freelance illustrator working in traditional printmaking techniques (risograph, screen print, linocut).
+- What's working: printed-texture aesthetic applied digitally, two-to-four-color palettes, grainy overlays, deliberately imperfect registration. (Portfolio URLs vary — search "Asahi Nagata illustration" for current site; could not pin a single canonical URL at research time.)
 
-### 5.3 Seoul Hanok brand (iF Design Award 2025)
-- **URL:** https://world.seoul.go.kr/seoul-hanok-brand-wins-if-design-award-2025/
-- **What it is:** Seoul city government's hanok cultural-lounge identity system.
-- **Why it matters:** Won iF for "rhythmic and intuitive design using non-rectangular Korean typography, three-dimensional expression of consonants and vowels." Useful precedent for a single decorative Hangul moment per page.
-- **Design moves to consider:** Treat one Hangul word per page as a graphic element — oversized, low-opacity, set in a display Hangul typeface. Possible candidate: 엄마 (Eomma / Mom) on the Home hero, faded behind the Mom photo.
-
-### 5.4 Hoshino Resorts / Hoshinoya (cross-ref §1.4)
-Japanese hospitality reference. Strong Japanese-English bilingualism in a luxury register.
-
-### 5.5 Wallpaper* "Seoul: Best City of 2024"
-- **URL:** https://www.wallpaper.com/travel/wallpaper-design-awards-2024-seoul-best-city-guide
-- **What it is:** Wallpaper*'s case for Seoul as design capital.
-- **Why it matters:** Useful context piece — confirms that Seoul-as-design-destination is a real wedge for the international audience we're targeting.
-
----
-
-## 6. Anti-references — generic AI-feeling Tailwind landing pages
-
-These are the patterns we are *deliberately not* using. Naming the pattern is half the defense.
-
-### 6.1 Tailwind Plus "Salient" template
-- **URL:** https://tailwindcss.com/plus/templates/salient
-- **What it is:** Tailwind UI's official SaaS marketing template. By the Tailwind team, so it's the *purest* example of the pattern.
-- **Why it's a tell:**
-  - Centered hero with a headline + sub + two pill buttons + screenshot.
-  - "Trusted by these companies" logo strip.
-  - Feature trio with little square icons.
-  - Pricing table.
-  - Faint diagonal gradient blob behind the hero.
-- **What to avoid:** *All of it.* The hero pattern is the deepest tell. We are doing an asymmetric tilted photo hero precisely to escape this.
-
-### 6.2 PrebuiltUI / HTMLrev / Tailgrids template galleries
-- **URLs:**
-  - https://prebuiltui.com/tailwind-templates
-  - https://htmlrev.com/free-tailwind-templates.html
-  - https://tailgrids.com/templates
-- **Why they're a tell:** Browse the homepages and you'll see the same five sections in the same order in 80% of templates: hero / features / testimonials / pricing / CTA-with-form. Same `rounded-2xl` everywhere. Same gradient blobs. Same emoji icons. Same "Get started" + "Learn more" pill pair.
-- **What to avoid:**
-  - `rounded-2xl` on every card. (We use `rounded-photo: 2px` instead.)
-  - Gradient blob behind hero. (We use a tilted photo + paper grain instead.)
-  - "Trusted by" logo strips. (Not relevant for Mom anyway.)
-  - Identical-height feature cards in a 3-column grid. (We do 3 cards but they are full-bleed image-led, not icon-led.)
-  - Bouncy motion easings. (We use `cubic-bezier(0.2, 0.8, 0.2, 1)` once, no bounce.)
-
-### 6.3 Windframe AI / TailFlux / V0-style AI generators
-- **URLs:**
-  - https://windframe.dev/ai
-  - https://tailflux.com/category/landing-page
-- **Why they're a tell:** AI-generated Tailwind landing pages have an *exhaustingly familiar* shape — emoji-or-Lucide-icon feature trio, glassmorphism, identical button radii everywhere. Every output looks like every other output.
-- **What to avoid:** Glassmorphism (frosted backdrop-blur cards). Emoji icons in feature lists. The default Lucide icon set deployed at 24px circles. Centered everything.
-
-### 6.4 Generic boutique-hotel website-builder galleries
-- **URLs:**
-  - https://www.lodgify.com/blog/bed-breakfast-website-design/
-  - https://colorlib.com/wp/bed-and-breakfast-website-examples/
-- **Why they're a tell:** B&B template galleries push a "Booking widget at top + carousel of room photos + amenities-with-icons + reviews + map + footer" pattern. It is the hotel-template equivalent of the SaaS template.
-- **What to avoid:** Sticky booking widget. Carousel as hero. Amenity icons (Wi-Fi, breakfast, parking glyphs). The hotel-template gestalt as a whole.
+### 2.8 Cutehamsy — cutehamsy.carrd.co
+- URL: <https://cutehamsy.carrd.co>
+- What it is: Freelance illustrator's Carrd portfolio. Literal "cute and cozy" brand promise.
+- What's working:
+  - **Palette:** muted mauve-and-beige (`#d1b9b3`, `#d2b5ac`, `#533d57`, `#8b676e`, `#986e82`, `#bc8d8a`, `#573e37`). Warmer and dustier than most kawaii sites; reads as a grown-up cozy.
+  - **Emoji-as-punctuation:** ੈ✩‧₊, 🎀, ♡ sprinkled into headings. A small, playful move that costs zero dev effort. (Debatable whether we use them; keep it on the table.)
+  - **Casual voice:** "HAMSY!" "hi you!!" The writing is genuinely warm, not "we are passionate about" corporate.
 
 ---
 
-## Bibliography (URLs collected for the synthesis doc)
+## 3. Korean / Japanese / Asian indie-cute personal sites
 
-Stays / hospitality:
-- https://onomichi-u2.com/en/
-- https://satoyama-jujo.com/thehouse/en/
-- https://www.pyttshouse.com/
-- https://hoshinoresorts.com/en/brands/hoshinoya/
-- https://www.thepighotel.com/in-the-cotswolds/
-- https://acehotel.com/editorial/
-- https://selected-ryokan.com/
+Looking for the specific warmth of East Asian indie aesthetics — watercolor, washi-tape, stationery-shop vibe.
 
-Food / cooking:
-- https://www.alisoneroman.com/
-- https://www.sanctuary.computer/
-- https://www.eatwith.com/
-- https://www.thechefandthedish.com/
-- https://www.cookly.me/
-- https://www.solosupper.club/
+### 3.1 WOOHEE Studio — woohee.net
+See 2.5. Korea's clearest one-person illustrator portfolio in scope. Good lockup model for "name in English, Hangul alongside, no apology."
 
-Editorial:
-- https://readcereal.com/
-- https://www.studiofaculty.com/work/cereal-magazine
-- https://www.kinfolk.com/
-- https://alexhunting.studio/blogs/projects/kinfolk
-- https://roadsandkingdoms.com/
-- https://www.wallpaper.com/
-- https://www.departures-international.com/
+### 3.2 Super Cute Kawaii — supercutekawaii.com
+- URL: <https://www.supercutekawaii.com/>
+- What it is: A daily kawaii culture blog since 2008 — four Filipino illustrators covering Japanese-inspired handmade plush/stationery/washi culture.
+- What's working:
+  - **Soft pink + white background, no true black.** Text uses warm grays.
+  - **Product photos dominate** — plush toys, stickers, stationery kits, mail clubs. The subject matter *is* cute objects.
+  - **Handmade subject framing without overdone handmade chrome.** The site is a fairly standard blog; the cuteness lives in the content. A useful reminder: you do not need every pixel to perform the aesthetic.
 
-Korean / Asian small business:
-- https://www.teoyangstudio.com/
-- https://english.visitkorea.or.kr/svc/contents/infoHtmlView.do?vcontsId=136862
-- https://world.seoul.go.kr/seoul-hanok-brand-wins-if-design-award-2025/
-- https://www.lo-ol.design/hangeul
-- https://www.wallpaper.com/travel/wallpaper-design-awards-2024-seoul-best-city-guide
+### 3.3 NOMA Illustration (Korean watercolor illustrator)
+See 2.6. Strongest reference for the specific "Korean mom's kitchen" warmth.
 
-Anti-references:
-- https://tailwindcss.com/plus/templates/salient
-- https://prebuiltui.com/tailwind-templates
-- https://htmlrev.com/free-tailwind-templates.html
-- https://tailgrids.com/templates
-- https://windframe.dev/ai
-- https://tailflux.com/category/landing-page
-- https://www.lodgify.com/blog/bed-breakfast-website-design/
-- https://colorlib.com/wp/bed-and-breakfast-website-examples/
+### 3.4 Miss Ochikeron — Create, Eat, Happy
+- What it is: Tokyo-based YouTube cook doing kawaii Japanese home recipes. Companion blog is bright, round, stationery-shop adjacent.
+- What's working: extremely approachable voice; square crops; minimal UI; cute self-portrait cartoon as the mascot. Direct reference for the tone of the cooking-class page.
+
+### 3.5 Jackie Liu — jackieis.online
+- URL: <https://jackieis.online/projects/making-a-website-by-you-and-for-you-zine/>
+- What it is: A personal site by an artist who literally made a zine called *Jackie's Guide to Making a Website: by you & for you.*
+- What's working:
+  - **The whole philosophy we're after, stated explicitly** — the web as a personal, zine-shaped place.
+  - Visual design is friendly, pastel-leaning, hand-lettered headings. Strong direct steal for "hand-drawn heading as brand mark."
+
+### 3.6 Ceramic DODO — 도예공방 도도 (Seochon, Seoul)
+- URL (profile): <https://heypop.kr/designspot/112680/>
+- What it is: A Seoul ceramics studio run by artist An So-yeon in the Seochon (서촌) neighborhood.
+- What's working:
+  - **Hanok-adjacent warm-wood photography.** Not polished studio shots — a real room with real work on real shelves.
+  - **Korean personal-studio voice:** the artist talks in the first person, not the royal "we."
+  - Reference for the Stay page in particular: the feeling of "you are in someone's actual space."
 
 ---
 
-**Top 3 strongest references** (carried into File 2 as primary inspirations):
+## 4. Personal food / home-cooking blogs (the older / pre-redesign era)
 
-1. **Satoyama Jujo — The House** — closest existing match for "small place, deep voice, 3 things on offer."
-2. **Alison Roman** — best demonstration of "personal voice rendered as editorial design."
-3. **Onomichi U2** — best demonstration of restraint + booking-on-a-page-without-a-booking-widget.
+The hard truth: most of the canonical food blogs have been *redesigned into magazines* since their earlier days. Archive-era versions are cozier than current versions.
+
+### 4.1 Smitten Kitchen — smittenkitchen.com
+- URL: <https://smittenkitchen.com/>
+- What it is: Deb Perelman's "fearless cooking from a tiny NYC kitchen," running since 2006.
+- What's working (current):
+  - **Conversational recipe preambles.** Every recipe opens with a personal paragraph about where she found it, what went wrong, who liked it. That's a content-pattern steal — "from Mom's notebook" / "how Eunjung learned this."
+  - **Warm cream background, brown body text, small red accent.** Palette is *right there* for us.
+- What to be careful of: current design is slightly magazine-shaped. We want the *voice,* not the latest visual refresh.
+- Wayback Machine: <https://web.archive.org/web/2010*/smittenkitchen.com> — earlier versions are clearly one-person-blog-shaped and worth skimming for the "before the redesign" rhythm.
+
+### 4.2 Joy the Baker — joythebaker.com
+- URL: <https://joythebaker.com/>
+- What it is: Joy Wilson's bakery-and-essays blog since 2008. New Orleans, French-farmhouse-adjacent aesthetic.
+- What's working:
+  - **"Romantic, yet comforting" palette.** Warm subdued rustics, no cold SaaS blue anywhere.
+  - **Long, chatty, warm preambles.** Same content-pattern lesson as Smitten Kitchen.
+  - **Eclectic gallery-wall-at-home energy.** The site feels curated the way a person's living-room wall is curated — a little messy, lots of love.
+
+### 4.3 101 Cookbooks — 101cookbooks.com (Heidi Swanson)
+- URL: <https://www.101cookbooks.com/>
+- What it is: Running since 2003; recipe journal built around cookbooks Heidi owned. The ur-food-blog.
+- What's working:
+  - **Photography-first, quiet type.** The photographs are gentle, natural-light, no editorial styling. Reads as "she took a picture of her own dinner."
+  - **"Love-letter to natural food" tone in the writing.** Another voice-steal: specific sensory preambles rather than SEO copy.
+
+### 4.4 Orangette — orangette.net (Molly Wizenberg)
+- URL: <https://orangette.net/tag/cookbooks/>
+- What it is: Pioneering personal-essay-plus-recipe blog. Less active lately but the archive is the canon of "what a warm personal food blog sounds like."
+- What's working:
+  - **Text-heavy, story-first.** The recipe is always at the bottom. The story is the thing.
+  - Direct reference for the Cooking Class page copy: what if every menu description was a Molly-paragraph about *where the dish came from in Eunjung's life*?
+
+### 4.5 Pinch of Yum — archive era
+- Wayback: <https://web.archive.org/web/2013*/pinchofyum.com>
+- What it is: Lindsay's blog, very personal in the early years, now a much more SEO-optimized recipe brand.
+- Reference note: look at 2012–2014 captures for the personal-tone archive. The current version is too polished.
+
+### 4.6 Cup of Jo food tag — cupofjo.com
+- See 1.9. Not a food blog, but their food posts are the tonal model: a person's weekend, not a recipe developer's spec sheet.
+
+---
+
+## 5. Cozy / cottage / homestead / single-host personal pages
+
+The test here: the person's name is on the door. It is not a brand with "hosts" — it is a specific human.
+
+### 5.1 Under A Tin Roof — Kayla Lobermeier
+- See 1.7. The strongest reference in this category. Iowa, mother-and-daughter, flower farm, seasonal journal.
+
+### 5.2 Moat Cottage — Elissa Jayne (Australia)
+- YouTube playlist: <https://www.youtube.com/playlist?list=PLbgyJJsd3gmPUGAr0IXFYExaGqDIVXGYS>
+- What it is: Australian backyard homesteader's slow-living video series. Her web presence is modest but her visual tone — soft morning light, hand-in-frame, one voice narrating — is precisely the "cozy cabin personal" we're shooting for.
+- Reference use: the *photography direction* for Mom's hands doing things. Real hands, not hand-model hands.
+
+### 5.3 The Elliott Homestead — Shaye Elliott
+- Referenced in multiple cottagecore roundups.
+- What it is: An older homesteader blog — cooking, farming, cabin life. Same "one family's life" energy as Under A Tin Roof.
+
+### 5.4 A small, honest anti-model: most "cabin rental" sites on Airbnb-style platforms
+- These are NOT the references we want. They're polished, listing-shaped, and faceless. But their inverse is instructive: we want every page to say, "this is a person's home you are entering," not "this is unit #4 in a portfolio."
+
+### 5.5 Khouse Korea — khousekorea.wixsite.com/khouse-korea
+- URL: <https://khousekorea.wixsite.com/khouse-korea>
+- What it is: A small Korean guesthouse near Bukhansan, explicitly described as "a house not built for commercial purposes." One-person hospitality energy in a Korean context.
+- What's working: a modest Wix site, but the positioning is exactly right — the owner shares her home for love of nature, not as a business.
+
+---
+
+## 6. Indie / scrapbook / zine / sticker-aesthetic sites
+
+The visual vocabulary of paper, tape, and stickers translated to the web.
+
+### 6.1 Wawa Kero — wawa-kero.com
+- URL: <https://wawa-kero.com/>
+- What it is: Strawberry poison dart frog artist's (self-described) portfolio + free Carrd template shop. Cute aesthetic web template ecosystem in one person.
+- What's working:
+  - **Ko-fi as commerce.** Rejects "add to cart" SaaS entirely. Commerce feels like someone buying a friend a coffee.
+  - **Template names like "Pink Cutesie" and "Cute Passport."** The literal naming energy we're allowed to use in Caveat somewhere on our own site.
+
+### 6.2 Cutehamsy — cutehamsy.carrd.co
+- See 2.8. Carrd-as-scrapbook.
+
+### 6.3 Risograph zines on People of Print
+- <https://peopleofprint.com/best-of/pop-member-showcase-15-riso-projects/>
+- What's working: direct inspo for a "printed-at-home" visual system. Two-color limited palettes, overprint grain, off-register charm.
+
+### 6.4 Risolve Studio — risolvestudio.com (Lancaster, PA)
+- URL: <https://risolvestudio.com/>
+- What it is: A riso studio's own homepage — product pages of zines, art books, flyers.
+- What's working: photography of printed things being held by a hand. Physical objects as the hero. Good argument for: photograph Eunjung's handwritten recipe card, not a stock food shot.
+
+### 6.5 Jackie's Guide to Making a Website (Jackie Liu, zine)
+- <https://jackieis.online/projects/making-a-website-by-you-and-for-you-zine/>
+- Already at 3.5. The zine-as-philosophy: "make a website by you and for you."
+
+### 6.6 Washi-tape / polaroid scrapbook pattern library
+- No single URL — a pattern language documented across Scrapbook.com gallery, Altenew's washi guide, digital-scrapbook.com.
+- Translate to web:
+  - **Polaroid** = white border ~24–32 px, very subtle shadow, ~-1° to -3° rotation.
+  - **Washi tape** = SVG with torn edges and a repeating pattern, rotated 5–15°, slight opacity (~90%), placed at the corner of a card.
+  - **Sticker** = circular or die-cut irregular SVG with a white outer stroke (~4 px) simulating die-cut margin.
+
+---
+
+## 7. Anti-references — what we are NOT doing
+
+Listed with specific crimes for clarity. Paste these next to the palette decisions so nobody drifts back.
+
+### 7.1 Onomichi U2 — onomichi-u2.com
+- URL: <https://onomichi-u2.com/en/>
+- What it is: A hotel / restaurant / cafe / cycling complex in a renovated shipping warehouse; visual identity by UMA design studio.
+- Why it's wrong for us:
+  - **Branded with a studio's hand, not the owner's hand.** Reductionist iconography, functional sans-serif typeface, architectural restraint. Beautiful — but clearly the output of a design agency commissioned by a business.
+  - **Commercial-property warmth.** "Wood and concrete" warmth is *institutional* warmth. Eunjung's apartment warmth is *domestic* warmth. Different universe.
+  - **Previously recommended. Now the explicit anti-reference.** If a mood board starts drifting toward this, stop and re-open `underatinroof.com` and `samanthadionbaker.substack.com` to recalibrate.
+
+### 7.2 Satoyama Jujo — satoyama-jujo.com
+- What it is: A Niigata-prefecture boutique inn in a 150-year-old building. Gorgeous.
+- Why it's wrong for us:
+  - **Editorial-magazine photography.** Every shot is perfectly composed and lit. The inn looks unreachable, not reachable.
+  - **Tiny, precious typography.** The type is whispering. Mom doesn't whisper.
+  - **"Property" framing.** It's a *property* with *experiences,* not a person.
+  - Previously recommended. Now the explicit anti-reference.
+
+### 7.3 Cereal Magazine — readcereal.com
+- What it is: British travel/lifestyle magazine famous for minimal, desaturated, grayscale-heavy editorial aesthetics.
+- Why it's wrong for us:
+  - **Cold.** The whole editorial identity is about distance and taste. We want warmth and nearness.
+  - **Magazine layout grammar.** Three-column grids, tiny captions, huge bleed photos. It's a *publication,* not a *person.*
+  - **Palette is beige but not *warm* beige.** It's architect-beige. We want baker-beige.
+
+### 7.4 Kinfolk — kinfolk.com
+- What it is: Quarterly lifestyle magazine. The platonic ideal of "slow curated white-space minimalism."
+- Why it's wrong for us:
+  - **Performative slowness.** Everything is styled to look unstyled. That's an agency tell.
+  - **No humor, no mess.** Mom is funny and her kitchen has dish-soap on the counter. We want that visible.
+
+### 7.5 Alison Roman's current site — alisoneroman.com
+- What it is: Talented cookbook author. The site leans heavy editorial, lots of bold condensed display type, moody photography.
+- Why it's wrong for us:
+  - **Personal brand as brand.** It's *Alison's brand,* not Alison's home. A high-production shadow of a personal blog. The original Alison Roman *newsletter* voice is closer to our target than this site.
+
+### 7.6 Generic "Tailwind UI hospitality template"
+- Any template with: a hero with overlay text on a dark image, "Trusted by" logos, three-up feature cards with lucide icons, a gradient, and a navbar with "Pricing" and "Contact."
+- Why it's wrong: this is the AI-slop aesthetic. Eunjung's Table must pass the "does it look like ChatGPT scaffolded it" test by aggressively failing every template convention.
+
+### 7.7 Airbnb listing page
+- Why it's wrong: faceless inventory grammar — it's a "Private room in apartment" with "amenities icons" and a "host" thumbnail smaller than the rating star. The whole grammar erases the person. We must do the opposite: person bigger than property.
+
+---
+
+## Cross-cutting patterns we're stealing, catalogued
+
+1. **Polaroid-style framing** (scrapbook references, Samantha Dion Baker, hand-photography references) — white border, slight tilt, thin soft drop shadow.
+2. **Custom hand-lettered masthead** (Samantha Dion Baker, Jackie Liu, Wizard Zines) — one commissioned hand-lettered logo is worth more than ten fonts.
+3. **Handwritten margin notes as "Mom's voice"** (Austin Kleon's handwriting, Molly Wizenberg's preambles) — a Caveat-font aside that feels like marginalia in a cookbook.
+4. **Illustrated section dividers** (Maggie Appleton, NOMA) — a small watercolor of a teapot / Maru / a kitchen window as a section break, instead of a `<hr>`.
+5. **Grainy overlay on photos** (riso studios, riso-zine references) — lightweight texture PNG at ~5–10% opacity.
+6. **Cream + one warm accent + a soft green** (Smitten Kitchen, Joy the Baker, Maggie Appleton) — almost all of these sites are cream background with *one* punchy accent.
+7. **First-person voice in every piece of copy** (Robin Sloan, tonsky, Cup of Jo) — never "we."
+8. **A footer that feels like a signoff, not a sitemap** (Robin Sloan's "Thanks for stopping by!") — we need a "— love, 은정" somewhere.
+9. **A tiny mascot** (Hamsy's hamster, Niki's flashlight, Julia's wizard) — Maru the 14-year-old schnauzer is *right there,* begging to be a corner sticker.
+10. **Modest domain, modest hosting energy** (Mataroa, Bear Blog) — even if we ship on Next.js/Vercel, the *feel* should be "one HTML file and some love."
+
+---
+
+## Screenshot note
+
+No screenshots are inlined in this doc — WebFetch doesn't return images. When starting visual design work, open these six sites side by side in a browser as the working mood board:
+
+1. maggieappleton.com
+2. underatinroof.com
+3. woohee.net
+4. samanthadionbaker.substack.com
+5. cupofjo.com
+6. wizardzines.com
+
+If a design move cannot plausibly live on at least one of those, it's drifting back toward boutique-hotel territory.
+
+---
+
+## What the previous research got wrong (for the record)
+
+The earlier round anchored on Onomichi U2, Satoyama Jujo, Cereal, and "editorial magazine" references. That direction reads as **"a polished company styling warmth as a product."** The work on this project calls for the inverse: **"an unpolished person letting warmth show up on its own."** The references above were selected explicitly against the earlier round's gravitational pull — personal blogs, hand-drawn work, domestic subject matter, stationery-shop visual vocabulary, and one-person-shops only.

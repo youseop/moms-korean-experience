@@ -7,11 +7,12 @@ Legend: `- [x]` = already decided in `00-site-plan.md`. `- [ ]` = still open.
 > **Recently locked decisions (2026-04-18)**
 >
 > - **Brand name: Eunjung's Table.** Finalized — the brand still leans on the universal **"Mom"** concept as the marketing hook, and Eunjung is who Mom is. "Eunjung's Table" is the public-facing brand across logo, header, footer, metadata, OG tags.
-> - **Mom's name + branding voice.** Mom's real name is **Eunjung (은정)**. The brand still leans on the universal **"Mom"** concept as the marketing hook; "Eunjung" surfaces when the personal-name register fits. Hangul (`은정`, `엄마`) appears as a light design accent only.
+> - **Mom's name + branding voice.** Mom's real name is **Eunjung (은정)**. The brand still leans on the universal **"Mom"** concept as the marketing hook; "Eunjung" surfaces when the personal-name register fits. Personal signoff on the site reads "— Eunjung" in Caveat. _(Hangul `은정`/`엄마` is **not** rendered on the surface per the 2026-04-18 design handoff — see the Design system bullet below. Revises the earlier "light sprinkle" line.)_
 > - **Form strategy.** **Custom in-app form, Tally dropped.** One shared inquiry form rendered by a new `<InquiryForm />` React component, submitted via a Next.js Server Action that emails Youseop through **Resend**. No external form host. See `03-dev-plan.md` Task 14 for the full implementation.
 > - **Domain at launch.** Launch on the **default Vercel-assigned URL** (e.g. `<project>.vercel.app`). `NEXT_PUBLIC_SITE_URL` defaults to that URL with a comment noting it can be swapped to a custom domain later. Custom domain is deferred.
+> - **Design system locked (revised).** After comparing two prototypes, the user chose the **cute/cozy/scrapbook** direction (handwritten Caveat + Nunito body, multi-pastel palette with tomato red pop, polaroid photos with washi-tape, inline SVG doodles). Source of truth: `docs/08-design-cute-cozy.md` and `design-prototypes/cute-cozy/index.html`. The earlier editorial direction (Fraunces / Hanok Morning / `docs/07-design-handoff.md`) is historical only.
 >
-> Still open (handled by parallel subagents): accent color (terra vs sage), final tagline wording, and (later) a verified custom email sending domain for Resend.
+> Still open: (later) a verified custom email sending domain for Resend.
 
 ---
 
@@ -19,11 +20,11 @@ Legend: `- [x]` = already decided in `00-site-plan.md`. `- [ ]` = still open.
 
 - [x] Language: English only at launch. Korean version deferred.
 - [x] **Brand name / site title.** Drives logo, domain, OG tags, repo naming. [decided: Eunjung's Table — 2026-04-18] _The brand still leans on the universal "Mom" concept as the marketing hook; Eunjung is who Mom is, and "Eunjung's Table" is the public-facing brand._
-- [ ] **Tagline / one-liner.** Shown in hero + meta description. Current placeholder to seed (still open for final wording): "Korean home cooking, hidden corners, and a quiet room in Jeongja — at Eunjung's table." Alternate seeds: "Your Korean mom in Seoul — at Eunjung's table." / "Home cooking, hidden spots, and a quiet room in Jeongja."
-- [x] **How we refer to Mom on the site.** Three options: "Mom" (warm, anonymous, matches the brand feeling), "Umma" (Korean flavor, but needs a gloss first time it appears), or her real name (personal, but a privacy decision). Must pick one to write any copy. [decided: lean on "Mom" branding throughout, with Eunjung 은정 as her name when the personal-name register fits — 2026-04-18]
-- [x] **Korean-character support.** Do we want Hangul anywhere visible (e.g. 엄마, dish names like 김밥, 정자동)? If yes, font stack must include a Korean webfont (e.g. Noto Sans KR / Noto Serif KR). Decide: none / light sprinkle / full dual-script labels. [decided: light sprinkle — 은정 / 엄마 as design accents only — 2026-04-18]
+- [x] **Tagline / one-liner.** Shown in hero + meta description. [decided: "Your Korean mom in Seoul." (default), with rotational alternates "Stay with a Korean mom in Jeongja-dong." / "Korean home cooking, hidden corners, and a quiet room in Jeongja." / a 4-line variant — 2026-04-18]
+- [x] **How we refer to Mom on the site.** Three options: "Mom" (warm, anonymous, matches the brand feeling), "Umma" (Korean flavor, but needs a gloss first time it appears), or her real name (personal, but a privacy decision). Must pick one to write any copy. [decided: brand is **Eunjung's Table**; the marketing voice still leans on the universal "Mom" concept, and Eunjung is who Mom is. Personal signoff on the site reads **"— Eunjung"** in Caveat handwritten font — 2026-04-18]
+- [x] **Korean-character support.** Do we want Hangul anywhere visible (e.g. 엄마, dish names like 김밥, 정자동)? If yes, font stack must include a Korean webfont (e.g. Noto Sans KR / Noto Serif KR). Decide: none / light sprinkle / full dual-script labels. [REVISED 2026-04-18: NONE — English-only per design handoff. Hangul deferred to a future Korean-language version of the site.]
 - [ ] **Domain name.** E.g. `eunjungstable.com`, `momskorea.com`. Check availability before committing. _Note: v1 launches on the Vercel-assigned URL (confirmed) — custom domain is deferred._
-- [ ] **Logo.** Wordmark only is fine for v1. Decide: plain type treatment or a small hand-drawn mark? Provide SVG if custom. _Note: v1 wordmark should be just "Eunjung's Table" in the display font (Fraunces)._
+- [x] **Logo.** Wordmark only is fine for v1. Decide: plain type treatment or a small hand-drawn mark? Provide SVG if custom. [decided: italic Fraunces wordmark "Eunjung's Table" (no separate icon mark) — 2026-04-18]
 - [ ] **Favicon.** 32x32 PNG + SVG. Can be initial letter in brand color, or a small illustration (teapot, house, heart). _Note: initial "E" or "eT" monogram in the chosen accent color is fine for v1._
 - [ ] **Social handles to link (optional).** Instagram? KakaoChannel? If none, skip footer social row.
 

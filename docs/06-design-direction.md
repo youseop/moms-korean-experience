@@ -1,393 +1,284 @@
-# 06 — Design Direction
+# Design Direction — Eunjung's Table
 
-> Synthesis of `05-design-references.md` against the design system in `03-dev-plan.md` § 1. Opinionated. Picks favorites and defends them. Open decisions for Youseop are at the end.
+> Synthesis of `05-design-references.md`. Opinionated. Picks favorites and defends them.
+> Open decisions for Youseop are at the end.
+> **The previous version of this doc (editorial / warm-magazine direction) is fully superseded.** A follow-up task also needs to rewrite `03-dev-plan.md` § 1 (Design System) to match — flagged at the end of this doc.
 
-The brief in one line: **a personal magazine made by a mom for the kind of guest who wants to come back.** Not a hotel site, not a tour site — a *home*, presented with editorial confidence.
-
----
-
-## 1. What we're adopting from references
-
-### 1a. Hero section pattern
-
-Three patterns considered. One recommended.
-
-#### Pattern A — Tilted asymmetric photo with paper grain (recommended) ★
-
-Already in the dev plan as Distinctiveness Move #1. References doubled down: Kinfolk's off-center compositions (§3.2), Cereal's white space as active element (§3.1), Pytts House's tall vertical photos with soft framing (§1.3). The tilt + paper grain is what separates this from every Tailwind hero on the internet.
-
-ASCII sketch (mobile):
-```
-┌──────────────────────────────────┐
-│                                  │
-│  엄마        (oversized faded    │
-│              hangul, bg layer)   │
-│                                  │
-│   ┌─────────────────────┐        │
-│   │                     │        │
-│   │   PHOTO OF MOM      │        │
-│   │   (tilted -2deg     │        │
-│   │   on md+, no tilt   │  ←───  │
-│   │   on mobile)        │        │
-│   └─────────────────────┘        │
-│                                  │
-│   See Korea through              │
-│   a local mom's eyes.            │
-│                                  │
-│   — A short paragraph in body    │
-│     type, max-w-prose.           │
-│                                  │
-│   [ Explore tours →  ]           │
-│                                  │
-└──────────────────────────────────┘
-```
-
-ASCII sketch (desktop):
-```
-┌──────────────────────────────────────────────────────────┐
-│                                                          │
-│   See Korea through              ┌───────────────┐       │
-│   a local mom's eyes.            │               │       │
-│                                  │  PHOTO OF     │       │
-│   A short paragraph in body      │  MOM, tilted  │       │
-│   type, max-w-prose, sitting     │  -2deg, paper │       │
-│   left of the photo.             │  shadow under │       │
-│                                  │               │       │
-│   [ Explore tours → ]            └───────────────┘       │
-│                                                          │
-│   엄마  (oversized hangul, faded, bg layer behind text)  │
-│                                                          │
-└──────────────────────────────────────────────────────────┘
-```
-
-**Why:** Encodes the brand. The tilt says "this is a real photo someone pinned up," not "this is a hero asset." The oversized 엄마 says "a Korean mom is here" without translation. The paper grain says "this is a magazine, not an app."
-
-#### Pattern B — Two-photo opening (Teo Yang move)
-
-Page opens with two large photos stacked vertically (mobile) or side-by-side (desktop), no headline at all until you scroll. Tagline reveals on second screen. Reference: §1.7 Teo Yang Studio, §1.4 Hoshinoya theme pages.
-
-**Why not primary:** Beautiful but withholds context. Mom's audience is people who Youseop hasn't met yet — they need to grok "a Korean mom in Seoul" in 2 seconds. Pattern A delivers context faster.
-
-#### Pattern C — Single full-bleed cover image with overlaid serif headline
-
-Classic magazine feature pattern. Reference: §3.6 Departures, §1.5 The PIG.
-
-**Why not primary:** Risks reading as "another hotel site" — too many luxury hotels do exactly this. Pattern A has more identity.
-
-**Decision:** Pattern A as primary across all four pages (Home, Tours, Cooking, Stay), with subtle variations per page (different photo subject, different oversized hangul word — see §1g).
+The brief in one line: **a Korean mom's weekend website about her home, her cooking, and her favorite places.** Not a hotel site, not a tour operator, not a boutique. A *home* with a name on the door — hand-lettered, a little crooked, very much hers.
 
 ---
 
-### 1b. Color palette
+## 1. What we're adopting — design dimensions
 
-Three candidates. **Decision pending Youseop pick** — see Open Decisions §4.
+### 1.1 Hero pattern
 
-The dev plan currently proposes one warm cream base + a choice between Terracotta or Sage as accent. Research broadly confirms cream-warm is right; the question is *which warmth* and *which accent*. I'm proposing three full-system palettes (each pulling from a real reference) so you're not guessing in isolation.
+**We pick one and commit.**
 
-#### Palette 1 — "Hanok Morning" (recommended) ★
+The three candidates, ranked:
 
-Pulled from honey-stone Pytts House (§1.3) + early-morning Korean kitchen light. Warm cream base shifted slightly toward yellow, deep brown text, terracotta accent dialed slightly warmer than current spec.
+#### A. **PRIMARY RECOMMENDATION — "Polaroid stack" hero**
+> Three real photos (portrait of Eunjung, Mom's kitchen, Maru) laid out as white-bordered polaroids at slight rotations, with a hand-lettered "Eunjung's Table / 은정의 식탁" masthead sitting above/behind them. A Caveat-font aside in the margin: "come in, take your shoes off →" with a hand-drawn arrow pointing at a primary CTA.
 
-| Role | Hex | Notes |
-|------|-----|-------|
-| Base (page bg) | `#FBF6E9` | A breath warmer than current `#FAF6EE`. Toward butter. |
-| Surface (cards) | `#F4ECD7` | Aged paper. Warmer than current `#F5EEDF`. |
-| Divider / hover | `#EBDFC2` | |
-| Text body | `#3A2A1C` | Deep walnut, never black. |
-| Text headings | `#241710` | Espresso. |
-| Muted text | `#7A604A` | Caption + meta. |
-| **Accent primary** | `#C76A3F` | Warm terracotta, slightly more orange than current `#C2714F`. |
-| Accent dark | `#9C4F2A` | Pressed states. |
-| Accent wash | `#EAB893` | Backgrounds, chips. |
-| **Optional pop** | `#5C7A5A` | Tancheon-stream sage. Used *once or twice* on the Stay page for the "Why Jeongja" section. |
+- Why this one:
+  - Photographs carry the warmth without requiring editorial styling.
+  - Polaroids inherently say "snapshots from a specific life," not "production from a brand."
+  - The stack *wobbles* — it's not a grid. The non-alignment is the personality.
+  - We can start with two polaroids and grow to a messier stack later without breaking the layout.
+- Reference anchors: Samantha Dion Baker's substack header, Under A Tin Roof photography, the generic scrapbook-polaroid pattern language.
 
-**Vibe:** Walking into a Korean kitchen at 8am with sunlight on the tile.
+#### B. Alt — "Hand-drawn welcome scribble + portrait photo"
+> Large Caveat/hand-lettered "Hi, I'm Eunjung." centered above a single warm portrait. A tiny hand-drawn arrow in the margin points at the first sentence of the About paragraph.
+- Why it's strong: maximum personal, minimum production. Feels like a personal Substack header.
+- Why not primary: relies on one commissioned hand-lettering asset and one portrait photo being *really* good. High variance until we have the assets.
 
-#### Palette 2 — "Sunlit Kitchen"
+#### C. Alt — "Sticker collage of what you'll do here"
+> A 2x2 sticker/badge composition labeling Tours, Cooking, Stay, Maru — each sticker a hand-illustrated little icon (a bowl of bibimbap, Tancheon stream, a key, a dog).
+- Why it's strong: most genuinely *cute* option. Closest to zine cover energy.
+- Why not primary: requires 4 commissioned illustrations up front. Delays launch.
 
-Cream base shifted neutral, deeper accents. References: Alison Roman (§2.1) restraint, Cereal Magazine (§3.1) restraint with warmth.
+**Decision request:** start building toward A (Polaroid Stack). Hold B in reserve if photography comes in weaker than hoped. Hold C for a future seasonal homepage refresh.
 
-| Role | Hex | Notes |
-|------|-----|-------|
-| Base | `#F7F2E8` | Closer to current spec. |
-| Surface | `#EFE7D2` | |
-| Divider | `#E0D2B5` | |
-| Text body | `#2E2419` | |
-| Text headings | `#1B130C` | |
-| Muted | `#6B5641` | |
-| **Accent primary** | `#B65A3A` | Burnt sienna — earthier than terracotta. |
-| Accent dark | `#8E3F23` | |
-| Accent wash | `#E1A682` | |
-| **Optional pop** | `#7A6B3A` | Olive-mustard. For Cooking-page "seasonal special" tag. |
+### 1.2 Color palette — three candidates, pick one
 
-**Vibe:** A magazine layout, but warm.
+All three pass the "cute / cozy / warm" test. None is cream-and-sage-boutique. Hex values are targets, to be verified in actual UI with tokens.
 
-#### Palette 3 — "Tancheon Morning"
+#### Palette 1 — **Butter Kitchen** (warmest, most "kitchen-at-noon")
+> Soft butter yellow + tomato red + sage accent. Like opening a 1990s Korean cookbook.
 
-Greener register. References: Sage option in current spec, Tancheon-stream + Jeongja parks reality, Satoyama Jujo's connection to landscape (§1.2).
+| Role | Token | Hex | Notes |
+|---|---|---|---|
+| Paper | `cream-50` | `#FBF6E7` | Page background; slight yellow undertone |
+| Butter | `butter-200` | `#F5E3A8` | Section backgrounds, polaroid washi accents |
+| Tomato | `tomato-500` | `#D94A3A` | Primary CTAs, "Mom's voice" emphasis |
+| Tomato pressed | `tomato-700` | `#A32E21` | Pressed state |
+| Sage | `sage-500` | `#7FA586` | Secondary accents, Tancheon gallery, navigation underline |
+| Ink | `ink-800` | `#3B2A1E` | Body text (warm brown, never true black) |
+| Ink soft | `ink-500` | `#7A6652` | Captions, metadata |
 
-| Role | Hex | Notes |
-|------|-----|-------|
-| Base | `#F8F4EB` | |
-| Surface | `#EDE6D2` | |
-| Divider | `#DBD0B4` | |
-| Text body | `#2C2B1F` | Brown with green undertone. |
-| Text headings | `#161611` | |
-| Muted | `#615E48` | |
-| **Accent primary** | `#6F8F6E` | Sage — slightly warmer than current `#7A9E7E`. |
-| Accent dark | `#4F6E51` | |
-| Accent wash | `#BFCDB6` | |
-| **Optional pop** | `#C2714F` | Terracotta as the *secondary* pop — used on Cooking page only, where heat belongs. |
+- Vibe: 1980s-Korean-home warmth. Closest to a real Korean kitchen's color memory.
+- Trade-off: tomato red is assertive — risks feeling "diner-y" if photography is also red-dominant. Keep food photography in green-and-neutral where possible.
 
-**Vibe:** A morning walk along Tancheon, then home.
+#### Palette 2 — **Warm Scrapbook** (most "handmade zine")
+> Kraft-paper tan + ink-brown + pop of red + pale sky. The palette of a spiral notebook from 1995.
 
-**My recommendation:** **Palette 1 — Hanok Morning.** The terracotta primary is *of the kitchen* — it reads as warmth + welcome + cooking + ginger. Sage is beautiful but reads as "wellness retreat," which is wrong for Mom (she is *not* wellness). The sage stays as a one-section pop in Palette 1 to honor the Tancheon reality without making it the brand color.
+| Role | Token | Hex | Notes |
+|---|---|---|---|
+| Kraft paper | `kraft-100` | `#F2E8D5` | Page background |
+| Aged paper | `kraft-300` | `#E3D2B0` | Card backgrounds, polaroid mount |
+| Ink | `ink-900` | `#2A1F14` | Body text |
+| Pen red | `pen-500` | `#C23B2E` | Pull quotes, "Mom's pen" marginalia, primary CTA |
+| Pen red soft | `pen-300` | `#E5A79E` | Hover, washi-tape accents |
+| Sky | `sky-200` | `#C9DDE4` | Secondary accent — for Tancheon-stream moments specifically |
+| Meta | `meta-600` | `#7A6145` | Captions |
 
----
+- Vibe: kraft paper, ballpoint pen, a real polaroid stack taped to a wall.
+- Trade-off: can drift toward "pinterest craft blog" if over-decorated. Reserve sky for only two or three moments on the site.
 
-### 1c. Typography pairing
+#### Palette 3 — **Korean Dessert Café** (softest, most "cute")
+> Peach + cream + soft milk-chocolate brown + mint accent. Seoul café-shaped, 2026-current.
 
-Current dev plan: Fraunces (display) + DM Sans (body) + Caveat (handwritten).
+| Role | Token | Hex | Notes |
+|---|---|---|---|
+| Cream | `cream-100` | `#FBF3E6` | Page background |
+| Peach | `peach-200` | `#F9D3B4` | Section backgrounds, soft fills |
+| Peach pop | `peach-500` | `#EF8E5E` | Primary CTA |
+| Choco | `choco-700` | `#5C3B22` | Body text (warm milk-chocolate, not brown-brown) |
+| Choco dark | `choco-900` | `#3B2414` | Display type |
+| Mint | `mint-400` | `#A8D6C3` | Secondary accents, Maru's sticker fill |
+| Meta | `meta-500` | `#9A8774` | Captions |
 
-I considered four alternative pairings against the references:
+- Vibe: closest to current Korean indie café / stationery-shop aesthetic. Most likely to read as instantly "cute" to our Korean-language-student audience.
+- Trade-off: softest of the three; risks reading as *dessert shop* if food photography doesn't counterweight with savory, rich meals.
 
-#### Option 1 — Fraunces + DM Sans + Caveat (current spec)
-- **Feels like:** A modern editorial blog with a warm humanist twist.
-- **Strengths:** Fraunces' opsz axis lets headings get *bigger* without going stiff; the SOFT and WONK axes give us a quirky character that's hard to fake. DM Sans is friendly and reads well at small sizes. Caveat is an excellent restrained handwriting font.
-- **Weaknesses:** DM Sans doesn't perfectly share x-height with Fraunces — the pairing works but isn't seamless. It's also the default-feeling sans Vercel ships with starters; risks template association.
+**Recommendation if forced to pick now: Palette 2 — Warm Scrapbook.**
+It leans hardest into the "handmade zine / scrapbook" direction that separates this project from every boutique-hotel site that got rejected. The kraft-paper tone reads like a real material. Pen-red does the work of both "cute" and "Mom is decisive," and the sky accent gives us one clean cool-tone moment for Tancheon stream imagery without softening the whole site into dessert-shop-cute.
 
-#### Option 2 — Fraunces + Inter + Caveat
-- **Feels like:** Substack-default. Skip.
+Palette 3 is the close runner-up if Youseop wants to bias *cuter over handmade.* Palette 1 is the right answer if Youseop decides food photography is the hero and wants the palette to disappear under it.
 
-#### Option 3 — Fraunces + Söhne (or fallback DM Sans) + Homemade Apple
-- **Feels like:** Alison Roman territory.
-- **Strengths:** Söhne is the New York editorial sans of choice (Alison Roman, NYT Cooking direction) — but it's Klim Type and not on next/font Google. Substituting DM Sans here loses the move.
-- **Verdict:** Aspirationally right but blocked by font availability without paid licensing.
+### 1.3 Typography pairing — three candidates, pick one
 
-#### Option 4 — Fraunces + Söhne-substitute (GT America Mono fallback to DM Sans) + Caveat
-- **Feels like:** Cereal Magazine. Restraint forward.
-- **Verdict:** Adds complexity for a marginal feel improvement.
+The previous direction (Fraunces + DM Sans + Caveat) is **revoked.** Fraunces's optical-size axis and "SOFT/WONK" quirks read as *editorial display,* and that's the exact editorial-magazine tone we're walking away from. We also don't need a variable-font display serif. We need one rounded approachable display, one quiet body, and one clearly handwritten accent.
 
-#### Option 5 — Recommended ★ — **Fraunces + DM Sans + Caveat (KEEP) but tighten usage rules**
+All three candidate pairs are Google-font-available (important: next/font, no custom licensing right now).
 
-The current pairing is the right pick *if we use it with discipline*. The risk isn't the fonts — it's deploying them sloppily.
+#### Pair A — **PRIMARY RECOMMENDATION**
+- **Display:** [Fraunces](https://fonts.google.com/specimen/Fraunces) weight 700, opsz 144, softness set low, *no* WONK axis
+  — Wait. On reflection, still Fraunces but dialed *way* back to the soft humanist end, used only as an optional "letter-from-a-cookbook" serif. More realistically, use a warmer default:
+- **Display:** [Recoleta](https://www.fontshare.com/fonts/recoleta) (Fontshare, free for commercial use) — rounded retro-warm serif. Or free fallback: **[Fraunces](https://fonts.google.com/specimen/Fraunces)** locked to a single soft/rounded configuration, used sparingly.
+- **Body:** [Nunito](https://fonts.google.com/specimen/Nunito) 400/600 — rounded terminals, friendly, very readable at body sizes, zero SaaS energy.
+- **Hand accent:** [Caveat](https://fonts.google.com/specimen/Caveat) — unchanged from the previous plan; it's the right handwritten.
 
-**New rules:**
-1. **Fraunces used at exactly 4 sizes**, not 8. Keep `display-xl`, `display-lg`, `display-md`, plus one new `display-sm` for sub-section headers.
-2. **Hierarchy comes from italic + opsz, not weight.** Headings use Fraunces italic at large sizes (the opsz axis makes italic look hand-drawn at 60+px). Subheads use Fraunces upright, small caps where appropriate.
-3. **DM Sans used in exactly 3 sizes.** Body, body-lg, caption. No DM Sans bold outside of CTAs.
-4. **Caveat appears at most twice per page**, used as: (a) the "— Mom" byline and (b) one pull-quote per page maximum. No Caveat in nav, buttons, headings, or section labels.
-5. **Hangul fallback typeface:** Add Pretendard or Gowun Dodum via next/font as a fourth family, used *only* for Hangul characters when they appear inline. CSS rule: `font-family: var(--font-fraunces), var(--font-pretendard), serif;` so Latin glyphs use Fraunces and Hangul falls through to Pretendard. Pretendard is the de facto modern Korean web typeface; pairs cleanly with Latin serifs.
+**Why this pair is the primary rec:** Nunito is the quietest "clearly friendly" body font on Google Fonts. Rounded without being childish. Pairs with a display serif without fighting it. Caveat reads as a felt-tip marker and does not cosplay as print-cursive.
 
-**Keep the spec as-is on font choice. Add Pretendard. Add the discipline rules. Done.**
+#### Pair B — Rounded-and-rounder
+- **Display:** [Quicksand](https://fonts.google.com/specimen/Quicksand) 700 — very round, very soft, used *only* for the masthead
+- **Body:** [Nunito](https://fonts.google.com/specimen/Nunito) 400/600
+- **Hand accent:** [Patrick Hand](https://fonts.google.com/specimen/Patrick+Hand) — looks like a fine-line pen; more "legible handwriting" than Caveat's marker
+- Why consider: pushes further toward *cute*; both display and body are rounded-sans. Risk: loses the slight editorial stability the display serif gave us.
 
----
+#### Pair C — Serif-plus-rounded-sans (the "Cup of Jo" pair)
+- **Display:** [Fraunces](https://fonts.google.com/specimen/Fraunces) 600 (held soft, one configuration only)
+- **Body:** [DM Sans](https://fonts.google.com/specimen/DM+Sans) 400/500
+- **Hand accent:** [Shadows Into Light](https://fonts.google.com/specimen/Shadows+Into+Light) — thinner, more schoolbook handwriting
+- Why consider: closest to the prior direction but with the WONK/SOFT axes locked down. Safest migration from the old plan. Shadows Into Light reads more like "a woman's note on a fridge" than Caveat's more dramatic loops.
 
-### 1d. Photo treatment
+**Concrete recommendation: Pair A.** Nunito body + Caveat accent is the right cute-but-grown-up combination. For the display, start with Fraunces locked to a single soft configuration to avoid new font licensing, and keep Recoleta in reserve if Youseop wants to upgrade the masthead later. This is an explicit *replacement* of the "Fraunces + DM Sans" body choice — DM Sans is too neutral-SaaS for this direction.
 
-Direction: **Full-bleed editorial with a 2px radius and a warm grade.** Confirms current dev plan.
+### 1.4 Photo treatment
 
-References cited for each piece of this:
-- **Full-bleed:** Alison Roman (§2.1), Roads & Kingdoms (§3.3), Ace Hotel Editorial (§1.6). Universal among the editorial references.
-- **2px radius:** Current dev plan Distinctiveness Move #4. Keeps the photo from reading as a UI chip while removing the harsh pixel corner.
-- **Warm color grade:** Pytts House (§1.3) honey-stone palette and Alison Roman's natural-light food photography are both warm-shifted. Not high-contrast (that reads "lifestyle blog"). Not muted-pastel (that reads "Squarespace template"). Warm-shifted means: pull cool blues toward neutral, lift warm yellows in midtones, slightly desaturate greens. Like Kodak Portra 400 film stock.
+**Recommendation: Polaroid frames, used intentionally, not wallpaper.**
 
-**Specific photo rules:**
-1. Hero photos and section-cover photos: full-bleed within container, `rounded-photo` (2px), `shadow-warm`.
-2. Gallery grid photos: square crops, `rounded-photo`, no shadow (the grid is the rhythm).
-3. **No black-and-white photography.** Black-and-white reads "art project," wrong for Mom.
-4. **No duotone or color-overlay treatments.** Photos stay photographic.
-5. **Polaroid frame treatment is rejected.** Considered (gives "trip album" feel) but it's done to death and ages instantly. Better: the *paper-grain background* + *2px radius* + *tilt* together do the job without literal Polaroid chrome.
-6. **Color grade applied at the source**, not via CSS filter. CSS `filter: sepia()` looks like CSS sepia. Real warm grade lives in the JPG.
+- Full-bleed editorial photography is out.
+- Every feature photograph (hero, feature card, gallery item) is rendered as a polaroid:
+  - White border: 24 px on top/left/right, 72 px on bottom (for the caption/washi area)
+  - Slight rotation: `-3°` to `+3°`, random-ish per image, deterministic per slot (CSS variable)
+  - Soft drop shadow: `0 4px 20px rgba(0,0,0,0.10)`
+  - Optional washi-tape SVG corner decoration, rotated 8–12°
+- In-post inline photos are *not* polaroids — they're plain rounded rectangles (16 px radius). Polaroid framing is reserved for hero moments so it stays special.
+- **Grain overlay** (5–8% opacity noise texture) applied to photographs to pull them slightly away from the "crisp DSLR" editorial feel.
+- Avoid: duotone filters, heavy color grading, "moody" underexposure. Keep Mom's photos warm, bright, and honest.
 
----
+Reference anchor: Under A Tin Roof's golden-hour kitchen photography + scrapbook polaroid-framing pattern language.
 
-### 1e. Layout rhythm
+### 1.5 Layout rhythm
 
-Direction: **Editorial single-column on mobile; alternating image/text rows on md+ with occasional editorial-grid asymmetry.**
+**Recommendation: single-column scroll with scrapbook pockets.**
 
-References:
-- **Single-column scroll on mobile** is non-negotiable — the audience is mobile-first per the brief.
-- **Alternating image/text rows on md+:** Pytts House (§1.3), Satoyama Jujo (§1.2). Image-left, text-right, then flipped, then flipped again. Gives rhythm without busy layouts.
-- **Occasional editorial grid asymmetry:** Kinfolk's off-center compositions (§3.2), Cereal Magazine's eight-column grid (§3.1). One section per page should *break* the alternating rhythm with an asymmetric grid (e.g., one large image + two small images stacked + a paragraph block in the empty fourth quadrant). The break is what stops the page from feeling sing-songy.
+The backbone is a single mobile-first scrolling column — no multi-column magazine grids, no asymmetric hero-and-sidebar. But inside that scroll, certain moments break out into **"scrapbook pockets":**
 
-**Per-page asymmetric break candidate:**
-- Home: the "Three Experiences Preview" section becomes a 12-col grid where the three cards are *not* equal width — Tours card spans 7 cols, Cooking 5 cols, Stay 12 cols below. Reflects priority order visually.
-- Tours: "Mom's Favorite Places" gallery uses an editorial grid (1 large + 2 small + 1 medium) instead of a uniform 3-col grid.
-- Cooking: "Atmosphere Gallery" uses the same editorial grid.
-- Stay: "Why Jeongja?" section is a magazine-style two-column block — left col is a large landscape photo of Tancheon, right col is body copy with a sage callout.
+- A polaroid stack (hero).
+- A "recipe card" (menu listings in the Cooking Class page).
+- A "from Mom's notebook" Caveat-handwritten aside, set apart as a sticky-note card tilted ~2°.
+- A Maru sticker peeking from the margin.
 
----
+The scrapbook-collage layout was considered and *rejected as a primary layout* because it breaks mobile readability and performance. Collage vibes come in as *occasional pockets,* not as the whole page grammar.
 
-### 1f. Motion
+Single-column + pockets is the single most defensible decision: it reads as a *personal blog*, not a magazine, and it works the same on phone and laptop.
 
-**Confirm the dev plan: motion stays minimal.** Push back rejected.
+### 1.6 Decorative elements — our visual vocabulary
 
-References cited:
-- **Alison Roman** (§2.1): almost no motion. Reads expensive precisely because it doesn't bounce.
-- **Onomichi U2** (§1.1): no parallax, no fancy scroll. Restrained.
-- **Cereal Magazine** (§3.1): print sensibility ports to web. Print doesn't animate.
+The set we commit to (don't invent new ones beyond these without revisiting this doc):
 
-The dev plan has it right:
-- Fade-up + tiny scale on scroll reveal (400ms, custom easing, once per element).
-- 150ms color hover, 200ms transform hover, no bounce.
-- No parallax. Parallax is the giveaway tell.
-- Honor `prefers-reduced-motion: reduce`.
+1. **Hand-drawn arrows** — small SVG arrows, wobbly line, used to point from Caveat marginalia to a CTA or photo. Reference: Samantha Dion Baker sketch-journal pages.
+2. **Scribble underlines on key words** — one custom SVG underline per page, applied to the emphasis word in a heading. Reference: Wizard Zines hand-drawn emphasis.
+3. **Washi-tape corners** — two to three washi-tape SVGs (patterns: small-red-dots, mint-gingham, cream-stripes). Placed at corners of polaroids and recipe cards. Max one washi tape per pocket.
+4. **Hand-drawn dividers** — instead of `<hr>`, a small doodled divider (teapot line / waveform / row of rice grains). One per page at most, at a narrative break.
+5. **Polaroid stacks** — see §1.4. Our signature framing.
+6. **Sticker-shaped badges** — "new", "seasonal", "Maru's favorite", etc. Circular, irregular white stroke. Reference: die-cut sticker conventions.
+7. **Caveat marginalia blocks** — short asides in Caveat, presented as sticky-note cards with `rotate(-2deg)`, on a pale-butter/pale-peach fill. Written in Mom's voice.
+8. **은정 hanko stamp** — a tiny red-ink seal–style SVG with the Hangul 은정 inside a rough circle, used once per page as a "signed by Mom" mark. Placed in the corner of one polaroid per page.
 
-**One addition:** Hover state on photo cards should be a *slow* (350ms) `scale: 1.0 → 1.02` lift, never a tilt or rotate. Subtle weight change, like lifting a polaroid off a table.
+### 1.7 Motion
 
----
+Reduce-motion-friendly. Observe `prefers-reduced-motion: reduce` and disable all non-essential animations.
 
-### 1g. Hangul integration
+- **Polaroid enter animation:** a 200ms fade-in + `transform: rotate(-8deg) scale(0.98) → rotate(-2deg) scale(1)` — as if the photo is being placed onto the page by hand. Triggered on scroll-into-view, runs once, never repeats.
+- **Hover-tilt on polaroids (desktop only):** `rotate(-2deg) → rotate(0deg)` with a 250ms transition. Tiny interaction that says "someone just picked this photo up."
+- **Maru sticker hover-bob:** a 150ms `translateY(-3px)` on hover. Gentle. (No repeating float animation — we do not want ambient motion.)
+- **No parallax, no scroll-jacking, no sticky video hero, no auto-playing carousel.** These are all boutique-hotel tells.
+- **Page transitions:** none — standard Next.js link behavior, with a ~200ms fade if it comes cheap. Not required for MVP.
 
-The references that matter here are §1.7 Teo Yang Studio (quiet bilingualism), §5.3 Seoul Hanok brand (Hangul as graphic), §5.2 Onjium (Korean cultural seriousness with restraint), and §4.3 Lo-ol Type Foundry (technical pairing).
+### 1.8 Hangul integration
 
-**Recommended approach: Hangul as decorative graphic + Hangul as honest signature, but English is the body language of the site.**
+Locked: **light sprinkle, bilingual but not translated.**
 
-Three concrete moves:
+Specific placements:
 
-#### Move 1 — Oversized Hangul as decorative bg glyph in each hero
-One Hangul word per page, set in Pretendard or a display Hangul face, sized at 12–16rem, opacity 0.06–0.08, positioned behind the hero text. Per page:
-- Home: 엄마 (Eomma — Mom)
-- Tours: 동네 (Dongne — neighborhood)
-- Cooking: 집밥 (Jipbap — home cooking)
-- Stay: 우리집 (Uri-jip — our house)
+- **Brand lockup:** "Eunjung's Table" primary, "은정의 식탁" beneath or beside it in a smaller rounded sans (or hand-lettered if we commission the logo). Both visible; neither labeled.
+- **은정 hanko stamp** in one polaroid corner per page (see decorative element 8).
+- **"from 엄마" Caveat sign-offs** — section-closing Caveat marginalia signed with "— love, 엄마" instead of English.
+- **"우리집" hand-drawn label** — appears exactly once, on the Stay page hero, hand-lettered over the apartment photo.
+- **Food names** — Hangul in parentheses after English on first use: *Bulgogi (불고기)*. Then English-only for the rest of the paragraph.
+- **Nav** stays English. Do not bilingual-label nav items — that's a corporate-government-site tell.
 
-This is the Seoul Hanok brand move (§5.3) reduced to one moment per page. Powerful and unmistakable.
-
-#### Move 2 — Caveat-style "from Mom" labels paired with Hangul transliteration
-The "— Mom" byline below each Caveat pull quote becomes:
-```
-— 엄마 / Mom
-```
-Tiny, in muted text, set in Caveat for "Mom" and Pretendard for "엄마." This is a low-key way to signal "this is a real Korean person, not 'asian-themed'."
-
-#### Move 3 — Place names get a small Hangul caption underneath
-On the Tours page's "Mom's Favorite Places" gallery, each photo caption reads:
-```
-Tancheon Stream
-탄천
-```
-English first (audience-led), Korean below in muted Pretendard. References: §1.2 Satoyama Jujo (Japanese-English bilingualism done quietly).
-
-**What we're NOT doing:**
-- Full Korean translation of the site (the brief says English-only for now).
-- Hangul in nav, buttons, or section labels (would add cognitive load for non-Korean readers).
-- Calligraphic brushed Hangul (reads "festive Korean," wrong register — Onjium's lesson §5.2).
+Ref: WOOHEE Studio's bilingual-without-apology nav; the Hangul isn't flagged, it just exists alongside English.
 
 ---
 
 ## 2. Page-by-page design beats
 
-### Home page
+Three to five specific, concrete design moves per page. The goal: each page needs **one moment you remember** and several small personality details around it.
 
-1. **Hero with tilted photo of Mom + 엄마 backdrop glyph** — the asymmetric photo from Distinctiveness Move #1, with the oversized Hangul behind. Sets the brand in 2 seconds.
-2. **"Meet Mom" section ends with a Caveat-signed paragraph.** Following Satoyama Jujo's creative-director sign-off (§1.2). Three short paragraphs in Fraunces body weight, then one paragraph signed `— 엄마 / Mom` in Caveat.
-3. **Three-experiences preview as an asymmetric grid**, not three equal cards. Tours = 7 cols wide with the largest photo, Cooking = 5 cols, Stay = full-width banner card below. Mirrors the priority order spec. Reference: Kinfolk off-center compositions (§3.2).
-4. **Gallery preview uses square crops in a 2-col mobile / 4-col desktop grid**, with one image randomly oversized to 2x2. Reference: Ace Hotel Editorial (§1.6).
-5. **Final CTA is *not* a sticky-bottom button — it's a section-break invitation** with body copy ("If something here caught your eye, send Mom a note") and a single pill button. Reference: Alison Roman newsletter signups break flow naturally (§2.1).
+### 2.1 Home
 
-### Tours page
+1. **Hero polaroid stack** — three warm photos (Eunjung smiling / kitchen window / Maru), white borders, hand-lettered masthead above. Tagline in a Caveat aside with a hand-drawn arrow to the "Explore Tours" CTA.
+2. **"Meet Mom" section with sticky-note aside** — block of body copy, but a Caveat sticky-note card tilted -2° at the end reads: *"ps — if you don't like spicy food, tell me. I have a softer kimchi recipe. — 엄마"*
+3. **Three Experiences as scrapbook cards** — Tours / Cooking / Stay as three polaroid-framed cards, each with a washi-tape corner in a different pattern. Photos of: a Tours moment, a cooking moment, the room.
+4. **Gallery preview as "fridge magnets"** — 6 square photos taped to a subtle cream background with faint tape corners. Tap to expand into a lightbox.
+5. **Footer signoff** — "Thanks for stopping by. — 은정" in Caveat, plus a small Maru sticker.
 
-1. **Hero photo is *not* of Mom* — it's a Seoul backstreet alley or a Tancheon path with one figure walking away. The headline carries the "see Korea through" line; Mom appears later. Reference: Roads & Kingdoms documentary photography (§3.3).
-2. **"The Concept" section uses long-form prose in Fraunces body, max-w-prose, with one Caveat pull-quote inset right.** Reference: Satoyama Jujo's expandable narrative (§1.2).
-3. **"Mom's Favorite Places" uses the editorial grid asymmetric break.** 1 large + 2 small + 1 medium, every photo with bilingual caption (English + 한글). Reference: Wallpaper* feature card grid (§3.5).
-4. **"How It Works" three steps in numbered Fraunces big italic display, each step a separate row** with image-left / text-right alternating rhythm. The numbers are *huge* — 8rem Fraunces italic in cream-200 behind small-caps step labels. Reference: Cereal page numbering (§3.1).
-5. **Sample itineraries presented as case-study cards** — Alex Hunting Studio's case study layout (§4.1) — full-bleed cover image, small-caps category, italic title, two paragraphs of body.
+### 2.2 Tours
 
-### Cooking page
+1. **Hero: a map polaroid** — a photo of a *real* hand-annotated paper map of Jeongja and surroundings, polaroid-framed. Mom's actual handwriting on the map if possible. If not, a Caveat-font overlay annotating three spots.
+2. **"How It Works" as a three-panel recipe card** — numbered steps in a kraft-paper card with a hand-drawn arrow between them.
+3. **"Mom's favorite places" gallery** — each photo is a polaroid with a Caveat-font caption in Mom's voice: *"the bakery lady here remembers my order"*, *"this stream is where I walked Maru every morning for 9 years"*. Captions do the heavy lifting.
+4. **Sample itineraries as sticker-tabs** — each itinerary opens as an accordion with a cute custom sticker (a bowl, a mountain, a temple) next to its title.
+5. **Inquiry CTA as a handwritten note card** — "tell me what you're curious about — I'll write back" in Caveat, with the Tally form link underneath.
 
-1. **Hero is a *food close-up*, not Mom cooking** — references warm-graded food photography (Alison Roman §2.1). The photo of Mom's hands shaping kimbap appears in the "Atmosphere Gallery" section, not the hero.
-2. **"The Experience" section is a 2-column block on md+** — image-left of the kitchen, text-right with a Caveat sentence inset ("There's no recipe written down — that's how you'll learn"). Reference: Pytts House layout rhythm (§1.3).
-3. **Three menus presented as long descriptive cards, not a comparison table.** Each menu is a stand-alone editorial card with menu name (Fraunces italic display-md), three dish names with one-sentence descriptions in body, an "If you have allergies or want to cook something else, just ask" closing line in Caveat. Reference: The PIG long room names (§1.5).
-4. **Atmosphere Gallery uses the editorial grid asymmetric break** — same pattern as Tours's favorite places, but tighter crops (kitchen tools, hands, ingredients).
-5. **One section break is *just the table set with a finished meal* full-bleed** — no headline, no caption, just the photo with `min-h-[60svh]`. Quiet beat that lets the page breathe. Reference: Cereal Magazine page breakers for time of day (§3.1).
+### 2.3 Cooking Class
 
-### Stay page
+1. **Hero: an overhead shot of Mom's kitchen counter mid-cook** — polaroid-framed, with a small "은정" hanko stamp in the corner.
+2. **Menus as three recipe cards** — kraft-paper cards, one per menu, each with a hand-drawn divider between dishes. Menu name hand-lettered. "What you'll cook together" bullets set in Nunito, "Allergies / vegetarian" note in Caveat at the bottom.
+3. **"Not on the menu?" sticky-note** — the "tell me what you'd like to learn" custom-request line is a tilted Caveat sticky-note, not a standard paragraph. Makes clear this is a real conversation, not a dropdown.
+4. **Atmosphere gallery** — 4–6 square photos in a scrapbook grid (slight rotations, overlapping corners). Include the *imperfect* ones — flour on the counter, a hand reaching for a pot lid.
+5. **Two-line testimonial in Caveat** — a guest's handwritten-feeling quote, not a styled pull-quote.
 
-1. **Hero is the room, framed through a doorway** — composition matters: don't shoot the room flat-on like a real-estate listing. Reference: Pytts House tall vertical photos with soft framing (§1.3).
-2. **"The Home & The Room" alternates image/text rows** — bedroom photo + paragraph, bathroom photo + paragraph, common-area photo + paragraph. Reference: Satoyama Jujo modular property cards (§1.2).
-3. **"Mom's Home Cooking, Every Day" gets a single oversized food photo + Caveat callout** — Caveat reads "Dinner is ready when you get home" or similar. The single biggest photo on the page lives here. Reference: Alison Roman recipe hero (§2.1).
-4. **"Why Jeongja?" section uses the sage pop color** (Palette 1's optional pop, §1b). Sage callout box with Tancheon facts + a Tancheon-walk photo. Mirrors the brief's emphasis on Jeongja being "the most livable" Korean city Youseop has tried. Reference: Palette 1 optional pop justification.
-5. **"Meet Maru" is its own intentional section break** — a single full-bleed photo of Maru, Caveat caption "Maru. 14. Schnauzer. Will sit on your feet.", small body paragraph below. Treat Maru like a magazine sidebar feature. Reference: Cereal sidebar treatments (§3.1) and the "human-centered storytelling" of Satoyama Jujo (§1.2).
+### 2.4 Stay
+
+1. **Hero: a hand-drawn floor plan of the apartment** — commissioned SVG illustration. Simple lines, labeled rooms in both English and Hangul (*Your Room / 네 방*, *Kitchen / 부엌*, *Tancheon view / 탄천*). One of the clearest "a person drew this for you" moves on the site.
+2. **"Your room" polaroid stack** — 3–4 polaroid photos of the private room, the private bathroom, and the window view, slightly overlapping with washi-tape accents.
+3. **"One cup of coffee in the morning at the kitchen window" Caveat note** — a Caveat marginalia line set next to the window photo. Mom's voice, not marketing copy.
+4. **"What's included" as a cute icon list** — hand-drawn icons (bowl for dinner, cup for coffee, key for the key, bed, wifi) with Nunito labels. Not Feather/Lucide icons — custom, slightly wobbly lines.
+5. **Meet Maru sticker card** — a round polaroid/sticker of Maru with hand-lettered "Maru • 14 • good boy • 마루". On hover, Maru gently bobs (see §1.7 motion).
+6. **"Why Jeongja?" as a cream notebook page** — one kraft-paper card with Mom's three-sentence pitch, a hand-drawn subway-stop diagram showing "5 min → Jeongja, 20 min → Gangnam, 40 min → Myeongdong," and a small sage-accent sketch of Tancheon waterline.
 
 ---
 
-## 3. Distinctiveness checklist (revised)
+## 3. Distinctiveness checklist
 
-The dev plan has 5 distinctiveness moves. **Keep all 5.** Add 4 more from the research:
+Eight moves. The final site must pass every one of these, or it's drifting back toward agency-designed. These fully replace the previous round's distinctiveness checklist.
 
-**Original 5 (kept verbatim from `03-dev-plan.md` §1.7):**
-1. Asymmetric tilted-photo hero.
-2. Faint SVG paper-grain texture overlay on `<body>`.
-3. Caveat handwritten font reserved exclusively for Mom's voice.
-4. Full-bleed photos with a tiny 2px radius.
-5. Oversized low-opacity Fraunces section numbers in the background of section labels.
-
-**Added (from research):**
-
-6. **One oversized faded Hangul word per page** as a decorative bg glyph (§1g Move 1). 엄마 / 동네 / 집밥 / 우리집 per page. Identifies this as a Korean person's site, not a "Korean experience" template.
-
-7. **Bilingual photo captions for places.** Every place name on the Tours and Stay pages is captioned `English / 한글`, both in muted small type. Quiet, honest, expensive-feeling.
-
-8. **One asymmetric editorial grid break per page** — Mom's favorite places, atmosphere gallery, Maru section, Why Jeongja. Stops the alternating-rows rhythm from becoming sing-songy. From Kinfolk (§3.2) + Cereal (§3.1).
-
-9. **Caveat-signed paragraph endings.** Mom's bio paragraph, the cooking class intro, the stay description, the final CTA — each ends with a sentence in Caveat as if Mom hand-wrote it. From Satoyama Jujo's creative-director sign-off (§1.2) and Alison Roman's first-person voice (§2.1).
-
-**Distinctiveness tests (the site must pass all of these):**
-
-- [ ] Open the homepage. Cover the logo with your thumb. Could this site be confused with a Tailwind UI template? (Pass = no.)
-- [ ] Could a generic AI image generator have produced any photo on the page? (Pass = no — every photo is identifiably Mom's actual home / kitchen / Jeongja / Maru.)
-- [ ] Does any section use the pattern hero-features-testimonials-CTA in that order? (Pass = no.)
-- [ ] Are there any rounded-2xl cards anywhere? (Pass = no.)
-- [ ] Are there any gradient blobs behind any heading? (Pass = no.)
-- [ ] Is there a "Trusted by" logo strip? (Pass = no.)
-- [ ] Is there a sticky bottom CTA bar? (Pass = no.)
-- [ ] Does the page bounce on scroll? (Pass = no.)
-- [ ] Is there an emoji in any feature card icon? (Pass = no — but the literal Maru section CAN use the 🐶 spec'd in `00-site-plan.md` as a one-off because Maru is Maru.)
-- [ ] Does any heading use Fraunces bold instead of Fraunces italic + opsz scaling? (Pass = no — the discipline is opsz + italic.)
-- [ ] Is Caveat used outside of (a) Mom signatures and (b) one pull-quote per page? (Pass = no.)
-- [ ] Does any section title look identical in size and treatment to another? (Pass = no — there should be hierarchical variation that reads as editorial, not template.)
+- [ ] **1. A hand-drawn or hand-lettered asset appears on every page.** Not a font pretending to be handwriting — an actual SVG of a scribble, arrow, underline, marginalia note, or floor plan. At least one per page.
+- [ ] **2. Every photograph that appears in a hero or feature slot uses the polaroid frame.** Consistently. Full-bleed editorial photography is forbidden in hero/feature slots.
+- [ ] **3. Mom's voice (Caveat font, first-person, affectionate) appears at least once per page** — as a sticky-note, marginalia, or sign-off. Never use Caveat for UI chrome.
+- [ ] **4. Hangul appears on every page, and is never flagged as "translation."** It lives alongside English, unmarked.
+- [ ] **5. At least one deliberately "imperfect" moment per page.** A tilted card, a misaligned washi-tape, flour on the counter in the photograph. If every element is aligned and clean, the site has failed.
+- [ ] **6. Maru appears somewhere on at least three of the four pages.** A sticker, a photo, a caption. He's the mascot whether we formalize it or not.
+- [ ] **7. No "Trusted by" logo strip, no gradient hero overlay, no lucide-react icon grid, no "three-up feature cards with identical structure," no stock photography.** If any of these appear, the site has failed.
+- [ ] **8. The footer is a signoff, not a sitemap.** Minimum: "Thanks for stopping by. — 은정" with a small Maru sticker or hanko stamp. Optional: a tiny email address in plain text. No social-icon grid unless strictly necessary.
 
 ---
 
 ## 4. Open design decisions for Youseop
 
-These need answers before Task 2 (design-system implementation) can start.
+Answer before Task 2 (design-system implementation) can start.
 
-- [ ] **D1. Color palette.** Pick one of Palette 1 (Hanok Morning, terracotta + sage pop), Palette 2 (Sunlit Kitchen, burnt sienna + olive pop), or Palette 3 (Tancheon Morning, sage primary + terracotta pop). My recommendation is Palette 1.
-
-- [ ] **D2. Hangul integration depth.** Pick one:
-  - (a) Full Hangul integration: oversized hangul backdrop glyphs + bilingual place captions + 엄마/Mom signature pairings (recommended).
-  - (b) Decorative only: oversized hangul backdrop glyphs in heroes, no bilingual captions.
-  - (c) Skip Hangul entirely. English-only audience, no Hangul characters anywhere on the site.
-
-- [ ] **D3. Mom's name.** Site-wide, when we sign off paragraphs in Caveat, do we use:
-  - (a) `— 엄마 / Mom` (recommended, from §1g Move 2)
-  - (b) `— Mom` only
-  - (c) Mom's actual first name (Eunjung) — only if Youseop is comfortable with it being on the public site.
-  This decision affects copy across all four pages, not just one moment.
-
-- [ ] **D4. Maru section emoji.** The site plan (`00-site-plan.md` §6 Stay page) uses 🐶 in the section heading. Confirm: keep the literal emoji as a one-off (Maru is Maru, the warmth justifies it) or replace with text-only "Meet Maru" + a small SVG dog silhouette.
-
-- [ ] **D5. Hero photo subject per page.** Confirm:
-  - Home: Mom (smiling, mid-action, not staged portrait).
-  - Tours: a Seoul backstreet or Tancheon path with one walking figure (NOT a Mom portrait).
-  - Cooking: a food close-up (NOT Mom cooking — Mom appears in atmosphere gallery).
-  - Stay: the room shot through a doorway (NOT a flat real-estate angle).
-  This requires planning the photo shoot accordingly. Confirm before assets are captured.
-
-- [ ] **D6. Tagline copy lock.** "See Korea through a local mom's eyes" is the spec's Tours headline. The Home hero needs its own one-liner. Pick one:
-  - (a) "Your Korean mom in Seoul." (current spec candidate)
-  - (b) "Stay with a Korean mom in Jeongja-dong."
-  - (c) "Three ways to spend time with a Korean mom."
-  - (d) Write your own.
-  This locks the brand voice tone for everything downstream.
+- [ ] **1. Color palette.** Which one: (A) Butter Kitchen, (B) Warm Scrapbook — *my rec*, or (C) Korean Dessert Café? See §1.2. One sentence on *why* helps downstream decisions.
+- [ ] **2. Typography pairing.** Which one: (A) Fraunces(soft) + Nunito + Caveat — *my rec*, (B) Quicksand + Nunito + Patrick Hand, or (C) Fraunces(soft) + DM Sans + Shadows Into Light? See §1.3.
+- [ ] **3. Polaroid framing vs. scrapbook collage as the hero pattern.** Confirm Polaroid Stack (§1.1 A) as the hero? Or bias toward the Sticker Collage (§1.1 C) if you want to commit to commissioning illustrations?
+- [ ] **4. Illustration strategy — photography-heavy or illustration-heavy?** Pick one of:
+  - (a) **Photography-first**: we rely on real photos (polaroids of Mom, kitchen, Maru, rooms, tours), with SVG washi-tape and hand-drawn arrows as the only illustration. *Cheaper and faster.*
+  - (b) **Illustration-augmented**: (a) + we commission 4–6 custom watercolor/ink illustrations (hand-drawn apartment floor plan, Maru sticker, Tancheon scene, section dividers). *~2–4 weeks of commissioned work; best visual ceiling.*
+  - (c) **Illustration-first**: most of the page is illustrated and photography is secondary. *Too slow for launch; revisit in v2.*
+  - *My rec: start at (a), plan to upgrade to (b) within 6 weeks of launch.*
+- [ ] **5. Do we commission a hand-drawn portrait/mark of Eunjung as the brand mark?** Options: (a) no — a hand-lettered wordmark is enough; (b) yes — a small line-drawn portrait of Eunjung that appears in the footer and as the favicon; (c) yes, but of Maru instead, as a brand mascot. *My rec: (b) for the final site, but launch with (a) and upgrade.*
+- [ ] **6. Hangul typography.** Use Noto Sans KR (free, neutral, safest), or hand-letter all Hangul (highest personality, most work)? *My rec: Noto Sans KR for body Hangul + hand-lettered logo/masthead only. No middle ground.*
 
 ---
 
-## Closing note
+## 5. Implications for the existing dev plan
 
-Every design move in this doc is anchored to a reference site URL in `05-design-references.md`. If a future contributor (or future-you) questions a choice, the answer is "because this reference does it and the reference is in the bibliography."
+**`03-dev-plan.md` § 1 (Design System) is now out of date.** The old section documented:
 
-The single biggest risk to this site is *over-design*. The references that work — Satoyama Jujo, Alison Roman, Onomichi U2 — all share one trait: they trust the photos and the words. They don't dress them up. The temptation, especially with Fraunces and Caveat in the toolbox, will be to flourish. Resist. The flourish is the photo of Mom and the word 엄마. Everything else holds back.
+- A cream + terracotta *or* sage palette (Options A/B).
+- Fraunces + DM Sans + Caveat typography.
+- An older "warm editorial" set of distinctiveness moves.
+
+All of that needs surgical rewriting to match this doc:
+
+- § 1.1 Color Palette → rewrite to match §1.2 of this doc, reflecting the chosen palette (pending Youseop's answer to open-decision #1).
+- § 1.2 Typography → rewrite to match §1.3 (pending answer to #2). `next/font` config in the dev plan references Fraunces axes `["opsz", "SOFT", "WONK"]` — if we stay on Fraunces we need to *remove* the WONK axis and lock SOFT to a single value; if we move off Fraunces we need to swap imports.
+- § 1 Distinctiveness moves → rewrite to match §3 of this doc (the eight-item checklist).
+- Add a new subsection for: polaroid framing component, washi-tape SVG library, Caveat-marginalia component, hanko-stamp asset, Maru-sticker asset.
+
+**This rewrite is a follow-up task and is intentionally not done here.** The orchestrator should open a new task to rewrite `03-dev-plan.md` § 1 after Youseop answers the six open decisions above. Do not begin Task 2 (design-system implementation) against the current § 1 — it will produce a site in the rejected editorial direction.
