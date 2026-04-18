@@ -1,0 +1,44 @@
+{
+  "hero": {
+    "kicker": "Cooking with Eunjung",
+    "title": "Cook alongside her, then sit down and eat.",
+    "lead": "Three set menus, adjusted for allergies and whatever's good at the market that week. You roll, chop, season, and taste — then Eunjung pours tea and everyone eats what you made together.",
+    "imageId": "cooking-hero-01",
+    "imageCaption": "supper spread"
+  },
+  "experience": {
+    "paragraphs": [
+      "This isn't a class in a studio. It's an afternoon in Eunjung's actual kitchen, with her actual ingredients, at the counter where she cooks dinner every night. You take off your shoes, put on an apron, and work next to her — not in front of her.",
+      "She goes at your pace. Questions are welcome, mistakes are welcome, and nobody is in a rush. The cooking takes about three hours, which includes plenty of time for tea and chatting.",
+      "When everything's ready you sit down together at the kitchen table and eat what you made. Leftovers go home with you in a Tupperware, along with a small jar of her kimchi if you want one."
+    ]
+  },
+  "menus": [
+    {
+      "id": "menu-a-kimbap-bulgogi",
+      "name": "Menu A — Kimbap & Bulgogi",
+      "dishes": ["Kimbap", "Bulgogi", "Seasonal side dish"],
+      "description": "The classic introduction. You'll roll kimbap from scratch with spinach, egg, beef and pickled radish, then marinate and grill bulgogi at the table. A seasonal banchan rounds it out.",
+      "imageId": "cooking-food-kimbap-01"
+    },
+    {
+      "id": "menu-b-kimbap-japchae",
+      "name": "Menu B — Kimbap & Japchae",
+      "dishes": ["Kimbap", "Japchae", "Seasonal side dish"],
+      "description": "A gentler, mostly-vegetable menu. Hand-rolled kimbap plus japchae — glass noodles with mushrooms, spinach, carrot and a little soy and sesame. Naturally vegetarian-friendly.",
+      "imageId": "cooking-food-japchae-01"
+    },
+    {
+      "id": "menu-c-chicken-kimbap",
+      "name": "Menu C — Korean-style Chicken & Kimbap",
+      "dishes": ["Korean-style chicken", "Kimbap", "Seasonal side dish"],
+      "description": "For meat lovers. A homestyle braised or grilled chicken with gochujang glaze, hand-rolled kimbap on the side, and a fresh banchan. Best with barley tea or a small glass of makgeolli.",
+      "imageId": "cooking-food-chicken-01"
+    }
+  ],
+  "customMenuNote": "Want to learn something else? Tell us and we'll plan it together.",
+  "dietaryNote": "Vegetarian, vegan, and allergy-friendly menus are no problem with a few days' notice.",
+  "seasonalSpecial": "Every menu includes one side dish built around what looked best at the market that morning — young radish kimchi in spring, fresh cold noodles in summer, pan-fried jeon in autumn, a warming stew in winter.",
+  "reviewIds": ["maria-cooking", "david-cooking"],
+  "inquiryCtaLabel": "Cook with Eunjung →"
+}

@@ -1,0 +1,102 @@
+{
+  "hero": {
+    "kicker": "Tours with Eunjung",
+    "title": "Places she'd take her own kids.",
+    "lead": "A day out with Eunjung isn't a tour — it's her showing you the corner of Korea she loves most, at her own pace. She speaks gentle English, can drive you herself, and always knows where to eat.",
+    "imageId": "tours-hero-01",
+    "imageCaption": "a quiet Seoul street"
+  },
+  "concept": {
+    "paragraphs": [
+      "Nothing on this page is scripted. There is no fixed route and no set of must-see stops. Eunjung plans the day around what you're curious about, what the weather is doing, and what happens to be in season that week.",
+      "She can take you deep into Seoul's side streets — the bookbinder she buys paper from, the tea house her mother used to visit — or an hour outside the city to a pottery village or a quiet hill where nobody speaks English and the food is better for it.",
+      "She'll pick you up in her car or meet you at Jeongja Station. Lunch somewhere she trusts. Back home by dusk, or later if you're having too much fun to leave."
+    ]
+  },
+  "places": [
+    {
+      "id": "ikseon-dong",
+      "name": "Ikseon-dong tea alleys",
+      "neighborhood": "Seoul",
+      "blurb": "A warren of narrow hanok alleys that have turned into tea houses and tiny shops. Eunjung knows which ones are worth it and which are Instagram traps.",
+      "imageId": "tours-seoul-alley-01"
+    },
+    {
+      "id": "bukchon-steps",
+      "name": "Bukchon stone steps",
+      "neighborhood": "Seoul",
+      "blurb": "Not the postcard street. The quiet side of Bukchon, where the rooflines are still crooked and somebody's grandmother waves from a courtyard.",
+      "imageId": "tours-seoul-bukchon-01"
+    },
+    {
+      "id": "seochon-bookshop",
+      "name": "Seochon hidden bookshop",
+      "neighborhood": "Seoul",
+      "blurb": "A second-floor used bookshop that smells like paper and pine. Tea downstairs after, at a place with four seats and a cat.",
+      "imageId": "tours-seoul-bookshop-01"
+    },
+    {
+      "id": "gwangjang-market",
+      "name": "Gwangjang market, the back row",
+      "neighborhood": "Seoul",
+      "blurb": "Past the bindaetteok tourists line up for, there's an aunt who's been making mayak gimbap since 1982. Eunjung will introduce you.",
+      "imageId": "tours-seoul-market-01"
+    },
+    {
+      "id": "jongmyo",
+      "name": "Jongmyo shrine, near closing",
+      "neighborhood": "Seoul",
+      "blurb": "Slip in an hour before it empties out. The oldest Confucian shrine still in use, cool stone under old pines, almost no one around.",
+      "imageId": "tours-seoul-temple-01"
+    },
+    {
+      "id": "yeoju-pottery",
+      "name": "A pottery village in Yeoju",
+      "neighborhood": "Outskirts",
+      "blurb": "Two hours east. The village where Eunjung buys her own ceramics. Lunch at a place with no English menu and a wood stove.",
+      "imageId": "tours-outskirts-pottery-01"
+    },
+    {
+      "id": "gapyeong-countryside",
+      "name": "Gapyeong countryside",
+      "neighborhood": "Outskirts",
+      "blurb": "Rice paddies, pine hills, a tiny roadside pajeon place she stops at every time. Good for an autumn day.",
+      "imageId": "tours-outskirts-gapyeong-01"
+    },
+    {
+      "id": "tancheon-sunrise",
+      "name": "Tancheon at sunrise",
+      "neighborhood": "Jeongja",
+      "blurb": "If you're staying with her: wake up early, cross the road, walk along the stream as the herons fish. Ends in a bakery she likes.",
+      "imageId": "tours-jeongja-tancheon-01"
+    }
+  ],
+  "howItWorks": [
+    {
+      "title": "Tell Eunjung about your trip",
+      "body": "A few lines about when you're in Korea, how long you have, and what you're curious about. She replies within a day or two."
+    },
+    {
+      "title": "She designs a custom day",
+      "body": "Based on the weather, the season, and what's open. She'll send a rough plan and you can add, cut, or swap anything."
+    },
+    {
+      "title": "Spend the day with your Korean mom",
+      "body": "She picks you up or meets you at Jeongja Station. Lunch is on her. Home by dusk, or later — whatever the day asks for."
+    }
+  ],
+  "sampleItineraries": [
+    {
+      "title": "A day in Seoul's quiet corners",
+      "body": "Meet at Anguk Station. Slow loop through Bukchon's back alleys, a stop at a traditional bookbinder, tea where her mother used to go. Lunch at a place with hand-cut noodles. Jongmyo shrine just before it closes. Back home by early evening.",
+      "imageId": "tours-itinerary-seoul-01"
+    },
+    {
+      "title": "Outside the city — nature and local food",
+      "body": "Eunjung drives. Two hours out to a pottery village in Yeoju, a kiln visit, lunch with the owner. Afternoon walk in the hills around Gwangju. Home the long way, through rice paddies at golden hour.",
+      "imageId": "tours-itinerary-outskirts-01"
+    }
+  ],
+  "reviewIds": ["anna-tours", "david-tours"],
+  "inquiryCtaLabel": "Tell Eunjung about your trip →"
+}

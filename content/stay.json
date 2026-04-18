@@ -1,0 +1,54 @@
+{
+  "hero": {
+    "kicker": "Stay with Eunjung",
+    "title": "A quiet room, a daily dinner, a second family.",
+    "lead": "One guest room and private bathroom in Eunjung's home in Jeongja-dong. Home-cooked dinner every evening. Five minutes to Jeongja Station. Best if you're staying a week or more.",
+    "imageId": "stay-hero-01",
+    "imageCaption": "morning light"
+  },
+  "room": {
+    "paragraphs": [
+      "A private guest room with a queen bed, blackout curtains, a proper desk facing the window, and soft linen sheets. The bathroom next door is yours alone for the length of your stay — rain shower, hotel-grade toiletries Eunjung actually uses herself.",
+      "The room is warm in winter, cool in summer, and quiet enough at night that you'll hear the wind in the trees outside. Eunjung knocks before she comes in, always."
+    ]
+  },
+  "dailyDinner": {
+    "blurb": "Every evening Eunjung cooks a home meal and you eat at the kitchen table with her. Some nights it's doenjang-jjigae with tofu and zucchini, some nights it's bulgogi and japchae, some nights it's whatever she picked up at the market that afternoon. Always rice, always a soup, always three or four banchan. Breakfast is simple — rice, an egg, last night's sides — and it's there whenever you want it."
+  },
+  "whyJeongja": {
+    "kicker": "Why Jeongja",
+    "title": "Not Seoul, but close. Quieter, kinder, walkable.",
+    "body": "Youseop lived in five Korean cities before settling on Jeongja as the most livable. Tancheon stream runs right past the building and you can walk along it for miles. Parks line the water, the neighborhood market is a seven-minute walk, and by nightfall it's so quiet you can hear cicadas in summer. Gangnam is twenty minutes on the subway when you want the loud city back."
+  },
+  "gettingAround": [
+    { "place": "Jeongja Stn.", "value": "5 min walk" },
+    { "place": "Gangnam Stn.", "value": "20 min subway" },
+    { "place": "Myeongdong", "value": "40 min bus" },
+    { "place": "Hongdae", "value": "~50 min bus or subway" },
+    { "place": "Incheon Airport", "value": "~80 min bus" }
+  ],
+  "meetMaru": {
+    "kicker": "House resident",
+    "name": "Maru",
+    "caption": "Maru. 14. Schnauzer. Will sit on your feet.",
+    "allergyNote": "Please skip the Stay if you have dog allergies — it's his house too.",
+    "imageId": "maru-01"
+  },
+  "houseRules": [
+    "Shoes off at the door.",
+    "Quiet hours from 10pm to 7am (the walls are thin in the kindest way).",
+    "Please tell Eunjung if you have dog allergies before you book — Maru lives here.",
+    "Guests are welcome in the shared kitchen and living room any time.",
+    "No smoking indoors."
+  ],
+  "whatsIncluded": [
+    "Private guest room with a queen bed and desk",
+    "Private bathroom next to your room",
+    "Home-cooked dinner every evening",
+    "Simple breakfast any time you want it",
+    "Fiber Wi-Fi that works well for remote work",
+    "Towels and bed linens, changed weekly"
+  ],
+  "reviewIds": ["maya-stay", "luc-stay"],
+  "inquiryCtaLabel": "Stay at Eunjung's →"
+}

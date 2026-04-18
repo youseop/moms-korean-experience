@@ -1,0 +1,88 @@
+{
+  "hero": {
+    "tagline": "Your Korean mom in Seoul.",
+    "lead": "Local tours, home cooking, and a quiet room in Jeongja — with Eunjung, a Korean mom who loves hosting travelers like you.",
+    "primaryCta": { "label": "See the three ways", "href": "#experiences" },
+    "secondaryCta": { "label": "Ask Eunjung", "href": "#inquire" },
+    "imageId": "mom-portrait-01",
+    "imageCaption": "hi! come over for dinner."
+  },
+  "meetEunjung": {
+    "kicker": "Meet Eunjung",
+    "title": "She grew up cooking, and kept cooking.",
+    "paragraphs": [
+      "Eunjung has lived in Jeongja-dong for almost twenty years. Before that she was in Busan, and before that a small town outside Jeonju where her mother taught her how to ferment doenjang in a clay jar on the porch.",
+      "She started hosting travelers through her son Youseop's language students — people who had already been to Seoul once or twice and wanted something slower, quieter, more at home."
+    ],
+    "pullQuote": "I love when someone sits at my table for the second time. That's when they stop being a guest.",
+    "pullQuoteSignoff": "— Eunjung",
+    "imageIds": ["mom-candid-01", "mom-kitchen-01"]
+  },
+  "experiences": [
+    {
+      "id": "tours",
+      "kicker": "Tours",
+      "title": "Hidden corners, with Mom",
+      "blurb": "Not scripted, not touristy. Eunjung takes you to the places she and her family actually love — backstreets in Seoul, a quiet temple on a hill, a pottery village outside the city. She can drive you there herself.",
+      "ctaLabel": "See the tours",
+      "href": "/tours",
+      "imageId": "tours-hero-01",
+      "imageCaption": "a quiet alley in Seoul",
+      "stickerBadge": null
+    },
+    {
+      "id": "cooking",
+      "kicker": "Cooking class",
+      "title": "Cook alongside her",
+      "blurb": "Kimbap rolled on the counter, bulgogi sizzling in the pan, a seasonal side dish from whatever's at the market. Three set menus, allergy-friendly, and you eat what you make together.",
+      "ctaLabel": "Pick a menu",
+      "href": "/cooking",
+      "imageId": "cooking-hero-01",
+      "imageCaption": "supper spread",
+      "stickerBadge": "★ mom's favorite ★"
+    },
+    {
+      "id": "stay",
+      "kicker": "Stay",
+      "title": "A private room, a daily dinner",
+      "blurb": "A quiet room and private bathroom in Eunjung's home by Tancheon stream. Home-cooked dinner every evening. Five minutes to Jeongja Station. Best for travelers staying a week or more.",
+      "ctaLabel": "See the room",
+      "href": "/stay",
+      "imageId": "stay-hero-01",
+      "imageCaption": "morning light",
+      "stickerBadge": null
+    }
+  ],
+  "gallery": {
+    "kicker": "From her phone",
+    "title": "A few of her days.",
+    "caption": "Tap any photo.",
+    "items": [
+      { "imageId": "gallery-01", "alt": "A Seoul alley at night", "rotate": -1.2 },
+      { "imageId": "gallery-02", "alt": "Banchan on a table", "rotate": 0.8 },
+      { "imageId": "gallery-03", "alt": "A stream through a park", "rotate": -0.6 },
+      { "imageId": "gallery-04", "alt": "Fresh Korean ingredients", "rotate": 1.1 },
+      { "imageId": "gallery-05", "alt": "Tiled rooftops in Bukchon", "rotate": -0.9 },
+      { "imageId": "gallery-06", "alt": "A warm cup of Korean tea", "rotate": 0.5 }
+    ]
+  },
+  "whyJeongja": {
+    "kicker": "Why Jeongja",
+    "title": "Not Seoul, but close. Quieter, kinder, walkable.",
+    "body": "Youseop lived in five Korean cities before settling on Jeongja as the most livable. Tancheon stream runs right past the building. Parks line the water. Jeongja Station is five minutes on foot, Gangnam is twenty minutes on the subway, and by nightfall the neighborhood is so quiet you can hear cicadas in summer.",
+    "transit": [
+      { "place": "Jeongja Stn.", "value": "5 min walk" },
+      { "place": "Gangnam Stn.", "value": "20 min subway" },
+      { "place": "Myeongdong", "value": "40 min bus" },
+      { "place": "Tancheon", "value": "across the street" }
+    ]
+  },
+  "maru": {
+    "kicker": "House resident",
+    "name": "Maru",
+    "caption": "Maru. 14. Schnauzer. Will sit on your feet.",
+    "allergyNote": "Please skip the Stay if you have dog allergies.",
+    "imageId": "maru-01"
+  },
+  "featuredReviewIds": ["anna-tours", "david-cooking", "maya-stay"]
+}

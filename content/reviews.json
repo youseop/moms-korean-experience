@@ -1,0 +1,93 @@
+[
+  {
+    "id": "anna-tours",
+    "service": "tours",
+    "guestName": "Anna",
+    "guestLocation": "Berlin, Germany",
+    "date": "2025-09-12",
+    "quote": "Eunjung drove us an hour into Gyeonggi to a pottery village I had never heard of. We ate doenjang-jjigae at a place with no English menu, and she translated every word of a conversation with the owner. It was the best day of our trip.",
+    "avatarUrl": "https://i.pravatar.cc/240?img=47",
+    "imageIds": [],
+    "rating": 5,
+    "featured": true,
+    "mock": true
+  },
+  {
+    "id": "david-cooking",
+    "service": "cooking",
+    "guestName": "David",
+    "guestLocation": "Toronto, Canada",
+    "date": "2025-07-04",
+    "quote": "I came in expecting a class. I left with a friend, a family recipe for japchae, and a Tupperware of kimchi for the hotel. She made me feel like I had been cooking there my whole life.",
+    "avatarUrl": "https://i.pravatar.cc/240?img=33",
+    "imageIds": [],
+    "rating": 5,
+    "featured": true,
+    "mock": true
+  },
+  {
+    "id": "maya-stay",
+    "service": "stay",
+    "guestName": "Maya",
+    "guestLocation": "Melbourne, Australia",
+    "date": "2025-03-22",
+    "quote": "The room was simple and beautiful. The dinners were better than any restaurant I tried in Seoul. Walking along Tancheon every morning before work felt like belonging somewhere, not just visiting.",
+    "avatarUrl": "https://i.pravatar.cc/240?img=44",
+    "imageIds": [],
+    "rating": 5,
+    "featured": true,
+    "mock": true
+  },
+  {
+    "id": "david-tours",
+    "service": "tours",
+    "guestName": "David",
+    "guestLocation": "Toronto, Canada",
+    "date": "2025-06-18",
+    "quote": "She listened when I said I'd already done Gyeongbokgung and took us to Jongmyo instead. We ended up back at her place for dinner with her husband. I didn't know a day could be this full and this slow at the same time.",
+    "avatarUrl": "https://i.pravatar.cc/240?img=33",
+    "imageIds": [],
+    "rating": 5,
+    "featured": false,
+    "mock": true
+  },
+  {
+    "id": "maria-cooking",
+    "service": "cooking",
+    "guestName": "Maria",
+    "guestLocation": "Barcelona, Spain",
+    "date": "2025-05-09",
+    "quote": "I'm vegetarian and Eunjung rebuilt the whole bulgogi menu around king oyster mushrooms the morning I arrived. It didn't feel like a compromise — it felt like she'd been planning it all week. I've made her japchae four times since.",
+    "avatarUrl": "https://i.pravatar.cc/240?img=26",
+    "imageIds": [],
+    "rating": 5,
+    "featured": false,
+    "mock": true
+  },
+  {
+    "id": "luc-stay",
+    "service": "stay",
+    "guestName": "Luc",
+    "guestLocation": "Lyon, France",
+    "date": "2025-10-15",
+    "quote": "I stayed ten nights and worked remote most days. The desk, the Wi-Fi, the quiet — all of it worked. But it's the dinners I think about now, back in France. Maru sitting on my feet. Eunjung asking how my day was, and actually waiting for the answer.",
+    "avatarUrl": "https://i.pravatar.cc/240?img=12",
+    "imageIds": [],
+    "rating": 5,
+    "featured": false,
+    "mock": true
+  },
+  {
+    "id": "priya-cooking",
+    "service": "cooking",
+    "guestName": "Priya",
+    "guestLocation": "London, United Kingdom",
+    "date": "2025-04-02",
+    "quote": "She taught me how to roll kimbap. I've made it every weekend since and my kids ask for it now. Eunjung wrote the recipe out by hand and slipped it into my bag before I left.",
+    "avatarUrl": "https://i.pravatar.cc/240?img=48",
+    "imageIds": [],
+    "rating": 5,
+    "featured": false,
+    "mock": true
+  }
+]
