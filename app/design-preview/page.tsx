@@ -38,8 +38,11 @@ import { CrossSell } from "@/components/sections/detail/CrossSell";
 import { DetailHero } from "@/components/sections/detail/DetailHero";
 import { FactStrip } from "@/components/sections/detail/FactStrip";
 import { FAQ } from "@/components/sections/detail/FAQ";
+import { FloorPlan } from "@/components/sections/detail/FloorPlan";
 import { HandDrawnMap } from "@/components/sections/detail/HandDrawnMap";
+import { HouseRules } from "@/components/sections/detail/HouseRules";
 import { MenuCard } from "@/components/sections/detail/MenuCard";
+import { NearbyList } from "@/components/sections/detail/NearbyList";
 import { PlaceCard } from "@/components/sections/detail/PlaceCard";
 import { Process } from "@/components/sections/detail/Process";
 import { PullRibbon } from "@/components/sections/detail/PullRibbon";
@@ -466,6 +469,85 @@ export default function DesignPreviewPage() {
         description="The classic introduction. Mock copy here so designers can see the MenuCard's Eunjung's-pick sticker, washi tape, and recipe-card frame at the mobile column width."
         imageId="cooking-food-kimbap-01"
         accentColor="peach"
+      />
+
+      {/* FloorPlan — Stay-page signature component (Task 9). */}
+      <section className="px-[22px] pt-[14px] pb-[0px]">
+        <span className="font-stamp text-ink-soft inline-block -rotate-2 text-[12px] tracking-[0.08em] uppercase">
+          FloorPlan
+        </span>
+      </section>
+      <FloorPlan
+        rooms={[
+          {
+            id: "guest-room",
+            name: "guest room",
+            sub: "yours",
+            x: 14,
+            y: 16,
+            w: 150,
+            h: 110,
+            isGuest: true,
+          },
+          {
+            id: "guest-bath",
+            name: "guest bath",
+            sub: "yours ☆",
+            x: 170,
+            y: 16,
+            w: 80,
+            h: 58,
+            isGuest: true,
+          },
+          {
+            id: "kitchen",
+            name: "kitchen",
+            sub: "share",
+            x: 170,
+            y: 78,
+            w: 136,
+            h: 56,
+          },
+          {
+            id: "living",
+            name: "living + balcony",
+            sub: "share",
+            x: 14,
+            y: 132,
+            w: 292,
+            h: 72,
+          },
+        ]}
+      />
+
+      {/* NearbyList — Stay-page list (Task 9). */}
+      <section className="px-[22px] pt-[10px] pb-[0px]">
+        <span className="font-stamp text-ink-soft inline-block -rotate-2 text-[12px] tracking-[0.08em] uppercase">
+          NearbyList
+        </span>
+      </section>
+      <NearbyList
+        places={[
+          { place: "Jeongja Stn.", distance: "5 min walk", mode: "walk" },
+          { place: "Gangnam Stn.", distance: "20 min", mode: "subway" },
+          { place: "Myeongdong", distance: "40 min", mode: "bus" },
+          { place: "Hongdae", distance: "~50 min", mode: "bus or subway" },
+        ]}
+      />
+
+      {/* HouseRules — Stay-page list (Task 9). */}
+      <section className="px-[22px] pt-[10px] pb-[0px]">
+        <span className="font-stamp text-ink-soft inline-block -rotate-2 text-[12px] tracking-[0.08em] uppercase">
+          HouseRules
+        </span>
+      </section>
+      <HouseRules
+        rules={[
+          "Shoes off at the door.",
+          "Quiet hours from 10pm to 7am (the walls are thin in the kindest way).",
+          "Please tell Eunjung if you have dog allergies before you book — Maru lives here.",
+          "No smoking indoors.",
+        ]}
       />
     </>
   );
