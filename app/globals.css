@@ -67,6 +67,17 @@ body {
   padding: 0;
 }
 
+/* Smooth scroll for in-page anchors (e.g. InquiryCTA → #inquire). */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 body {
   background-color: var(--color-paper-kraft);
   /* dot-grid paper grain — two stacked radial-gradients */

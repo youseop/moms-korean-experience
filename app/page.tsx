@@ -1,65 +1,116 @@
-import Image from "next/image";
+/**
+ * Home (`/`) — the real shipping front page.
+ *
+ * Composes the Task 5 section components in priority order against the
+ * `home` data exported from `lib/content.ts`. All copy + imageIds live in
+ * `content/home.json`; this file just wires sections together.
+ *
+ * Anchor target `id="inquire"` lives on the `InquiryForm` component itself
+ * (see `components/sections/InquiryForm.tsx`), so InquiryCTA pills and any
+ * `href="#inquire"` link from elsewhere on the page scroll to the form.
+ * Smooth-scroll behavior is set globally in `app/globals.css`.
+ *
+ * The `/design-preview` route is a separate showcase that includes the
+ * same components against the same content; it must keep working.
+ */
 
-export default function Home() {
+import type { Metadata } from "next";
+
+import { ScribbleDivider } from "@/components/decoration/ScribbleDivider";
+import { Experiences } from "@/components/sections/Experiences";
+import { GalleryGrid } from "@/components/sections/GalleryGrid";
+import { Hero } from "@/components/sections/Hero";
+import { InquiryForm } from "@/components/sections/InquiryForm";
+import { MaruBlock } from "@/components/sections/MaruBlock";
+import { MeetEunjung } from "@/components/sections/MeetEunjung";
+import { Reviews } from "@/components/sections/Reviews";
+import { WhyJeongja } from "@/components/sections/WhyJeongja";
+import { home, reviewById, site } from "@/lib/content";
+
+export const metadata: Metadata = {
+  title: "Eunjung's Table — Your Korean mom in Seoul",
+  description: site.shortDescription,
+  openGraph: {
+    title: "Eunjung's Table",
+    description: site.shortDescription,
+    type: "website",
+  },
+};
+
+export default function HomePage() {
+  // Look up the featured reviews from the home content's id list. Filter
+  // out any unknowns defensively — `lib/content.ts` already throws at import
+  // for unknown ids, so this filter is belt-and-suspenders for the type
+  // narrowing rather than runtime safety.
+  const featured = home.featuredReviewIds
+    .map((id) => reviewById(id))
+    .filter((r): r is NonNullable<ReturnType<typeof reviewById>> => Boolean(r));
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+    <>
+      {/* 1. Hero — tagline + lead + polaroid + CTA. */}
+      <Hero
+        tagline={home.hero.tagline}
+        lead={home.hero.lead}
+        primaryCta={home.hero.primaryCta}
+        secondaryCta={home.hero.secondaryCta}
+        imageId={home.hero.imageId}
+        imageCaption={home.hero.imageCaption}
+      />
+
+      {/* 2. Meet Eunjung — overlapping polaroids + pull quote. */}
+      <MeetEunjung
+        kicker={home.meetEunjung.kicker}
+        title={home.meetEunjung.title}
+        paragraphs={home.meetEunjung.paragraphs}
+        pullQuote={home.meetEunjung.pullQuote}
+        pullQuoteSignoff={home.meetEunjung.pullQuoteSignoff}
+        imageIds={home.meetEunjung.imageIds}
+      />
+
+      <ScribbleDivider variant="dot" />
+
+      {/* 3. Experiences — Tours / Cooking / Stay (priority order). */}
+      <Experiences experiences={home.experiences} />
+
+      {/* 4. Gallery — 6 polaroid thumbs with Lightbox. */}
+      <GalleryGrid
+        kicker={home.gallery.kicker}
+        title={home.gallery.title}
+        caption={home.gallery.caption}
+        items={home.gallery.items}
+      />
+
+      <ScribbleDivider />
+
+      {/* 5. Past guests — featured reviews lookup-from-ids. The Reviews
+          section already renders its own kicker chip + Caveat title; we
+          override defaults to "Past guests" for the Home page voice. */}
+      <Reviews kicker="Past guests" title="people who came over." reviews={featured} />
+
+      {/* 6. Why Jeongja — neighborhood pitch + transit grid. */}
+      <WhyJeongja
+        kicker={home.whyJeongja.kicker}
+        title={home.whyJeongja.title}
+        body={home.whyJeongja.body}
+        transit={home.whyJeongja.transit}
+      />
+
+      {/* 7. Maru — the dog block, with allergy note. */}
+      <MaruBlock
+        kicker={home.maru.kicker}
+        name={home.maru.name}
+        caption={home.maru.caption}
+        allergyNote={home.maru.allergyNote}
+        imageId={home.maru.imageId}
+      />
+
+      <ScribbleDivider variant="x" />
+
+      {/* 8. Inquiry form — visitors pick their own experiences. The
+          `id="inquire"` anchor + scroll-mt offset live inside InquiryForm
+          itself, so we don't need a wrapping section here. */}
+      <InquiryForm />
+    </>
   );
 }
