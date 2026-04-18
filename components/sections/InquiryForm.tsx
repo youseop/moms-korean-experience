@@ -10,7 +10,9 @@
  * Task 5 scope: render + client-side validate + fake-success state.
  * TODO(Task 14): wire to Server Action `app/actions/submit-inquiry.ts`
  * with `useActionState`, proper server-side validation with zod, and a
- * Resend email to youseop@speakbridges.com.
+ * Resend email to youseop@speakbridges.com. The submitted payload shape
+ * uses `experiences: string[]` (multi-select), not a single `experience`
+ * string — the chips are toggle checkboxes, not radios.
  *
  * Visual language per `docs/08-design-cute-cozy.md §4`:
  *   - Butter kicker chip + Caveat H2 + "— Eunjung" replies note
@@ -39,7 +41,13 @@ const CHANNELS = ["Email", "KakaoTalk", "WhatsApp"] as const;
 type Channel = (typeof CHANNELS)[number];
 
 export type InquiryFormProps = {
-  prefilledExperience?: ExperienceValue;
+  /**
+   * Pre-checked experiences — chips render in the "active" state on mount.
+   * Detail pages (Tours / Cooking / Stay) pass the relevant value(s) so the
+   * form arrives ready-to-send. Default is `[]` — no chips selected, which
+   * is a valid submission ("just curious").
+   */
+  prefilledExperiences?: ReadonlyArray<ExperienceValue>;
 };
 
 type Errors = Partial<{
@@ -51,16 +59,25 @@ type Errors = Partial<{
 // Simple email shape check — real validation happens server-side in Task 14.
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-export function InquiryForm({ prefilledExperience }: InquiryFormProps) {
+export function InquiryForm({ prefilledExperiences }: InquiryFormProps) {
   // Labels need stable ids for a11y; `useId` gives us one per instance.
   const idBase = useId().replace(/:/g, "");
 
-  const [experience, setExperience] = useState<ExperienceValue>(
-    prefilledExperience ?? "chat",
+  // Multi-select: chips toggle in/out of the array. Empty array is a valid
+  // submission — interpreted as "I'm just exploring" by the future Server
+  // Action, no chip required.
+  const [experiences, setExperiences] = useState<ExperienceValue[]>(() =>
+    prefilledExperiences ? [...prefilledExperiences] : [],
   );
   const [channel, setChannel] = useState<Channel>("Email");
   const [sent, setSent] = useState(false);
   const [errors, setErrors] = useState<Errors>({});
+
+  function toggleExperience(value: ExperienceValue) {
+    setExperiences((prev) =>
+      prev.includes(value) ? prev.filter((v) => v !== value) : [...prev, value],
+    );
+  }
 
   // TODO(Task 14): wire to Server Action app/actions/submit-inquiry.ts
   function handleSubmit(e: FormEvent<HTMLFormElement>) {
@@ -121,31 +138,46 @@ export function InquiryForm({ prefilledExperience }: InquiryFormProps) {
       </p>
 
       <form onSubmit={handleSubmit} className="mt-[22px] flex flex-col gap-[18px]" noValidate>
-        {/* Experience chips */}
+        {/* Experience chips — multi-select toggles. Tap to add/remove. */}
         <fieldset className="m-0 border-0 p-0">
-          <legend className="font-stamp text-cocoa mb-[8px] text-[13px]">
-            Which experience?
+          <legend className="font-display text-cocoa mb-[8px] inline-block -rotate-[1deg] text-[20px] leading-none">
+            Which ones interest you?
           </legend>
           <div className="flex flex-wrap gap-[8px]">
             {EXPERIENCES.map((e) => {
-              const active = experience === e.value;
+              const active = experiences.includes(e.value);
               return (
                 <label
                   key={e.value}
-                  className={`font-stamp cursor-pointer rounded-full border border-dashed px-[12px] py-[6px] text-[13px] transition-colors ${
+                  className={`font-stamp inline-flex cursor-pointer items-center gap-[6px] rounded-full border border-dashed px-[12px] py-[6px] text-[13px] transition-colors ${
                     active
                       ? "bg-tomato border-tomato text-white shadow-warm-soft"
                       : "bg-[#fffdf7] border-cocoa/30 text-cocoa"
                   }`}
                 >
                   <input
-                    type="radio"
-                    name="experience"
+                    type="checkbox"
+                    name="experiences"
                     value={e.value}
                     checked={active}
-                    onChange={() => setExperience(e.value)}
+                    onChange={() => toggleExperience(e.value)}
                     className="sr-only"
                   />
+                  {active && (
+                    <svg
+                      aria-hidden="true"
+                      width="12"
+                      height="12"
+                      viewBox="0 0 12 12"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M2 6.5 L5 9.5 L10 3" />
+                    </svg>
+                  )}
                   {e.label}
                 </label>
               );
