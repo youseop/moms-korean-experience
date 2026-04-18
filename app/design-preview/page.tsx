@@ -39,6 +39,7 @@ import { DetailHero } from "@/components/sections/detail/DetailHero";
 import { FactStrip } from "@/components/sections/detail/FactStrip";
 import { FAQ } from "@/components/sections/detail/FAQ";
 import { HandDrawnMap } from "@/components/sections/detail/HandDrawnMap";
+import { MenuCard } from "@/components/sections/detail/MenuCard";
 import { PlaceCard } from "@/components/sections/detail/PlaceCard";
 import { Process } from "@/components/sections/detail/Process";
 import { PullRibbon } from "@/components/sections/detail/PullRibbon";
@@ -447,6 +448,25 @@ export default function DesignPreviewPage() {
 
       {/* CrossSell excluding tours */}
       <CrossSell excludeId="tours" />
+
+      {/* MenuCard — Cooking-page signature component (Task 8). */}
+      <section className="px-[22px] pt-[14px] pb-[0px]">
+        <span className="font-stamp text-ink-soft inline-block -rotate-2 text-[12px] tracking-[0.08em] uppercase">
+          MenuCard
+        </span>
+      </section>
+      <MenuCard
+        letter="A"
+        name="Menu A — Kimbap & Bulgogi"
+        dishes={[
+          { name: "Kimbap", ko: "김밥" },
+          { name: "Bulgogi", ko: "불고기" },
+          "Seasonal side dish",
+        ]}
+        description="The classic introduction. Mock copy here so designers can see the MenuCard's Eunjung's-pick sticker, washi tape, and recipe-card frame at the mobile column width."
+        imageId="cooking-food-kimbap-01"
+        accentColor="peach"
+      />
     </>
   );
 }

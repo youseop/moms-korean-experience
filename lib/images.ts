@@ -72,6 +72,15 @@ const UNSPLASH: Record<string, string> = {
     "https://images.unsplash.com/photo-1538669715315-155098f0fb1d?w=800&q=80",
   "tours-itinerary-outskirts-01":
     "https://images.unsplash.com/photo-1519114916041-6e7c93a0cc17?w=800&q=80",
+
+  // Cooking — finished-dish polaroids for each of the three set menus.
+  // Placeholders; swap for real plating photos when the shoot happens.
+  "cooking-food-kimbap-01":
+    "https://images.unsplash.com/photo-1635363638580-c2809d049eee?w=800&q=80",
+  "cooking-food-japchae-01":
+    "https://images.unsplash.com/photo-1583032015879-e5022cb87c53?w=800&q=80",
+  "cooking-food-chicken-01":
+    "https://images.unsplash.com/photo-1575932444877-5106bee2a599?w=800&q=80",
 };
 
 /**
