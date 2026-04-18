@@ -19,18 +19,15 @@ export const metadata: Metadata = {
 };
 
 export default function DesignPreviewPage() {
+  /*
+   * NOTE: The outer `.page` column + real `<SiteHeader>` + `<SiteFooter>`
+   * now live in `app/layout.tsx` (Task 3). This page only renders the
+   * hero + experience cards content; the topbar stub that used to live
+   * here was removed so we don't double-stack a header on top of
+   * SiteHeader.
+   */
   return (
-    <main className="page">
-      {/* ============== TOPBAR (stub — full SiteHeader ships in Task 3) ============== */}
-      <header className="font-stamp text-ink-soft flex items-center justify-between px-[22px] pt-[18px] pb-[6px] text-[14px] tracking-[0.02em]">
-        <div className="font-display text-cocoa inline-block -rotate-2 text-[26px]">
-          Eunjung&rsquo;s <span className="text-tomato">Table</span>
-        </div>
-        <div className="border-ink-soft font-stamp grid size-[38px] rotate-6 place-items-center rounded-full border-2 border-dashed text-[13px]">
-          menu
-        </div>
-      </header>
-
+    <>
       {/* ============== HERO ============== */}
       <section className="relative px-[22px] pt-[10px] pb-[36px]">
         {/* Floating hero doodles — inline SVGs ported verbatim from the prototype. */}
@@ -457,6 +454,6 @@ export default function DesignPreviewPage() {
           </a>
         </article>
       </section>
-    </main>
+    </>
   );
 }
