@@ -26,12 +26,20 @@ import { MeetEunjung } from "@/components/sections/MeetEunjung";
 import { Reviews } from "@/components/sections/Reviews";
 import { WhyJeongja } from "@/components/sections/WhyJeongja";
 import { home, reviewById, site } from "@/lib/content";
+import { defaultOpenGraphImages } from "@/lib/site-url";
 
+// Home uses `title.absolute` so it isn't wrapped by the root layout's
+// `title.template`. The rest of the metadata (description, OG image, OG
+// siteName, locale, twitter card, metadataBase) is inherited from
+// `app/layout.tsx` — we only override what's page-specific here.
 export const metadata: Metadata = {
-  title: "Eunjung's Table — Your Korean mom in Seoul",
+  title: {
+    absolute: `${site.brandName} — ${site.tagline.replace(/\.$/, "")}`,
+  },
   description: site.shortDescription,
   openGraph: {
-    title: "Eunjung's Table",
+    ...defaultOpenGraphImages,
+    title: `${site.brandName} — ${site.tagline.replace(/\.$/, "")}`,
     description: site.shortDescription,
     type: "website",
   },

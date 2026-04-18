@@ -52,8 +52,10 @@ import { Timeline } from "@/components/sections/detail/Timeline";
 import { home, reviews, tours } from "@/lib/content";
 import { imageUrl } from "@/lib/images";
 
+// `title` is a plain string so the root `title.template` wraps it into
+// "Design preview — Eunjung's Table". `robots` keeps crawlers out.
 export const metadata: Metadata = {
-  title: "Design preview · Eunjung's Table",
+  title: "Design preview",
   robots: { index: false, follow: false },
 };
 

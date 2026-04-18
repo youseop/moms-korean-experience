@@ -42,11 +42,16 @@ import { MenuCard } from "@/components/sections/detail/MenuCard";
 import { PullRibbon } from "@/components/sections/detail/PullRibbon";
 import { SubNav } from "@/components/sections/detail/SubNav";
 import { cooking, reviewsByIds } from "@/lib/content";
+import { defaultOpenGraphImages } from "@/lib/site-url";
 
+// `title` is a plain string so the root layout's `title.template` wraps it
+// into "Cooking class — Eunjung's Table". OG image/siteName are inherited
+// from `app/layout.tsx` — we only override the OG title/description/type.
 export const metadata: Metadata = {
-  title: "Cooking class — Eunjung's Table",
+  title: "Cooking class",
   description: cooking.hero.lead.slice(0, 155),
   openGraph: {
+    ...defaultOpenGraphImages,
     title: "Cook a Korean meal with Eunjung",
     description: cooking.hero.lead,
     type: "article",

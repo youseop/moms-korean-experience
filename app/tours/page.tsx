@@ -43,11 +43,16 @@ import { SubNav } from "@/components/sections/detail/SubNav";
 import { Timeline } from "@/components/sections/detail/Timeline";
 import { reviewById, tours } from "@/lib/content";
 import { imageUrl } from "@/lib/images";
+import { defaultOpenGraphImages } from "@/lib/site-url";
 
+// `title` is a plain string so the root layout's `title.template` wraps it
+// into "Tours — Eunjung's Table". OG image/siteName are inherited from
+// `app/layout.tsx` — we only override the OG title/description/type here.
 export const metadata: Metadata = {
-  title: "Tours — Eunjung's Table",
+  title: "Tours",
   description: tours.hero.lead.slice(0, 155),
   openGraph: {
+    ...defaultOpenGraphImages,
     title: "Tours with Eunjung — local Korea, hand-picked",
     description: tours.hero.lead,
     type: "article",

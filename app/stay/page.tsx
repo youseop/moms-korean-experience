@@ -47,11 +47,16 @@ import { NearbyList } from "@/components/sections/detail/NearbyList";
 import { PullRibbon } from "@/components/sections/detail/PullRibbon";
 import { SubNav } from "@/components/sections/detail/SubNav";
 import { home, reviewById, stay } from "@/lib/content";
+import { defaultOpenGraphImages } from "@/lib/site-url";
 
+// `title` is a plain string so the root layout's `title.template` wraps it
+// into "Stay — Eunjung's Table". OG image/siteName are inherited from
+// `app/layout.tsx` — we only override the OG title/description/type.
 export const metadata: Metadata = {
-  title: "Stay — Eunjung's Table",
+  title: "Stay",
   description: stay.hero.lead.slice(0, 155),
   openGraph: {
+    ...defaultOpenGraphImages,
     title: "Stay at Eunjung's home in Jeongja",
     description: stay.hero.lead,
     type: "article",
