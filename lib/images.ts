@@ -47,6 +47,31 @@ const UNSPLASH: Record<string, string> = {
   // Maru
   "maru-01":
     "https://images.unsplash.com/photo-1558531304-a4773b7e3a9c?w=800&q=80",
+
+  // Tours — mom's favorite places (Seoul + outskirts + Jeongja).
+  // Unsplash placeholders picked to roughly match each spot's vibe.
+  "tours-seoul-alley-01":
+    "https://images.unsplash.com/photo-1517154421773-0529f29ea451?w=800&q=80",
+  "tours-seoul-bukchon-01":
+    "https://images.unsplash.com/photo-1538485399081-7c8970c46d4e?w=800&q=80",
+  "tours-seoul-bookshop-01":
+    "https://images.unsplash.com/photo-1507842217343-583bb7270b66?w=800&q=80",
+  "tours-seoul-market-01":
+    "https://images.unsplash.com/photo-1580651214613-f4692d6d138f?w=800&q=80",
+  "tours-seoul-temple-01":
+    "https://images.unsplash.com/photo-1548013146-72479768bada?w=800&q=80",
+  "tours-outskirts-pottery-01":
+    "https://images.unsplash.com/photo-1565193298357-c5b46b0ff68b?w=800&q=80",
+  "tours-outskirts-gapyeong-01":
+    "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80",
+  "tours-jeongja-tancheon-01":
+    "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=800&q=80",
+
+  // Tours — sample itinerary cards.
+  "tours-itinerary-seoul-01":
+    "https://images.unsplash.com/photo-1538669715315-155098f0fb1d?w=800&q=80",
+  "tours-itinerary-outskirts-01":
+    "https://images.unsplash.com/photo-1519114916041-6e7c93a0cc17?w=800&q=80",
 };
 
 /**
