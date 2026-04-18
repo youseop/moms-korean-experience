@@ -36,6 +36,19 @@ export function Lightbox({ src, alt = "", onClose }: LightboxProps) {
     if (!src && el.open) el.close();
   }, [src]);
 
+  // Lock body scroll while the lightbox is open. Native `<dialog>` traps
+  // focus and listens for Escape for us, but doesn't prevent the page
+  // behind the backdrop from scrolling on iOS Safari. Toggle `overflow`
+  // on the body so the page underneath stays put.
+  useEffect(() => {
+    if (!src) return;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [src]);
+
   return (
     <dialog
       ref={ref}

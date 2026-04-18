@@ -77,7 +77,7 @@ export function Hero({
       </h1>
 
       {/* Lead */}
-      <p className="font-body text-ink-soft mb-[24px] max-w-[290px] text-[15px] leading-[1.55]">
+      <p className="reveal font-body text-ink-soft mb-[24px] max-w-[290px] text-[15px] leading-[1.55]">
         {lead}
       </p>
 

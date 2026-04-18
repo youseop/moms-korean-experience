@@ -46,7 +46,7 @@ export function GalleryGrid({ kicker, title, caption, items }: GalleryGridProps)
         <p className="font-body text-ink-soft mt-[8px] text-[14px] leading-[1.55]">{caption}</p>
       </div>
 
-      <div className="grid grid-cols-2 gap-[14px] px-[22px] pt-[16px] pb-[10px]">
+      <div className="reveal grid grid-cols-2 gap-[14px] px-[22px] pt-[16px] pb-[10px]">
         {items.map((item, i) => {
           const src = imageUrl(item.imageId);
           return (

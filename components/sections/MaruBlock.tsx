@@ -26,7 +26,7 @@ export type MaruBlockProps = Home["maru"];
 
 export function MaruBlock({ kicker, name, caption, allergyNote, imageId }: MaruBlockProps) {
   return (
-    <section>
+    <section className="reveal">
       {/* Section head — pink kicker chip for this block. */}
       <div className="relative px-[22px] pt-[14px] pb-[4px]">
         <span className="bg-tape-pink font-stamp text-cocoa shadow-warm-soft inline-block -rotate-2 rounded-full px-[12px] py-[3px] text-[13px]">

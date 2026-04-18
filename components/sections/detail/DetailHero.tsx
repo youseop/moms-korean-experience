@@ -59,7 +59,7 @@ export function DetailHero({
       </h1>
 
       {/* Lead */}
-      <p className="font-body text-ink-soft mb-[22px] max-w-[340px] text-[15px] leading-[1.6]">
+      <p className="reveal font-body text-ink-soft mb-[22px] max-w-[340px] text-[15px] leading-[1.6]">
         {lead}
       </p>
 

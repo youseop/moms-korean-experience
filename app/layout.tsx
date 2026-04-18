@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 
+import { RevealProvider } from "@/components/site/RevealProvider";
 import { SiteFooter } from "@/components/site/SiteFooter";
 import { SiteHeader } from "@/components/site/SiteHeader";
 import { site } from "@/lib/content";
@@ -59,7 +60,9 @@ export default function RootLayout({
       <body className="min-h-full">
         <div className="page flex min-h-[calc(100vh-28px-60px)] flex-col">
           <SiteHeader />
-          <main className="flex-1">{children}</main>
+          <main className="flex-1">
+            <RevealProvider>{children}</RevealProvider>
+          </main>
           <SiteFooter />
         </div>
       </body>

@@ -96,6 +96,9 @@ export function FloorPlan({
   className = "",
 }: FloorPlanProps) {
   return (
+    // Outer `reveal` wrapper so the decorative rise animation doesn't
+    // fight the figure's inline `transform: rotate(-0.5deg)`.
+    <div className="reveal">
     <figure
       className={`relative mx-[22px] my-[22px] rounded-[10px] px-[14px] pt-[22px] pb-[16px] shadow-warm-soft ${className}`}
       style={{
@@ -216,5 +219,6 @@ export function FloorPlan({
         </span>
       </div>
     </figure>
+    </div>
   );
 }

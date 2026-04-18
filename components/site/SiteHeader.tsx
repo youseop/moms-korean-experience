@@ -24,7 +24,10 @@ export function SiteHeader() {
       <header
         className="bg-paper-cream/85 sticky top-0 z-30 flex items-center justify-between px-[22px] pt-[18px] pb-[10px] backdrop-blur-[6px]"
         // Dotted cocoa seam along the bottom — scrapbook-y stitch rather than a hard rule.
+        // `min-height` pins header to the shared `--header-h` var so SubNav's
+        // sticky offset always matches.
         style={{
+          minHeight: "var(--header-h)",
           backgroundImage:
             "radial-gradient(rgba(92, 64, 51, 0.35) 1px, transparent 1px)",
           backgroundSize: "6px 2px",

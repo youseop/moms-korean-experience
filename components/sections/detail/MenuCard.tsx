@@ -72,6 +72,9 @@ export function MenuCard({
   const isFeatured = letter === "A";
 
   return (
+    // Outer `reveal` wrapper so the decorative rise animation doesn't
+    // fight the card's inline `transform: rotate(-0.4deg)`.
+    <div className="reveal">
     <article
       className={`relative mx-[22px] my-[26px] px-[18px] pt-[18px] pb-[14px] shadow-warm-soft ${className}`}
       style={{
@@ -161,5 +164,6 @@ export function MenuCard({
 
       <ScribbleDivider variant="plain" className="my-[14px]" />
     </article>
+    </div>
   );
 }

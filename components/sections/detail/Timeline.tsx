@@ -30,7 +30,7 @@ export function Timeline({ items, className = "" }: TimelineProps) {
         return (
           <li
             key={`${item.title}-${i}`}
-            className="relative py-[20px]"
+            className="reveal relative py-[20px]"
             style={{
               // Dotted cocoa separator between steps.
               backgroundImage:

@@ -75,8 +75,10 @@ export function SubNav({ items, activeOffset = 140 }: SubNavProps) {
     <nav
       ref={navRef}
       aria-label="On this page"
-      className="bg-paper-cream/92 sticky top-[52px] z-20 -mx-[22px] overflow-x-auto px-[22px] py-[8px] backdrop-blur-[6px]"
+      className="bg-paper-cream/92 sticky z-20 -mx-[22px] overflow-x-auto px-[22px] py-[8px] backdrop-blur-[6px]"
       style={{
+        // Stick directly under SiteHeader — both reference the shared --header-h var.
+        top: "var(--header-h)",
         // Dotted cocoa bottom seam — matches SiteHeader.
         backgroundImage:
           "radial-gradient(rgba(92, 64, 51, 0.3) 1px, transparent 1px)",

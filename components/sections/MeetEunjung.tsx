@@ -46,7 +46,7 @@ export function MeetEunjung({
         </h2>
       </div>
 
-      <div className="px-[22px] pt-[4px] pb-[20px]">
+      <div className="reveal px-[22px] pt-[4px] pb-[20px]">
         {paragraphs[0] && (
           <p className="font-body text-ink-soft my-[14px] text-[15px] leading-[1.65]">
             {paragraphs[0]}

@@ -111,7 +111,7 @@ export function InquiryForm({ prefilledExperiences }: InquiryFormProps) {
 
   if (sent) {
     return (
-      <section id="inquire" className="scroll-mt-24 px-[22px] py-[36px]">
+      <section id="inquire" className="reveal scroll-mt-24 px-[22px] py-[36px]">
         <StickyNote tilt={-2} className="text-center">
           <p className="font-display text-cocoa m-0 text-[22px] leading-[1.2]">
             Thanks! Eunjung will get back to you within a day or two.
@@ -125,7 +125,7 @@ export function InquiryForm({ prefilledExperiences }: InquiryFormProps) {
   }
 
   return (
-    <section id="inquire" className="scroll-mt-24 px-[22px] py-[36px]">
+    <section id="inquire" className="reveal scroll-mt-24 px-[22px] py-[36px]">
       {/* Heading block */}
       <span className="bg-tape-butter font-stamp text-cocoa shadow-warm-soft inline-block -rotate-2 rounded-full px-[12px] py-[3px] text-[13px]">
         Ask Eunjung anything

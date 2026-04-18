@@ -68,7 +68,7 @@ export function ExperienceCard({
 
   return (
     <article
-      className={`relative mt-[40px] mb-[10px] pt-1 pb-[24px] ${isEven ? "text-right" : "text-left"}`}
+      className={`reveal relative mt-[40px] mb-[10px] pt-1 pb-[24px] ${isEven ? "text-right" : "text-left"}`}
     >
       {/* Card washi tape — top. Alternates left (odd) / right (even). */}
       <span

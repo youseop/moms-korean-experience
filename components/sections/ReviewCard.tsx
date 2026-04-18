@@ -33,7 +33,7 @@ export function ReviewCard({ review, tilt }: ReviewCardProps) {
   const appliedTilt = tilt ?? fallbackTilt;
 
   return (
-    <div className="relative my-[22px] px-[18px]">
+    <div className="reveal relative my-[22px] px-[18px]">
       {/* Service stamp, top-right. */}
       <span
         className="font-stamp text-cocoa absolute right-[14px] -top-[6px] z-[2] rotate-[6deg] rounded-full px-[10px] py-[3px] text-[12px] shadow-warm-soft"

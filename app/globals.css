@@ -12,6 +12,12 @@
  *   --radius-polaroid           -> rounded-polaroid
  *   --shadow-polaroid           -> shadow-polaroid
  * ------------------------------------------------------------------------- */
+/* Shared header height. Referenced by SiteHeader (min-height) and SubNav
+   (sticky top offset) so the two always stay in sync. */
+:root {
+  --header-h: 54px;
+}
+
 @theme {
   /* ---- Colors ---- */
   /* Paper / page surfaces */
@@ -72,9 +78,80 @@ html {
   scroll-behavior: smooth;
 }
 
+/* ---------------------------------------------------------------------------
+ * Polish layer — focus ring, scroll-margin, selection color, reduce-motion.
+ * Lives in `@layer base` so later utility declarations can still override.
+ * ------------------------------------------------------------------------- */
+@layer base {
+  /* Warm focus ring — cocoa outline-offset keeps it off the glyphs. */
+  *:focus-visible {
+    outline: 2px solid var(--color-tomato);
+    outline-offset: 3px;
+    border-radius: 3px;
+  }
+
+  /* Scroll anchor offset so the sticky SiteHeader + SubNav don't cover
+     targets when the user clicks an in-page link. Leaves enough room for
+     the header (54px) + subnav (~36px) + a little air. */
+  [id] {
+    scroll-margin-top: 80px;
+  }
+
+  /* Selection color — tomato wash on cocoa text. Readable on cream. */
+  ::selection {
+    background-color: color-mix(in oklab, var(--color-tomato) 25%, transparent);
+    color: var(--color-cocoa);
+  }
+
+  /* Respect reduce-motion. `scroll-behavior: auto` is the override; the
+     catch-all rule zeroes out animations + transitions without breaking
+     the site (buttons still work, just instantly). */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ * Reveal-on-scroll — opt-in, default visible.
+ *
+ *   .reveal                — always visible (base state).
+ *   .reveal.is-visible     — run a one-shot rise animation on entry.
+ *
+ * `RevealProvider` adds `is-visible` via IntersectionObserver. If JS never
+ * adds it, elements still show — the animation is pure polish on top.
+ * ------------------------------------------------------------------------- */
+.reveal {
+  opacity: 1;
+  transform: none;
+}
+
+@keyframes reveal-rise {
+  from {
+    opacity: 0.01;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.reveal.is-visible {
+  animation: reveal-rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
+  .reveal.is-visible {
+    animation: none;
   }
 }
 

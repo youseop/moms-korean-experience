@@ -4,8 +4,9 @@
  * FloatingInquireFab — small floating "Ask Eunjung" pill at bottom-right.
  *
  * Appears after the visitor scrolls past the hero (~420px). Tap →
- * smooth-scroll to `#inquire`. Sits above all page content but below
- * the SiteHeader/MobileNav (z-30 header → FAB at z-25).
+ * smooth-scroll to `#inquire`. Sits ABOVE the sticky SiteHeader (z-30) so
+ * it's never covered, but BELOW the MobileNav drawer (z-50) so the drawer's
+ * scrim properly covers the FAB while open.
  *
  * Client Component because it attaches a scroll listener. Respects the
  * `prefers-reduced-motion` media query via the global smooth-scroll rule
@@ -45,7 +46,7 @@ export function FloatingInquireFab({
       href={href}
       data-testid="floating-inquire-fab"
       aria-label={label}
-      className={`fixed bottom-[18px] right-[18px] z-[25] inline-flex items-center gap-[6px] rounded-full px-[14px] py-[9px] text-[15px] no-underline shadow-warm transition-all duration-200 ${
+      className={`fixed bottom-[18px] right-[18px] z-40 inline-flex items-center gap-[6px] rounded-full px-[14px] py-[9px] text-[15px] no-underline shadow-warm transition-all duration-200 ${
         visible
           ? "opacity-100 translate-y-0 pointer-events-auto"
           : "opacity-0 translate-y-[10px] pointer-events-none"

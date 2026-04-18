@@ -44,7 +44,7 @@ export function PlaceCard({
 
   return (
     <article
-      className="relative my-[16px] flex items-start gap-[12px] px-[2px]"
+      className="reveal relative my-[16px] flex items-start gap-[12px] px-[2px]"
     >
       {/* Polaroid with pin number badge. */}
       <div
