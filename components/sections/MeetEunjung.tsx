@@ -12,6 +12,7 @@
 import { EunjungQuote } from "@/components/sections/EunjungQuote";
 import { Polaroid } from "@/components/decoration/Polaroid";
 import { WashiTape } from "@/components/decoration/WashiTape";
+import { SIZES } from "@/lib/image-sizes";
 import { imageUrl } from "@/lib/images";
 
 export type MeetEunjungProps = {
@@ -62,6 +63,7 @@ export function MeetEunjung({
                 width={138}
                 height={138}
                 caption="mom & her kitchen"
+                sizes={SIZES.thumb}
               >
                 <WashiTape
                   color="sky"
@@ -79,6 +81,7 @@ export function MeetEunjung({
                 width={138}
                 height={138}
                 caption="doenjang day"
+                sizes={SIZES.thumb}
               >
                 <WashiTape
                   color="pink"

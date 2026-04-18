@@ -8,8 +8,11 @@
  * the top-right as a Patrick Hand stamp.
  */
 
+import Image from "next/image";
+
 import { StickyNote } from "@/components/decoration/StickyNote";
 import type { Review } from "@/lib/content";
+import { IMG, SIZES } from "@/lib/image-sizes";
 
 const SERVICE_LABEL: Record<Review["service"], string> = {
   tours: "Tours",
@@ -44,12 +47,12 @@ export function ReviewCard({ review, tilt }: ReviewCardProps) {
           &ldquo;{review.quote}&rdquo;
         </p>
         <div className="mt-[12px] flex items-center gap-[10px]">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
             src={review.avatarUrl}
             alt={review.guestName}
-            width={36}
-            height={36}
+            width={IMG.avatar.width}
+            height={IMG.avatar.height}
+            sizes={SIZES.avatar}
             className="h-[36px] w-[36px] rounded-full border-2 border-white shadow-warm-soft"
           />
           <span className="font-stamp text-ink-soft text-[14px]">

@@ -15,7 +15,10 @@
  * Not in the prototype — generated per spec (Task 5 §B.6).
  */
 
+import Image from "next/image";
 import { useEffect, useRef } from "react";
+
+import { IMG, SIZES } from "@/lib/image-sizes";
 
 export type LightboxProps = {
   src: string | null;
@@ -46,11 +49,16 @@ export function Lightbox({ src, alt = "", onClose }: LightboxProps) {
       {src && (
         <div className="polaroid max-h-[90vh] max-w-[90vw] -rotate-2">
           <div className="max-h-[calc(90vh-60px)] max-w-[calc(90vw-24px)] overflow-hidden">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src={src}
               alt={alt}
-              className="block max-h-[calc(90vh-60px)] max-w-[calc(90vw-24px)] object-contain"
+              // Gallery sources are square (IMG.galleryThumb 800x800); the
+              // intrinsic ratio is only used for layout prediction — the
+              // CSS max-w/max-h + object-contain handle any real aspect.
+              width={IMG.galleryThumb.width}
+              height={IMG.galleryThumb.height}
+              sizes={SIZES.full}
+              className="block h-auto max-h-[calc(90vh-60px)] w-auto max-w-[calc(90vw-24px)] object-contain"
             />
           </div>
           <button

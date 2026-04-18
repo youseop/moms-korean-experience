@@ -22,6 +22,7 @@ import { HandArrow } from "@/components/decoration/HandArrow";
 import { Polaroid } from "@/components/decoration/Polaroid";
 import { ScribbleUnderline } from "@/components/decoration/ScribbleUnderline";
 import { WashiTape } from "@/components/decoration/WashiTape";
+import { SIZES } from "@/lib/image-sizes";
 import { imageUrl } from "@/lib/images";
 
 export type HeroProps = {
@@ -99,6 +100,8 @@ export function Hero({
           height={295}
           caption={imageCaption}
           className="w-full"
+          priority
+          sizes={SIZES.hero}
         />
       </div>
 

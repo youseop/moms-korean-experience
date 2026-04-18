@@ -18,6 +18,7 @@ import { DoodleHeart } from "@/components/decoration/DoodleHeart";
 import { Polaroid } from "@/components/decoration/Polaroid";
 import { TornPaperTop } from "@/components/decoration/TornPaperTop";
 import { WashiTape } from "@/components/decoration/WashiTape";
+import { SIZES } from "@/lib/image-sizes";
 import { imageUrl } from "@/lib/images";
 import type { Home } from "@/lib/content";
 
@@ -61,6 +62,7 @@ export function MaruBlock({ kicker, name, caption, allergyNote, imageId }: MaruB
               height={126}
               caption="Maru (the boss)"
               className="w-full"
+              sizes={SIZES.thumb}
             >
               <WashiTape
                 color="pink"

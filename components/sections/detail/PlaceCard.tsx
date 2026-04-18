@@ -13,6 +13,7 @@
 
 import { Polaroid } from "@/components/decoration/Polaroid";
 import { WashiTape } from "@/components/decoration/WashiTape";
+import { SIZES } from "@/lib/image-sizes";
 import { imageUrl } from "@/lib/images";
 
 type WashiColor = "peach" | "pink" | "sage" | "sky" | "butter";
@@ -62,6 +63,7 @@ export function PlaceCard({
           alt={name}
           width={124}
           height={124}
+          sizes={SIZES.thumb}
         />
         {pinNumber !== undefined && (
           <span

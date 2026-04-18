@@ -17,6 +17,7 @@
 import { HandArrow } from "@/components/decoration/HandArrow";
 import { Polaroid } from "@/components/decoration/Polaroid";
 import { StickerBadge } from "@/components/decoration/StickerBadge";
+import { SIZES } from "@/lib/image-sizes";
 import { imageUrl } from "@/lib/images";
 
 type TagColor = "peach" | "sage" | "sky";
@@ -110,6 +111,7 @@ export function ExperienceCard({
           height={Math.round((420 * 0.74 - 24) * (4 / 5))}
           caption={imageCaption}
           className="w-full"
+          sizes={SIZES.card}
         />
       </div>
 

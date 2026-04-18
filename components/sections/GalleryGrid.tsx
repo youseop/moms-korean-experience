@@ -17,6 +17,7 @@ import { useState } from "react";
 import { Polaroid } from "@/components/decoration/Polaroid";
 import { WashiTape } from "@/components/decoration/WashiTape";
 import { Lightbox } from "@/components/sections/Lightbox";
+import { SIZES } from "@/lib/image-sizes";
 import { imageUrl } from "@/lib/images";
 import type { Home } from "@/lib/content";
 
@@ -60,7 +61,13 @@ export function GalleryGrid({ kicker, title, caption, items }: GalleryGridProps)
               aria-label={`Open photo: ${item.alt}`}
               style={{ transform: `rotate(${item.rotate}deg)` }}
             >
-              <Polaroid src={src} alt={item.alt} width={150} height={150}>
+              <Polaroid
+                src={src}
+                alt={item.alt}
+                width={150}
+                height={150}
+                sizes={SIZES.galleryHalf}
+              >
                 <WashiTape
                   color={TAPES[i % TAPES.length]}
                   tilt={i % 2 === 0 ? -6 : 8}

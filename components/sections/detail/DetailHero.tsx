@@ -18,6 +18,7 @@
 import { Polaroid } from "@/components/decoration/Polaroid";
 import { ScribbleUnderline } from "@/components/decoration/ScribbleUnderline";
 import { WashiTape } from "@/components/decoration/WashiTape";
+import { SIZES } from "@/lib/image-sizes";
 import { imageUrl } from "@/lib/images";
 
 type WashiColor = "peach" | "pink" | "sage" | "sky" | "butter";
@@ -78,6 +79,8 @@ export function DetailHero({
           height={295}
           caption={imageCaption}
           className="w-full"
+          priority
+          sizes={SIZES.hero}
         />
       </div>
     </section>

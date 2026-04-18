@@ -14,6 +14,7 @@ import { HandArrow } from "@/components/decoration/HandArrow";
 import { Polaroid } from "@/components/decoration/Polaroid";
 import { WashiTape } from "@/components/decoration/WashiTape";
 import { home } from "@/lib/content";
+import { SIZES } from "@/lib/image-sizes";
 import { imageUrl } from "@/lib/images";
 
 type WashiColor = "peach" | "pink" | "sage" | "sky" | "butter";
@@ -63,6 +64,7 @@ export function CrossSell({ excludeId, className = "" }: CrossSellProps) {
                 alt={o.imageCaption}
                 width={100}
                 height={100}
+                sizes={SIZES.thumb}
               />
             </div>
 
