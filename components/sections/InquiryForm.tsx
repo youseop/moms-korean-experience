@@ -4,15 +4,14 @@
  * InquiryForm — the "ask Eunjung anything" form section.
  *
  * Rendered at `id="inquire"` on every page so `InquiryCTA` can scroll to
- * it. Client Component because it manages local state for field values,
- * validation errors, and the success/pending UI.
+ * it. Client Component because it drives UI state (chip toggles, channel
+ * radio, pending/success frame) off React 19's `useActionState` hook.
  *
- * Task 5 scope: render + client-side validate + fake-success state.
- * TODO(Task 14): wire to Server Action `app/actions/submit-inquiry.ts`
- * with `useActionState`, proper server-side validation with zod, and a
- * Resend email to youseop@speakbridges.com. The submitted payload shape
- * uses `experiences: string[]` (multi-select), not a single `experience`
- * string — the chips are toggle checkboxes, not radios.
+ * Task 14 wiring: the `<form>`'s `action` is the `submitInquiry` Server
+ * Action. That action validates with zod, sends the email via Resend
+ * (`lib/email.ts`), and returns `InquiryFormState`. When `INQUIRY_DRY_RUN`
+ * is set (Playwright / local dev without a Resend key) the send is
+ * short-circuited to a console log — the UI doesn't know the difference.
  *
  * Visual language per `docs/08-design-cute-cozy.md §4`:
  *   - Butter kicker chip + Caveat H2 + "— Eunjung" replies note
@@ -22,11 +21,16 @@
  *   - Success state renders as a StickyNote
  */
 
-import { useId, useState, type FormEvent } from "react";
+import { useActionState, useId, useState } from "react";
 
 import { DoodleHeart } from "@/components/decoration/DoodleHeart";
 import { HandArrow } from "@/components/decoration/HandArrow";
 import { StickyNote } from "@/components/decoration/StickyNote";
+
+import {
+  submitInquiry,
+  type InquiryFormState,
+} from "@/app/actions/submit-inquiry";
 
 const EXPERIENCES = [
   { value: "tours", label: "Tours" },
@@ -37,8 +41,14 @@ const EXPERIENCES = [
 
 type ExperienceValue = (typeof EXPERIENCES)[number]["value"];
 
-const CHANNELS = ["Email", "KakaoTalk", "WhatsApp"] as const;
-type Channel = (typeof CHANNELS)[number];
+// Channel values match the server schema (lowercase slug, not display label).
+const CHANNELS = [
+  { value: "email", label: "Email" },
+  { value: "kakao", label: "KakaoTalk" },
+  { value: "whatsapp", label: "WhatsApp" },
+] as const;
+
+type ChannelValue = (typeof CHANNELS)[number]["value"];
 
 export type InquiryFormProps = {
   /**
@@ -50,28 +60,30 @@ export type InquiryFormProps = {
   prefilledExperiences?: ReadonlyArray<ExperienceValue>;
 };
 
-type Errors = Partial<{
-  name: string;
-  email: string;
-  form: string;
-}>;
-
-// Simple email shape check — real validation happens server-side in Task 14.
-const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const INITIAL_STATE: InquiryFormState = { ok: false };
 
 export function InquiryForm({ prefilledExperiences }: InquiryFormProps) {
   // Labels need stable ids for a11y; `useId` gives us one per instance.
   const idBase = useId().replace(/:/g, "");
 
+  // `useActionState` gives us the reducer-style (state, formAction, pending)
+  // triple. The initial `ok: false` is the "not yet submitted" sentinel —
+  // we guard the success UI on `hasSubmitted` so the form isn't swapped
+  // out on first mount.
+  const [state, formAction, isPending] = useActionState<
+    InquiryFormState,
+    FormData
+  >(submitInquiry, INITIAL_STATE);
+
   // Multi-select: chips toggle in/out of the array. Empty array is a valid
-  // submission — interpreted as "I'm just exploring" by the future Server
-  // Action, no chip required.
+  // submission — interpreted as "just curious" by the server, no chip
+  // required. Local state drives the active styling; each checkbox is a
+  // real input with `name="experiences"` so it lands in FormData.
   const [experiences, setExperiences] = useState<ExperienceValue[]>(() =>
     prefilledExperiences ? [...prefilledExperiences] : [],
   );
-  const [channel, setChannel] = useState<Channel>("Email");
-  const [sent, setSent] = useState(false);
-  const [errors, setErrors] = useState<Errors>({});
+  const [channel, setChannel] = useState<ChannelValue>("email");
+  const [hasSubmitted, setHasSubmitted] = useState(false);
 
   function toggleExperience(value: ExperienceValue) {
     setExperiences((prev) =>
@@ -79,37 +91,10 @@ export function InquiryForm({ prefilledExperiences }: InquiryFormProps) {
     );
   }
 
-  // TODO(Task 14): wire to Server Action app/actions/submit-inquiry.ts
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    const form = e.currentTarget;
-    const data = new FormData(form);
+  const fieldErrors = state.fieldErrors ?? {};
+  const showSuccess = hasSubmitted && state.ok && !isPending;
 
-    // Honeypot — real bots fill this; real humans can't see it.
-    if ((data.get("hp_field") as string)?.trim()) {
-      // Silently succeed so the bot doesn't learn anything.
-      setSent(true);
-      return;
-    }
-
-    const name = (data.get("name") as string)?.trim();
-    const email = (data.get("email") as string)?.trim();
-
-    const next: Errors = {};
-    if (!name) next.name = "Please share your name.";
-    if (!email) next.email = "We need an email to reply.";
-    else if (!EMAIL_RE.test(email)) next.email = "That email doesn't look right.";
-
-    if (next.name || next.email) {
-      setErrors(next);
-      return;
-    }
-
-    setErrors({});
-    setSent(true);
-  }
-
-  if (sent) {
+  if (showSuccess) {
     return (
       <section id="inquire" className="reveal scroll-mt-24 px-[22px] py-[36px]">
         <StickyNote tilt={-2} className="text-center">
@@ -137,7 +122,12 @@ export function InquiryForm({ prefilledExperiences }: InquiryFormProps) {
         She usually replies within a day or two.
       </p>
 
-      <form onSubmit={handleSubmit} className="mt-[22px] flex flex-col gap-[18px]" noValidate>
+      <form
+        action={formAction}
+        onSubmit={() => setHasSubmitted(true)}
+        className="mt-[22px] flex flex-col gap-[18px]"
+        noValidate
+      >
         {/* Experience chips — multi-select toggles. Tap to add/remove. */}
         <fieldset className="m-0 border-0 p-0">
           <legend className="font-display text-cocoa mb-[8px] inline-block -rotate-[1deg] text-[20px] leading-none">
@@ -183,6 +173,15 @@ export function InquiryForm({ prefilledExperiences }: InquiryFormProps) {
               );
             })}
           </div>
+          {fieldErrors.experiences && (
+            <p
+              className="font-body text-tomato mt-[6px] text-[13px]"
+              role="alert"
+              aria-live="polite"
+            >
+              {fieldErrors.experiences}
+            </p>
+          )}
         </fieldset>
 
         {/* Your name */}
@@ -190,16 +189,16 @@ export function InquiryForm({ prefilledExperiences }: InquiryFormProps) {
           id={`${idBase}-name`}
           label="Your name"
           required
-          error={errors.name}
+          error={fieldErrors.name}
         >
           <input
             id={`${idBase}-name`}
             name="name"
             type="text"
             required
-            aria-invalid={errors.name ? true : undefined}
+            aria-invalid={fieldErrors.name ? true : undefined}
             placeholder="First name is fine"
-            className="font-body text-cocoa mt-[6px] block w-full border border-dashed border-cocoa/30 bg-[#fffdf7] px-[12px] py-[10px] text-[15px] outline-none focus:border-tomato"
+            className="font-body text-cocoa focus:border-tomato mt-[6px] block w-full border border-dashed border-cocoa/30 bg-[#fffdf7] px-[12px] py-[10px] text-[15px] outline-none"
           />
         </Field>
 
@@ -208,27 +207,31 @@ export function InquiryForm({ prefilledExperiences }: InquiryFormProps) {
           id={`${idBase}-email`}
           label="Email"
           required
-          error={errors.email}
+          error={fieldErrors.email}
         >
           <input
             id={`${idBase}-email`}
             name="email"
             type="email"
             required
-            aria-invalid={errors.email ? true : undefined}
+            aria-invalid={fieldErrors.email ? true : undefined}
             placeholder="so she can reply"
-            className="font-body text-cocoa mt-[6px] block w-full border border-dashed border-cocoa/30 bg-[#fffdf7] px-[12px] py-[10px] text-[15px] outline-none focus:border-tomato"
+            className="font-body text-cocoa focus:border-tomato mt-[6px] block w-full border border-dashed border-cocoa/30 bg-[#fffdf7] px-[12px] py-[10px] text-[15px] outline-none"
           />
         </Field>
 
         {/* Country / city */}
-        <Field id={`${idBase}-location`} label="Country / city (optional)">
+        <Field
+          id={`${idBase}-country`}
+          label="Country / city (optional)"
+          error={fieldErrors.country}
+        >
           <input
-            id={`${idBase}-location`}
-            name="location"
+            id={`${idBase}-country`}
+            name="country"
             type="text"
             placeholder="Berlin, Toronto, Melbourne…"
-            className="font-body text-cocoa mt-[6px] block w-full border border-dashed border-cocoa/30 bg-[#fffdf7] px-[12px] py-[10px] text-[15px] outline-none focus:border-tomato"
+            className="font-body text-cocoa focus:border-tomato mt-[6px] block w-full border border-dashed border-cocoa/30 bg-[#fffdf7] px-[12px] py-[10px] text-[15px] outline-none"
           />
         </Field>
 
@@ -240,54 +243,80 @@ export function InquiryForm({ prefilledExperiences }: InquiryFormProps) {
           <div className="flex flex-wrap gap-[14px]">
             {CHANNELS.map((c) => (
               <label
-                key={c}
+                key={c.value}
                 className="font-body text-cocoa inline-flex cursor-pointer items-center gap-[6px] text-[14px]"
               >
                 <input
                   type="radio"
                   name="contactChannel"
-                  value={c}
-                  checked={channel === c}
-                  onChange={() => setChannel(c)}
+                  value={c.value}
+                  checked={channel === c.value}
+                  onChange={() => setChannel(c.value)}
                 />
-                {c}
+                {c.label}
               </label>
             ))}
           </div>
         </fieldset>
 
+        {/* Contact handle (KakaoTalk id, WhatsApp number, etc.) */}
+        <Field
+          id={`${idBase}-handle`}
+          label="Contact handle (optional)"
+          error={fieldErrors.contactHandle}
+        >
+          <input
+            id={`${idBase}-handle`}
+            name="contactHandle"
+            type="text"
+            placeholder="KakaoTalk id / WhatsApp number"
+            className="font-body text-cocoa focus:border-tomato mt-[6px] block w-full border border-dashed border-cocoa/30 bg-[#fffdf7] px-[12px] py-[10px] text-[15px] outline-none"
+          />
+        </Field>
+
         {/* Approximate dates */}
-        <Field id={`${idBase}-dates`} label="Approximate dates (optional)">
+        <Field
+          id={`${idBase}-dates`}
+          label="Approximate dates (optional)"
+          error={fieldErrors.dates}
+        >
           <input
             id={`${idBase}-dates`}
             name="dates"
             type="text"
             placeholder="e.g. anytime in May 2026"
-            className="font-body text-cocoa mt-[6px] block w-full border border-dashed border-cocoa/30 bg-[#fffdf7] px-[12px] py-[10px] text-[15px] outline-none focus:border-tomato"
+            className="font-body text-cocoa focus:border-tomato mt-[6px] block w-full border border-dashed border-cocoa/30 bg-[#fffdf7] px-[12px] py-[10px] text-[15px] outline-none"
           />
         </Field>
 
-        {/* Group size */}
-        <Field id={`${idBase}-group`} label="Group size (optional)">
+        {/* Group size — free text, not a number input, so "2 adults + 1 kid"
+            still works. Server caps length at 40 chars. */}
+        <Field
+          id={`${idBase}-group`}
+          label="Group size (optional)"
+          error={fieldErrors.groupSize}
+        >
           <input
             id={`${idBase}-group`}
             name="groupSize"
-            type="number"
-            min={1}
-            max={20}
+            type="text"
             placeholder="1"
-            className="font-body text-cocoa mt-[6px] block w-[140px] border border-dashed border-cocoa/30 bg-[#fffdf7] px-[12px] py-[10px] text-[15px] outline-none focus:border-tomato"
+            className="font-body text-cocoa focus:border-tomato mt-[6px] block w-[180px] border border-dashed border-cocoa/30 bg-[#fffdf7] px-[12px] py-[10px] text-[15px] outline-none"
           />
         </Field>
 
         {/* Message */}
-        <Field id={`${idBase}-message`} label="Anything Eunjung should know?">
+        <Field
+          id={`${idBase}-message`}
+          label="Anything Eunjung should know?"
+          error={fieldErrors.message}
+        >
           <textarea
             id={`${idBase}-message`}
             name="message"
             rows={5}
             placeholder="Dates, allergies, what you're hoping for — or just say hi."
-            className="font-body text-cocoa mt-[6px] block w-full resize-y border border-dashed border-cocoa/30 bg-[#fffdf7] px-[12px] py-[10px] text-[15px] outline-none focus:border-tomato"
+            className="font-body text-cocoa focus:border-tomato mt-[6px] block w-full resize-y border border-dashed border-cocoa/30 bg-[#fffdf7] px-[12px] py-[10px] text-[15px] outline-none"
           />
         </Field>
 
@@ -307,16 +336,20 @@ export function InquiryForm({ prefilledExperiences }: InquiryFormProps) {
           </label>
         </div>
 
-        {errors.form && (
-          <p className="font-body text-tomato text-[14px]" role="alert" aria-live="polite">
-            {errors.form}
+        {state.error && (
+          <p
+            className="font-body text-tomato text-[14px]"
+            role="alert"
+            aria-live="polite"
+          >
+            {state.error}
           </p>
         )}
 
         <div className="mt-[6px] flex items-center gap-[10px]">
-          <button type="submit" className="cta-pill">
+          <button type="submit" className="cta-pill" disabled={isPending}>
             <DoodleHeart size={16} color="#fff" fill="#fff" />
-            Send to Eunjung
+            {isPending ? "Sending…" : "Send to Eunjung"}
           </button>
           <HandArrow direction="right" length={48} className="rotate-[6deg]" />
         </div>

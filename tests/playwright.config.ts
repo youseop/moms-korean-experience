@@ -44,5 +44,15 @@ export default defineConfig({
     url: "http://localhost:3001",
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,
+    // `INQUIRY_DRY_RUN=1` tells `lib/email.ts` to skip the real Resend
+    // network call — the Server Action still runs + validates, it just
+    // console.logs instead of sending. The stub `RESEND_API_KEY` is just
+    // so the dev-mode guard in `lib/email.ts` is happy if anything else
+    // in the action path ever reads it directly.
+    env: {
+      ...process.env,
+      INQUIRY_DRY_RUN: "1",
+      RESEND_API_KEY: process.env.RESEND_API_KEY ?? "re_test_dryrun",
+    },
   },
 });
