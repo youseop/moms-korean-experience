@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 
 import { RevealProvider } from "@/components/site/RevealProvider";
 import { SiteFooter } from "@/components/site/SiteFooter";
@@ -65,6 +66,7 @@ export default function RootLayout({
           </main>
           <SiteFooter />
         </div>
+        <Analytics />
       </body>
     </html>
   );
