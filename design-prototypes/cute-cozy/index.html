@@ -1,0 +1,969 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Eunjung's Table — come over for dinner</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800&family=Patrick+Hand&family=Indie+Flower&display=swap" rel="stylesheet">
+<style>
+  /* ---------- RESET ---------- */
+  *, *::before, *::after { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; }
+  button { font: inherit; background: none; border: 0; cursor: pointer; }
+
+  /* ---------- TOKENS ---------- */
+  :root {
+    --paper:        #FDF5E6;  /* cream page */
+    --paper-deep:   #F7E9CE;  /* slightly darker cream for seams */
+    --kraft:        #D4B896;  /* desktop bg */
+    --peach:        #FFD4B5;
+    --pink:         #F4B5BB;
+    --sage:         #B5D5B5;
+    --sky:          #C8E0EC;
+    --butter:       #FFE8A3;
+    --tomato:       #E94B3C;
+    --cocoa:        #5C4033;  /* body text */
+    --ink:          #3A2820;  /* doodle ink */
+    --ink-soft:     #6B4E3D;
+    --shadow:       0 6px 14px rgba(58, 40, 32, 0.18);
+    --shadow-soft:  0 3px 8px rgba(58, 40, 32, 0.12);
+
+    --font-hand:    'Caveat', cursive;
+    --font-print:   'Patrick Hand', cursive;
+    --font-body:    'Nunito', system-ui, sans-serif;
+    --font-marker:  'Indie Flower', cursive;
+  }
+
+  /* ---------- DESKTOP FRAME ---------- */
+  body {
+    background: var(--kraft);
+    background-image:
+      radial-gradient(rgba(58,40,32,0.08) 1px, transparent 1px),
+      radial-gradient(rgba(58,40,32,0.06) 1px, transparent 1px);
+    background-size: 3px 3px, 7px 7px;
+    background-position: 0 0, 1px 2px;
+    min-height: 100vh;
+    font-family: var(--font-body);
+    color: var(--cocoa);
+    padding: 28px 0 60px;
+  }
+
+  .page {
+    max-width: 420px;
+    margin: 0 auto;
+    background: var(--paper);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.25), 0 0 0 1px rgba(58,40,32,0.05);
+    padding-bottom: 40px;
+  }
+
+  /* paper grain + faint lined-notebook */
+  .page::before {
+    content: "";
+    position: absolute; inset: 0;
+    background-image:
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='4'/><feColorMatrix values='0 0 0 0 0.23  0 0 0 0 0.16  0 0 0 0 0.12  0 0 0 0.25 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    opacity: 0.07;
+    pointer-events: none;
+    z-index: 1;
+    mix-blend-mode: multiply;
+  }
+  /* faint notebook lines, very subtle */
+  .page::after {
+    content: "";
+    position: absolute; inset: 0;
+    background-image: linear-gradient(to bottom, transparent 31px, rgba(180,140,110,0.08) 32px, transparent 33px);
+    background-size: 100% 32px;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .page > * { position: relative; z-index: 2; }
+
+  /* ---------- HEADER ---------- */
+  .topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 22px 6px;
+    font-family: var(--font-print);
+    color: var(--ink-soft);
+    font-size: 14px;
+    letter-spacing: 0.02em;
+  }
+  .topbar .brand {
+    font-family: var(--font-hand);
+    font-size: 26px;
+    color: var(--cocoa);
+    transform: rotate(-2deg);
+    display: inline-block;
+  }
+  .topbar .brand span { color: var(--tomato); }
+  .topbar .menu-dot {
+    width: 38px; height: 38px;
+    border: 2px dashed var(--ink-soft);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    transform: rotate(6deg);
+    font-family: var(--font-print);
+    font-size: 13px;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    padding: 10px 22px 36px;
+    position: relative;
+  }
+
+  .hero .hello {
+    font-family: var(--font-hand);
+    font-size: 22px;
+    color: var(--ink-soft);
+    transform: rotate(-3deg);
+    display: inline-block;
+    margin: 6px 0 -4px 4px;
+  }
+
+  .hero h1 {
+    font-family: var(--font-hand);
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 0.92;
+    color: var(--cocoa);
+    margin: 4px 0 14px;
+    letter-spacing: -0.01em;
+    position: relative;
+  }
+  .hero h1 .big { display: block; }
+  .hero h1 .name {
+    color: var(--tomato);
+    display: inline-block;
+    transform: rotate(-1.5deg);
+  }
+  .hero h1 .underline {
+    position: relative;
+    display: inline-block;
+  }
+  .hero h1 .underline::after {
+    content: "";
+    position: absolute;
+    left: -4px; right: -4px; bottom: -6px;
+    height: 10px;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 10' preserveAspectRatio='none'><path d='M2 6 Q 20 1 40 5 T 80 5 T 120 5 T 160 5 T 198 5' stroke='%23E94B3C' stroke-width='2.4' fill='none' stroke-linecap='round'/></svg>");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+  }
+
+  .hero .sub {
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    max-width: 290px;
+    margin: 0 0 24px;
+  }
+  .hero .sub b { color: var(--cocoa); font-weight: 700; }
+
+  /* hero polaroid */
+  .polaroid {
+    background: #fffdf7;
+    padding: 12px 12px 44px;
+    box-shadow: var(--shadow);
+    display: inline-block;
+    position: relative;
+  }
+  .polaroid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(1.05) contrast(0.98);
+  }
+  .polaroid .caption {
+    position: absolute;
+    left: 0; right: 0; bottom: 8px;
+    text-align: center;
+    font-family: var(--font-hand);
+    font-size: 22px;
+    color: var(--cocoa);
+    line-height: 1;
+  }
+
+  .hero-photo-wrap {
+    position: relative;
+    margin: 0 auto;
+    width: 260px;
+    transform: rotate(-3deg);
+  }
+  .hero-photo-wrap .polaroid { width: 100%; }
+  .hero-photo-wrap .polaroid .pic { aspect-ratio: 4/5; overflow: hidden; }
+
+  /* washi tape */
+  .washi {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0.88;
+  }
+  .washi.peach  { background: var(--peach);  }
+  .washi.pink   { background: var(--pink);   }
+  .washi.sage   { background: var(--sage);   }
+  .washi.sky    { background: var(--sky);    }
+  .washi.butter { background: var(--butter); }
+  .washi {
+    width: 74px; height: 22px;
+    box-shadow: 0 1px 2px rgba(58,40,32,0.15);
+  }
+  .washi::before {
+    /* inner texture — faint stripes */
+    content: "";
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(90deg, rgba(255,255,255,0.25) 0 4px, transparent 4px 8px);
+    mix-blend-mode: overlay;
+  }
+
+  .hero-photo-wrap .tape-a { top: -14px; left: -10px; transform: rotate(-18deg); }
+  .hero-photo-wrap .tape-b { top: -10px; right: -14px; transform: rotate(22deg); }
+
+  /* floating hero doodles */
+  .hero .doodle { position: absolute; pointer-events: none; }
+  .hero .doodle.heart-1 { top: 36px; right: 28px; width: 34px; transform: rotate(14deg); }
+  .hero .doodle.star-1  { top: 86px; right: 12px; width: 26px; transform: rotate(-8deg); }
+  .hero .doodle.star-2  { top: 140px; left: 18px; width: 22px; transform: rotate(18deg); }
+  .hero .doodle.squiggle-1 { bottom: 78px; right: 16px; width: 52px; opacity: 0.7; }
+
+  /* CTA + its drawn arrow */
+  .cta-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 26px 0 4px;
+    position: relative;
+  }
+  .cta {
+    background: var(--tomato);
+    color: #fff;
+    font-family: var(--font-print);
+    font-size: 18px;
+    padding: 14px 26px;
+    border-radius: 999px;
+    box-shadow: 0 4px 0 #b03a2e, 0 8px 14px rgba(233,75,60,0.35);
+    transform: rotate(-1.5deg);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: transform 0.15s, box-shadow 0.15s;
+    text-decoration: none;
+  }
+  .cta:active { transform: rotate(-1.5deg) translateY(2px); box-shadow: 0 2px 0 #b03a2e, 0 4px 8px rgba(233,75,60,0.3); }
+  .cta .heart { width: 16px; height: 16px; }
+
+  .arrow-to-cta {
+    width: 72px; height: 48px;
+    transform: rotate(6deg);
+  }
+  .arrow-note {
+    position: absolute;
+    font-family: var(--font-hand);
+    color: var(--tomato);
+    font-size: 20px;
+    top: -22px;
+    left: 60px;
+    transform: rotate(-6deg);
+  }
+
+  /* ---------- SECTION HEADERS ---------- */
+  .section-head {
+    padding: 14px 22px 4px;
+    position: relative;
+  }
+  .section-head .kicker {
+    font-family: var(--font-print);
+    background: var(--butter);
+    color: var(--cocoa);
+    padding: 3px 12px;
+    border-radius: 999px;
+    font-size: 13px;
+    display: inline-block;
+    transform: rotate(-2deg);
+    box-shadow: var(--shadow-soft);
+  }
+  .section-head h2 {
+    font-family: var(--font-hand);
+    font-size: 42px;
+    line-height: 1;
+    color: var(--cocoa);
+    margin: 8px 0 0;
+    font-weight: 700;
+  }
+  .section-head h2 em {
+    font-style: normal;
+    color: var(--tomato);
+    position: relative;
+  }
+  .section-head h2 em::after {
+    content: "";
+    position: absolute;
+    left: -2px; right: -2px; bottom: -4px;
+    height: 8px;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 8' preserveAspectRatio='none'><path d='M2 5 Q 15 1 30 4 T 60 4 T 98 4' stroke='%23E94B3C' stroke-width='2' fill='none' stroke-linecap='round'/></svg>");
+    background-size: 100% 100%;
+  }
+
+  /* scribble divider */
+  .divider {
+    margin: 28px auto;
+    width: 80%;
+    height: 22px;
+    opacity: 0.7;
+  }
+
+  /* ---------- MEET EUNJUNG ---------- */
+  .meet {
+    padding: 4px 22px 20px;
+    position: relative;
+  }
+  .meet p {
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    margin: 14px 0;
+  }
+  .meet p b { color: var(--cocoa); font-weight: 700; }
+  .meet .wave {
+    position: relative; display: inline-block;
+  }
+  .meet .wave::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: -3px;
+    height: 6px;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 6' preserveAspectRatio='none'><path d='M1 3 Q 10 1 20 3 T 40 3 T 60 3 T 80 3 T 99 3' stroke='%23F4B5BB' stroke-width='2.2' fill='none'/></svg>");
+    background-size: 100% 100%;
+  }
+
+  .meet-photos {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    margin: 20px 0 8px;
+    position: relative;
+  }
+  .meet-photos .polaroid {
+    width: 150px;
+  }
+  .meet-photos .polaroid .pic { aspect-ratio: 1; overflow: hidden; }
+  .meet-photos .polaroid.a { transform: rotate(-4deg); margin-top: 12px; }
+  .meet-photos .polaroid.b { transform: rotate(3deg); margin-top: -4px; z-index: 3; }
+  .meet-photos .polaroid.a .washi { top: -10px; left: 50%; transform: translateX(-50%) rotate(-4deg); }
+  .meet-photos .polaroid.b .washi { top: -10px; left: 50%; transform: translateX(-50%) rotate(8deg); }
+
+  /* Pull quote — pinned note */
+  .pullquote {
+    margin: 30px 18px 10px;
+    padding: 22px 20px 18px;
+    background: #fffdf3;
+    border: 1px dashed rgba(92, 64, 51, 0.3);
+    border-radius: 2px;
+    position: relative;
+    transform: rotate(-1.2deg);
+    box-shadow: var(--shadow-soft);
+  }
+  .pullquote .pin {
+    position: absolute;
+    top: -10px; left: 50%;
+    transform: translateX(-50%);
+    width: 20px; height: 20px;
+  }
+  .pullquote q {
+    font-family: var(--font-hand);
+    font-size: 26px;
+    line-height: 1.15;
+    color: var(--cocoa);
+    quotes: none;
+    display: block;
+  }
+  .pullquote q::before, .pullquote q::after { content: ""; }
+  .pullquote .sig {
+    font-family: var(--font-marker);
+    color: var(--tomato);
+    font-size: 17px;
+    margin-top: 10px;
+    display: block;
+    text-align: right;
+  }
+  .pullquote .tape {
+    position: absolute;
+    top: -14px; left: 14px;
+    width: 60px; height: 18px;
+    background: var(--pink);
+    transform: rotate(-8deg);
+    opacity: 0.85;
+  }
+
+  /* ---------- EXPERIENCES ---------- */
+  .experiences {
+    padding: 6px 22px 10px;
+  }
+
+  .card {
+    position: relative;
+    margin: 40px 0 10px;
+    padding: 4px 0 24px;
+  }
+  .card:nth-child(odd)  { text-align: left; }
+  .card:nth-child(even) { text-align: right; }
+
+  .card .photo-wrap {
+    position: relative;
+    width: 74%;
+    margin: 0;
+  }
+  .card:nth-child(even) .photo-wrap { margin-left: auto; }
+  .card .polaroid { width: 100%; }
+  .card .polaroid .pic { aspect-ratio: 5/4; overflow: hidden; }
+  .card:nth-child(1) .photo-wrap { transform: rotate(-2.5deg); }
+  .card:nth-child(2) .photo-wrap { transform: rotate(2deg); }
+  .card:nth-child(3) .photo-wrap { transform: rotate(-1.5deg); }
+
+  .card .polaroid .caption { font-size: 20px; }
+
+  /* stamped service tag */
+  .tag {
+    position: absolute;
+    font-family: var(--font-print);
+    font-size: 13px;
+    color: var(--cocoa);
+    padding: 8px 14px;
+    border-radius: 40% 60% 45% 55% / 50% 45% 55% 50%;
+    box-shadow: var(--shadow-soft);
+    z-index: 4;
+  }
+  .tag.peach  { background: var(--peach); }
+  .tag.sage   { background: var(--sage);  }
+  .tag.sky    { background: var(--sky);   }
+
+  .card:nth-child(1) .tag { top: -14px; right: -6px; transform: rotate(8deg); }
+  .card:nth-child(2) .tag { top: -14px; left: -6px;  transform: rotate(-10deg); }
+  .card:nth-child(3) .tag { top: -14px; right: -6px; transform: rotate(6deg); }
+
+  /* mom's favorite sticker */
+  .badge-fav {
+    position: absolute;
+    width: 72px; height: 72px;
+    top: -20px; right: -8px;
+    z-index: 5;
+    transform: rotate(12deg);
+    filter: drop-shadow(0 3px 4px rgba(58,40,32,0.25));
+  }
+
+  .card h3 {
+    font-family: var(--font-hand);
+    font-size: 38px;
+    line-height: 0.95;
+    margin: 14px 0 6px;
+    color: var(--cocoa);
+    display: inline-block;
+  }
+  .card:nth-child(1) h3 { transform: rotate(-1.5deg); }
+  .card:nth-child(2) h3 { transform: rotate(1.5deg); }
+  .card:nth-child(3) h3 { transform: rotate(-1deg); }
+
+  .card p {
+    font-family: var(--font-body);
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    margin: 6px 0 12px;
+  }
+
+  .card .cta-link {
+    font-family: var(--font-print);
+    color: var(--tomato);
+    font-size: 15px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .card .cta-link svg { width: 38px; height: 16px; }
+
+  /* tape bits on cards */
+  .card .card-tape {
+    position: absolute;
+    width: 60px; height: 18px;
+    box-shadow: 0 1px 2px rgba(58,40,32,0.15);
+    opacity: 0.88;
+  }
+  .card:nth-child(1) .card-tape { top: -10px; left: 10%; background: var(--sky); transform: rotate(-12deg); }
+  .card:nth-child(2) .card-tape { top: -10px; right: 10%; background: var(--butter); transform: rotate(14deg); }
+  .card:nth-child(3) .card-tape { top: -10px; left: 10%; background: var(--peach); transform: rotate(-8deg); }
+
+  /* ---------- MARU ---------- */
+  .maru {
+    position: relative;
+    margin: 36px 22px 20px;
+    padding: 26px 18px 22px;
+    background: #fffdf3;
+    border-radius: 14px;
+    box-shadow: var(--shadow-soft);
+    transform: rotate(0.6deg);
+  }
+  .maru::before {
+    /* torn-paper top edge */
+    content: "";
+    position: absolute;
+    top: -8px; left: 0; right: 0;
+    height: 10px;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 10' preserveAspectRatio='none'><path d='M0 10 L 0 4 Q 10 1 20 5 T 40 4 T 60 5 T 80 3 T 100 5 T 120 4 T 140 6 T 160 3 T 180 5 T 200 4 T 220 6 T 240 3 T 260 5 T 280 4 T 300 6 T 320 3 T 340 5 T 360 4 T 380 6 T 400 4 L 400 10 Z' fill='%23fffdf3'/></svg>");
+    background-size: 100% 100%;
+  }
+  .maru-layout {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+  .maru .photo-wrap {
+    position: relative;
+    flex: 0 0 150px;
+    transform: rotate(-4deg);
+  }
+  .maru .polaroid { width: 100%; }
+  .maru .polaroid .pic { aspect-ratio: 1; overflow: hidden; }
+  .maru .polaroid .caption { font-size: 18px; }
+  .maru .washi { top: -10px; left: 50%; transform: translateX(-50%) rotate(-6deg); background: var(--pink); }
+
+  .maru .text {
+    flex: 1;
+    padding-top: 6px;
+  }
+  .maru h3 {
+    font-family: var(--font-hand);
+    font-size: 34px;
+    margin: 0;
+    line-height: 1;
+    color: var(--cocoa);
+    transform: rotate(-1deg);
+    display: inline-block;
+  }
+  .maru .meta {
+    font-family: var(--font-print);
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin: 4px 0 6px;
+  }
+  .maru p {
+    font-family: var(--font-body);
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: var(--ink-soft);
+    margin: 6px 0 0;
+  }
+  .maru .heart-bounce {
+    position: absolute;
+    top: 8px; right: 10px;
+    width: 34px; height: 34px;
+    animation: bounce 1.6s ease-in-out infinite;
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0) rotate(-6deg); }
+    50%      { transform: translateY(-6px) rotate(6deg); }
+  }
+
+  /* second pull quote — sticky-note style */
+  .note {
+    position: relative;
+    margin: 36px 26px 20px;
+    padding: 20px 18px 22px;
+    background: var(--butter);
+    transform: rotate(-2deg);
+    box-shadow: var(--shadow);
+    font-family: var(--font-hand);
+    font-size: 24px;
+    line-height: 1.2;
+    color: var(--cocoa);
+  }
+  .note::before {
+    content: "";
+    position: absolute;
+    top: -12px; left: 50%;
+    transform: translateX(-50%) rotate(6deg);
+    width: 80px; height: 22px;
+    background: var(--sage);
+    opacity: 0.9;
+    box-shadow: 0 1px 2px rgba(58,40,32,0.15);
+  }
+  .note .sig {
+    display: block;
+    font-family: var(--font-marker);
+    font-size: 16px;
+    color: var(--tomato);
+    text-align: right;
+    margin-top: 6px;
+  }
+
+  /* ---------- FOOTER ---------- */
+  .foot {
+    padding: 24px 22px 30px;
+    text-align: center;
+    position: relative;
+  }
+  .foot .tagline {
+    font-family: var(--font-hand);
+    font-size: 32px;
+    line-height: 1.1;
+    color: var(--cocoa);
+    margin: 6px 0 16px;
+  }
+  .foot .tagline em {
+    font-style: normal;
+    color: var(--tomato);
+  }
+  .foot .sub {
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--ink-soft);
+    max-width: 280px;
+    margin: 0 auto 18px;
+  }
+  .foot .cta {
+    display: inline-flex;
+    margin-top: 4px;
+  }
+  .foot .hint {
+    font-family: var(--font-print);
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin-top: 18px;
+  }
+  .foot .hint a { color: var(--cocoa); }
+  .foot .fine {
+    font-family: var(--font-body);
+    font-size: 11px;
+    color: var(--ink-soft);
+    opacity: 0.7;
+    margin-top: 22px;
+  }
+
+  .foot .doodle-arrow {
+    position: absolute;
+    top: 90px; left: 22px;
+    width: 70px;
+    transform: rotate(-16deg);
+  }
+  .foot .doodle-note {
+    position: absolute;
+    top: 92px; left: 16px;
+    font-family: var(--font-hand);
+    font-size: 18px;
+    color: var(--tomato);
+    transform: rotate(-8deg);
+  }
+
+  /* ---------- DESKTOP NOTE ---------- */
+  @media (min-width: 700px) {
+    body { padding-top: 40px; }
+    .page { border-radius: 2px; }
+  }
+</style>
+</head>
+<body>
+  <main class="page">
+
+    <!-- ============== TOPBAR ============== -->
+    <header class="topbar">
+      <div class="brand">Eunjung's <span>Table</span></div>
+      <div class="menu-dot">menu</div>
+    </header>
+
+    <!-- ============== HERO ============== -->
+    <section class="hero">
+
+      <!-- scattered hero doodles -->
+      <svg class="doodle heart-1" viewBox="0 0 40 36" fill="none" aria-hidden="true">
+        <path d="M20 32 C 6 22, 2 14, 8 8 C 13 3, 18 6, 20 10 C 22 6, 27 3, 32 8 C 38 14, 34 22, 20 32 Z"
+              stroke="#E94B3C" stroke-width="2.4" stroke-linejoin="round" fill="#FFD4B5"/>
+      </svg>
+      <svg class="doodle star-1" viewBox="0 0 30 30" fill="none" aria-hidden="true">
+        <path d="M15 3 L17 12 L26 13 L19 19 L21 28 L15 23 L9 28 L11 19 L4 13 L13 12 Z"
+              stroke="#5C4033" stroke-width="1.8" fill="#FFE8A3" stroke-linejoin="round"/>
+      </svg>
+      <svg class="doodle star-2" viewBox="0 0 30 30" fill="none" aria-hidden="true">
+        <path d="M15 4 L17 13 L25 14 L19 19 L21 27 L15 23 L9 27 L11 19 L5 14 L13 13 Z"
+              stroke="#5C4033" stroke-width="1.8" fill="#B5D5B5" stroke-linejoin="round"/>
+      </svg>
+      <svg class="doodle squiggle-1" viewBox="0 0 60 16" fill="none" aria-hidden="true">
+        <path d="M2 8 Q 8 2 14 8 T 26 8 T 38 8 T 50 8 T 58 8"
+              stroke="#5C4033" stroke-width="1.8" stroke-linecap="round" fill="none"/>
+      </svg>
+
+      <span class="hello">hi hi! it's me ~</span>
+
+      <h1>
+        <span class="big">I'm <span class="name">Eunjung</span>.</span>
+        <span class="big">come <span class="underline">stay with me</span></span>
+        <span class="big" style="font-size:54px">in Seoul.</span>
+      </h1>
+
+      <p class="sub">
+        A <b>Korean mom</b> in Jeongja-dong. I'll drive you to my favorite places, teach you to
+        cook my kimbap, and feed you dinner every night you stay. <br/>No script. just dinner.
+      </p>
+
+      <!-- hero polaroid w/ washi tape -->
+      <div class="hero-photo-wrap">
+        <div class="washi peach tape-a"></div>
+        <div class="washi sage tape-b"></div>
+        <div class="polaroid">
+          <div class="pic">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1200&q=80" alt="Eunjung smiling in warm light"/>
+          </div>
+          <div class="caption">mom, summer '24</div>
+        </div>
+      </div>
+
+      <!-- CTA with drawn arrow -->
+      <div class="cta-wrap">
+        <a class="cta" href="#inquire">
+          <svg class="heart" viewBox="0 0 20 18" fill="#fff" aria-hidden="true">
+            <path d="M10 16 C 2 11, 0 7, 3 3.5 C 5.5 1, 8.5 2, 10 4.5 C 11.5 2, 14.5 1, 17 3.5 C 20 7, 18 11, 10 16 Z"/>
+          </svg>
+          come over for dinner
+        </a>
+        <svg class="arrow-to-cta" viewBox="0 0 72 48" fill="none" aria-hidden="true">
+          <path d="M65 6 Q 45 0, 30 14 Q 18 25, 10 40"
+                stroke="#E94B3C" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+          <path d="M6 38 L 12 42 L 14 34" stroke="#E94B3C" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="arrow-note">tap this!</span>
+      </div>
+    </section>
+
+    <!-- scribble divider -->
+    <svg class="divider" viewBox="0 0 300 22" fill="none" aria-hidden="true">
+      <path d="M4 12 Q 20 2 40 12 T 80 12 T 120 12 T 160 12 T 200 12 T 240 12 T 296 12"
+            stroke="#5C4033" stroke-width="1.4" stroke-linecap="round" fill="none" opacity="0.5"/>
+      <circle cx="150" cy="12" r="3" fill="#E94B3C"/>
+    </svg>
+
+    <!-- ============== MEET EUNJUNG ============== -->
+    <div class="section-head">
+      <span class="kicker">#01 · meet mom</span>
+      <h2>A little bit<br/>about <em>me</em></h2>
+    </div>
+
+    <section class="meet">
+      <p>
+        Eunjung has lived in <b>Jeongja-dong for almost twenty years</b>. Before that she was in
+        Busan, and before that a small town outside Jeonju where her mother taught her how to
+        <span class="wave">ferment doenjang</span> in a clay jar on the porch.
+      </p>
+
+      <div class="meet-photos">
+        <div class="polaroid a">
+          <div class="washi sky"></div>
+          <div class="pic"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=1200&q=80" alt="Eunjung, candid"/></div>
+          <div class="caption" style="font-size:18px">mom &amp; her kitchen</div>
+        </div>
+        <div class="polaroid b">
+          <div class="washi pink"></div>
+          <div class="pic"><img src="https://images.unsplash.com/photo-1607301405390-d831c242f59b?w=1200&q=80" alt="Cooking hands"/></div>
+          <div class="caption" style="font-size:18px">doenjang day</div>
+        </div>
+      </div>
+
+      <p>
+        She'll pick you up at Jeongja Station, walk you home along <b>Tancheon stream</b>, and by
+        the time you sit down at her table, you won't feel like a guest. (people cry. sometimes. it's fine.)
+      </p>
+
+      <!-- pinned pull quote -->
+      <div class="pullquote">
+        <div class="tape"></div>
+        <svg class="pin" viewBox="0 0 20 20" aria-hidden="true">
+          <circle cx="10" cy="10" r="6" fill="#E94B3C" stroke="#5C4033" stroke-width="1.2"/>
+          <circle cx="8" cy="8" r="1.6" fill="#fff"/>
+        </svg>
+        <q>I love when someone sits at my table for the second time. That's when they stop being a guest.</q>
+        <span class="sig">— Eunjung</span>
+      </div>
+    </section>
+
+    <svg class="divider" viewBox="0 0 300 22" fill="none" aria-hidden="true">
+      <path d="M4 12 Q 20 22 40 12 T 80 12 T 120 12 T 160 12 T 200 12 T 240 12 T 296 12"
+            stroke="#5C4033" stroke-width="1.4" stroke-linecap="round" fill="none" opacity="0.5"/>
+      <path d="M146 6 L 154 18 M 154 6 L 146 18" stroke="#E94B3C" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+
+    <!-- ============== EXPERIENCES ============== -->
+    <div class="section-head">
+      <span class="kicker">#02 · 3 ways to hang out</span>
+      <h2>what we can<br/>do <em>together</em></h2>
+    </div>
+
+    <section class="experiences">
+
+      <!-- CARD 1: TOURS -->
+      <article class="card">
+        <div class="card-tape"></div>
+        <div class="tag peach">Tours · half-day</div>
+        <div class="photo-wrap">
+          <div class="polaroid">
+            <div class="pic"><img src="https://images.unsplash.com/photo-1517154421773-0529f29ea451?w=1200&q=80" alt="Seoul alley"/></div>
+            <div class="caption">Seoul, my way</div>
+          </div>
+        </div>
+        <h3>hidden corners,<br/>with mom</h3>
+        <p>
+          Not scripted, not touristy. I take you to the places my family and I actually love —
+          backstreets in Seoul, a quiet temple on a hill, a pottery village outside the city.
+          I can drive you there myself.
+        </p>
+        <a class="cta-link" href="#tours">see the tours
+          <svg viewBox="0 0 40 14" fill="none" aria-hidden="true">
+            <path d="M2 7 Q 15 2 30 7" stroke="#E94B3C" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+            <path d="M26 3 L 32 7 L 26 11" stroke="#E94B3C" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </article>
+
+      <!-- CARD 2: COOKING — with Mom's Favorite sticker -->
+      <article class="card">
+        <div class="card-tape"></div>
+        <div class="tag sage">Cooking · 3hr</div>
+        <div class="photo-wrap">
+          <!-- Mom's favorite sticker badge -->
+          <svg class="badge-fav" viewBox="0 0 100 100" aria-hidden="true">
+            <defs>
+              <path id="circle" d="M 50,50 m -34,0 a 34,34 0 1,1 68,0 a 34,34 0 1,1 -68,0"/>
+            </defs>
+            <circle cx="50" cy="50" r="42" fill="#E94B3C" stroke="#5C4033" stroke-width="2"/>
+            <circle cx="50" cy="50" r="36" fill="none" stroke="#fff" stroke-width="1.4" stroke-dasharray="3 3"/>
+            <text font-family="Patrick Hand, cursive" font-size="11" fill="#fff" font-weight="bold">
+              <textPath xlink:href="#circle" startOffset="5%">★ mom's favorite ★ mom's favorite ★</textPath>
+            </text>
+          </svg>
+          <div class="polaroid">
+            <div class="pic"><img src="https://images.unsplash.com/photo-1498654896293-37aacf113fd9?w=1200&q=80" alt="Korean home cooking spread"/></div>
+            <div class="caption">supper spread</div>
+          </div>
+        </div>
+        <h3>cook alongside<br/>her</h3>
+        <p>
+          Kimbap rolled on the counter, bulgogi sizzling in the pan, a seasonal side dish from
+          whatever's at the market. Three set menus, allergy-friendly, and you eat what
+          you make — together.
+        </p>
+        <a class="cta-link" href="#cooking">pick a menu
+          <svg viewBox="0 0 40 14" fill="none" aria-hidden="true">
+            <path d="M2 7 Q 15 2 30 7" stroke="#E94B3C" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+            <path d="M26 3 L 32 7 L 26 11" stroke="#E94B3C" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </article>
+
+      <!-- CARD 3: STAY -->
+      <article class="card">
+        <div class="card-tape"></div>
+        <div class="tag sky">Stay · per night</div>
+        <div class="photo-wrap">
+          <div class="polaroid">
+            <div class="pic"><img src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=1200&q=80" alt="Cozy bright room"/></div>
+            <div class="caption">your room</div>
+          </div>
+        </div>
+        <h3>a quiet room,<br/>a real dinner</h3>
+        <p>
+          A private room &amp; bathroom in my home by <b>Tancheon stream</b>. Home-cooked dinner
+          every evening. Five minutes to Jeongja Station. Best for travelers staying a week or more.
+        </p>
+        <a class="cta-link" href="#stay">see the room
+          <svg viewBox="0 0 40 14" fill="none" aria-hidden="true">
+            <path d="M2 7 Q 15 2 30 7" stroke="#E94B3C" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+            <path d="M26 3 L 32 7 L 26 11" stroke="#E94B3C" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      </article>
+    </section>
+
+    <svg class="divider" viewBox="0 0 300 22" fill="none" aria-hidden="true">
+      <path d="M4 12 Q 30 2 60 12 T 120 12 T 180 12 T 240 12 T 296 12"
+            stroke="#5C4033" stroke-width="1.4" stroke-linecap="round" fill="none" opacity="0.5"/>
+    </svg>
+
+    <!-- ============== MARU ============== -->
+    <div class="section-head">
+      <span class="kicker" style="background:var(--pink)">#03 · the boss</span>
+      <h2>oh &mdash; and meet<br/><em>Maru</em></h2>
+    </div>
+
+    <section class="maru">
+      <svg class="heart-bounce" viewBox="0 0 40 36" fill="none" aria-hidden="true">
+        <path d="M20 32 C 6 22, 2 14, 8 8 C 13 3, 18 6, 20 10 C 22 6, 27 3, 32 8 C 38 14, 34 22, 20 32 Z"
+              stroke="#5C4033" stroke-width="2" stroke-linejoin="round" fill="#E94B3C"/>
+      </svg>
+      <div class="maru-layout">
+        <div class="photo-wrap">
+          <div class="polaroid">
+            <div class="washi pink" style="top:-10px;left:50%;transform:translateX(-50%) rotate(-6deg);position:absolute"></div>
+            <div class="pic"><img src="https://images.unsplash.com/photo-1558531304-a4773b7e3a9c?w=800&q=80" alt="Maru, a schnauzer"/></div>
+            <div class="caption">Maru (the boss)</div>
+          </div>
+        </div>
+        <div class="text">
+          <h3>Maru.</h3>
+          <div class="meta">14 · Schnauzer · good boy</div>
+          <p><b>Will sit on your feet.</b> Has opinions about dinner. Snores a little.</p>
+          <p style="margin-top:10px;font-family:var(--font-print);color:var(--tomato);font-size:13px">
+            Please skip the Stay if you have dog allergies &mdash; it's his house too.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- second handwritten note -->
+    <div class="note">
+      come hungry. bring photos of your family — I'll show you mine.
+      <span class="sig">— E.</span>
+    </div>
+
+    <!-- ============== FOOTER / CTA ============== -->
+    <section class="foot">
+      <svg class="doodle-arrow" viewBox="0 0 70 40" fill="none" aria-hidden="true">
+        <path d="M4 4 Q 20 4 34 20 Q 44 32 58 32"
+              stroke="#E94B3C" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <path d="M54 28 L 60 32 L 54 36" stroke="#E94B3C" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+
+      <span class="kicker" style="font-family:var(--font-print);background:var(--sage);padding:3px 12px;border-radius:999px;font-size:13px;display:inline-block;transform:rotate(2deg)">p.s.</span>
+
+      <div class="tagline">
+        door's open. <em>come over.</em>
+      </div>
+      <p class="sub">
+        Tell me a bit about you &mdash; what you like to eat, how long you're in town, if you have dog allergies &mdash; and I'll write back.
+      </p>
+
+      <a class="cta" href="#inquire" style="margin-top:8px">
+        <svg class="heart" viewBox="0 0 20 18" fill="#fff" aria-hidden="true">
+          <path d="M10 16 C 2 11, 0 7, 3 3.5 C 5.5 1, 8.5 2, 10 4.5 C 11.5 2, 14.5 1, 17 3.5 C 20 7, 18 11, 10 16 Z"/>
+        </svg>
+        write to Eunjung
+      </a>
+
+      <p class="hint">
+        Jeongja-dong, Seongnam · 5 min from Jeongja Stn.<br/>
+        <a href="mailto:eunjung@example.com">eunjung@example.com</a>
+      </p>
+
+      <p class="fine">© Eunjung's Table · home, not hotel</p>
+    </section>
+
+  </main>
+</body>
+</html>

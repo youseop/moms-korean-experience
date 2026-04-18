@@ -1,0 +1,114 @@
+/* ═══════════════════════════════════════════════════════════════
+   Direction overrides
+   A — Editorial Restrained (default)
+   B — Warm Maximal
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ─── Direction A — Editorial Restrained ─────────────────────── */
+[data-direction="a"] {
+  --tilt-angle: 0deg;
+  --grain-opacity: 0.05;
+}
+[data-direction="a"] .section { padding: 4.5rem 1.75rem; }
+[data-direction="a"] .photo { box-shadow: 0 1px 2px rgba(58,42,28,0.05); }
+[data-direction="a"] .hero__photo-wrap { max-width: 280px; margin: 0 auto; }
+[data-direction="a"] .hero__tag-backdrop { display: none; }
+[data-direction="a"] .hero__title { letter-spacing: -0.025em; }
+[data-direction="a"] .section-number { font-size: 5rem; opacity: 0.05; }
+[data-direction="a"] .experience-card { background: transparent; border-top: 1px solid var(--divider); border-radius: 0; padding: 1.75rem 0; }
+[data-direction="a"] .experience-card:last-child { border-bottom: 1px solid var(--divider); }
+[data-direction="a"] .gallery-grid { gap: 0.4rem; }
+[data-direction="a"] .meet-mom__portrait { max-width: 240px; }
+
+/* ─── Direction B — Warm Maximal ─────────────────────────────── */
+[data-direction="b"] {
+  --tilt-angle: -2deg;
+  --grain-opacity: 0.11;
+}
+[data-direction="b"] .section { padding: 3.75rem 1.25rem; }
+[data-direction="b"] .photo { box-shadow: var(--shadow-warm); }
+[data-direction="b"] .hero {
+  background:
+    radial-gradient(1200px 600px at 100% 0%, var(--accent-wash) 0%, transparent 55%),
+    radial-gradient(800px 500px at 0% 100%, var(--surface-2) 0%, transparent 60%);
+}
+[data-direction="b"] .hero__tag-backdrop {
+  position: absolute;
+  top: 60%;
+  right: -0.5rem;
+  font-family: var(--serif);
+  font-style: italic;
+  font-variation-settings: "opsz" 144;
+  font-size: 12rem;
+  line-height: 0.85;
+  color: var(--accent);
+  opacity: 0.1;
+  pointer-events: none;
+  letter-spacing: -0.04em;
+  user-select: none;
+  z-index: 0;
+  transform: rotate(-6deg);
+}
+[data-direction="b"] .hero__photo-wrap { transform: rotate(var(--tilt-angle)); }
+[data-direction="b"] .experience-card {
+  background: var(--surface);
+  padding: 1rem;
+  box-shadow: var(--shadow-warm);
+}
+[data-direction="b"] .experience-card:nth-child(even) { transform: rotate(0.6deg); }
+[data-direction="b"] .experience-card:nth-child(odd)  { transform: rotate(-0.6deg); }
+[data-direction="b"] .section-number { font-size: 9rem; opacity: 0.12; }
+[data-direction="b"] .script { color: var(--accent); }
+[data-direction="b"] .signoff { color: var(--accent); font-size: 1.6rem; }
+[data-direction="b"] .meet-mom {
+  background: var(--surface);
+}
+[data-direction="b"] .why-jeongja {
+  background: var(--pop-wash);
+  color: var(--heading);
+}
+[data-direction="b"] .why-jeongja .eyebrow,
+[data-direction="b"] .why-jeongja .caption { color: var(--pop); }
+[data-direction="b"] .gallery-grid { gap: 0.5rem; }
+[data-direction="b"] .gallery-grid .photo { transform: rotate(calc(var(--rot, 0) * 1deg)); }
+
+/* Direction toggle (always visible, top of page) */
+.direction-toggle {
+  position: sticky;
+  top: 56px;
+  z-index: 15;
+  display: flex;
+  justify-content: center;
+  padding: 0.5rem;
+  pointer-events: none;
+}
+.direction-toggle__inner {
+  pointer-events: auto;
+  background: color-mix(in oklab, var(--base) 88%, transparent);
+  backdrop-filter: blur(12px) saturate(160%);
+  -webkit-backdrop-filter: blur(12px) saturate(160%);
+  border: 1px solid var(--divider);
+  border-radius: var(--radius-pill);
+  padding: 3px;
+  display: inline-flex;
+  gap: 2px;
+  box-shadow: 0 4px 16px rgba(36,23,16,0.08);
+}
+.direction-toggle button {
+  border: none;
+  background: transparent;
+  padding: 0.4rem 0.9rem;
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  cursor: pointer;
+  border-radius: var(--radius-pill);
+  transition: all 200ms ease;
+  white-space: nowrap;
+}
+.direction-toggle button.is-active {
+  background: var(--heading);
+  color: var(--base);
+}
