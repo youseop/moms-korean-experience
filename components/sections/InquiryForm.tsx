@@ -21,7 +21,7 @@
  *   - Success state renders as a StickyNote
  */
 
-import { useActionState, useId, useState } from "react";
+import { Children, cloneElement, isValidElement, useActionState, useId, useState } from "react";
 
 import { DoodleHeart } from "@/components/decoration/DoodleHeart";
 import { HandArrow } from "@/components/decoration/HandArrow";
@@ -367,6 +367,20 @@ type FieldProps = {
 };
 
 function Field({ id, label, required, error, children }: FieldProps) {
+  // When an error is present, wire the error `<p>` to the child input via
+  // `aria-describedby` so screen readers announce it on focus. We preserve
+  // any existing `aria-describedby` the input may already carry.
+  const errorId = error ? `${id}-error` : undefined;
+
+  const describedChildren = errorId
+    ? Children.map(children, (child) => {
+        if (!isValidElement<{ "aria-describedby"?: string }>(child)) return child;
+        const existing = child.props["aria-describedby"];
+        const merged = existing ? `${existing} ${errorId}` : errorId;
+        return cloneElement(child, { "aria-describedby": merged });
+      })
+    : children;
+
   return (
     <div>
       <label htmlFor={id} className="font-stamp text-cocoa block text-[13px]">
@@ -378,9 +392,10 @@ function Field({ id, label, required, error, children }: FieldProps) {
           </span>
         )}
       </label>
-      {children}
+      {describedChildren}
       {error && (
         <p
+          id={errorId}
           className="font-body text-tomato mt-[6px] text-[13px]"
           role="alert"
           aria-live="polite"

@@ -34,6 +34,7 @@ const NAV_LINKS = [
 
 export function MobileNav({ open, onClose, returnFocusRef }: MobileNavProps) {
   const closeBtnRef = useRef<HTMLButtonElement | null>(null);
+  const drawerPanelRef = useRef<HTMLElement | null>(null);
 
   // Escape to close + body scroll lock + focus management.
   useEffect(() => {
@@ -62,6 +63,31 @@ export function MobileNav({ open, onClose, returnFocusRef }: MobileNavProps) {
     };
   }, [open, onClose, returnFocusRef]);
 
+  // Tab/Shift+Tab focus trap — `aria-modal` alone doesn't constrain DOM
+  // focus for sighted keyboard users, so we wrap Tab manually within the
+  // drawer panel's focusable descendants (close button + nav links).
+  useEffect(() => {
+    if (!open) return;
+    const onTab = (e: KeyboardEvent) => {
+      if (e.key !== "Tab") return;
+      const focusable = drawerPanelRef.current?.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
+      );
+      if (!focusable?.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+    document.addEventListener("keydown", onTab);
+    return () => document.removeEventListener("keydown", onTab);
+  }, [open]);
+
   return (
     <div
       className={`fixed inset-0 z-50 ${open ? "pointer-events-auto" : "pointer-events-none"}`}
@@ -77,6 +103,7 @@ export function MobileNav({ open, onClose, returnFocusRef }: MobileNavProps) {
 
       {/* Right-slide panel */}
       <aside
+        ref={drawerPanelRef}
         role="dialog"
         aria-modal="true"
         aria-label="Site navigation"
